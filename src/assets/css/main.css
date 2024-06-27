@@ -3,9 +3,11 @@
 @import 'tailwindcss/utilities';
 
 #app {
-  width: 1920px;
   height: auto;
   font-weight: normal;
   font-family: Pretendard;
-  
+}
+
+.wrapper {
+  width: 1420px;
 }

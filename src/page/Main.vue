@@ -1,5 +1,5 @@
 <template>
-    <div >
+    <div class="">
         <h2>
             여기는 메인이에요
         </h2>
