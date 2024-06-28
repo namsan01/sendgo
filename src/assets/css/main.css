@@ -11,3 +11,8 @@
 .wrapper {
   width: 1420px;
 }
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
