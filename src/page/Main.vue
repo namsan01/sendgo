@@ -15,36 +15,33 @@
         </div>
       </div>
     </div>
-    <div class=" flex-1">
-<div class="grid grid-cols-6 gap-4">
-  <!-- Main Content 1 -->
-  <MainContent class="col-span-2 row-span-3 bg-gray-200 p-4 text-center row-start-2" url="main1x2" />
-  <!-- Main Content 2 -->
-  <MainContent class="col-span-2 row-span-4 bg-gray-200 p-4 text-center" url="main4x2" />
-  <!-- Main Content 3 -->
-  <MainContent class="col-span-2 row-span-3 bg-gray-200 p-4 text-center" url="main5x2" />
-  <!-- Main Content 4 -->
-  <MainContent class="col-span-2 row-span-3 bg-gray-200 p-4 text-center" url="main6x2" />
-  <!-- Main Content 5 -->
-  <MainContent class="col-span-2 row-span-2 bg-gray-200 p-4 text-center row-start-5" url="main2x2" />
-  <!-- Main Content 6 -->
-  <MainContent class="col-span-2 row-span-2 bg-gray-200 p-4 text-center row-start-5" url="main3x2" />
-</div>
-
+    <div class="flex-1 flex gap-8">
+      <div class="col justify-end gap-8">
+        <MainContent1 url="main1x2" />
+        <MainContent1 url="main2x2" />
+      </div>
+      <div class="col justify-center">
+        <MainContent1 url="main4x2" style="background: #37383e" />
+        <MainContent1 url="main3x2" />
+      </div>
+      <div class="col transform translate-y-[-90px]">
+        <MainContent1 url="main5x2" />
+        <MainContent2 url="main6x2" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import MainContent from "@/components/main/MainContent.vue";
+import MainContent1 from "@/components/main/MainContent1.vue";
+import MainContent2 from "@/components/main/MainContent2.vue";
 
 export default {
   name: "Main",
-  data() {
-    url: "";
-  },
+  data() {},
   components: {
-    MainContent: MainContent,
+    MainContent1: MainContent1,
+    MainContent2: MainContent2,
   },
 };
 </script>
@@ -67,5 +64,9 @@ export default {
   color: white;
   font-size: 25px;
 }
-
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 </style>

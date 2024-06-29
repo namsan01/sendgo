@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="fixed-header black-header flex-center items-center w-full">
+    <div
+      class="fixed-header black-header flex-center items-center w-full border-b"
+    >
       <div class="wrapper flex gap-[16.6rem]">
         <router-link to="/">
           <img
@@ -23,7 +25,7 @@
     </div>
 
     <div
-      class="fixed-header white-header flex-center items-center w-full"
+      class="fixed-header white-header flex-center items-center w-full border-b"
       :class="{ scrolled: isScrolled }"
     >
       <div class="wrapper flex gap-[16.6rem]">
@@ -50,43 +52,27 @@
 </template>
 
 <script>
-
 export default {
+  name: "Header",
+  data() {
+    return {
+      isScrolled: false,
+    };
+  },
 
-name: "Header",
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
 
-data() {
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
 
-return {
-
-isScrolled: false,
-
-};
-
-},
-
-mounted() {
-
-window.addEventListener("scroll", this.handleScroll);
-
-},
-
-beforeUnmount() {
-
-window.removeEventListener("scroll", this.handleScroll);
-
-},
-
-methods: {
-
-handleScroll() {
-
-this.isScrolled = window.scrollY > 0;
-
-},
-
-},
-
+  methods: {
+    handleScroll() {
+      this.isScrolled = window.scrollY > 0;
+    },
+  },
 };
 </script>
 
@@ -147,7 +133,8 @@ this.isScrolled = window.scrollY > 0;
 
 .white-header.scrolled {
   transform: translateY(0);
-
+  border-bottom: 1px;
+  border-color: gray;
   z-index: 3;
 }
 </style>
