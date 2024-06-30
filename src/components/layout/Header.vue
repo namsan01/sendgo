@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div
-      class="fixed-header black-header flex-center items-center w-full border-b"
-    >
+    <div class="fixed-header black-header flex-center items-center w-full">
       <div class="wrapper flex gap-[16.6rem]">
         <router-link to="/">
           <img
@@ -25,7 +23,7 @@
     </div>
 
     <div
-      class="fixed-header white-header flex-center items-center w-full border-b"
+      class="fixed-header white-header flex-center items-center w-full"
       :class="{ scrolled: isScrolled }"
     >
       <div class="wrapper flex gap-[16.6rem]">
@@ -83,58 +81,36 @@ export default {
 
 .fixed-header {
   max-width: 100%;
-
   z-index: 1;
-
   transition: all 0.5s ease-in-out;
 }
 
 .black-header {
   position: fixed;
-
   top: 0;
-
   left: 0;
-
   height: 5rem;
-
   background-color: black;
-
   color: white;
-
   z-index: 2;
-
-  border-bottom: 1px;
-
-  border-color: #e5e7eb;
+  border-bottom: 1px solid #343434;
 }
 
 .white-header {
   position: fixed;
-
   top: 0;
-
   left: 0;
-
   height: 5rem;
-
   background-color: white;
-
   color: black;
-
   z-index: 1;
-
   transform: translateY(-100%);
-
-  border-bottom: 1px;
-
-  border-color: #e5e7eb;
+  border-bottom: solid 1px #f6f8fa;
 }
 
 .white-header.scrolled {
   transform: translateY(0);
-  border-bottom: 1px;
-  border-color: gray;
+  border-bottom: solid 1px #f6f8fa;
   z-index: 3;
 }
 </style>
