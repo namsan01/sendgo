@@ -1,7 +1,10 @@
 <template>
   <div>
     <header>
-      <div v-if="isRootPath" class="fixed-header black-header flex-center items-center w-full">
+      <div
+        v-if="isRootPath"
+        class="fixed-header black-header flex-center items-center w-full"
+      >
         <div class="wrapper flex gap-[16.6rem]">
           <router-link to="/">
             <img
@@ -23,7 +26,10 @@
         </div>
       </div>
 
-      <div :class="['fixed-header', 'white-header']" class="flex-center items-center w-full">
+      <div
+        :class="['fixed-header', 'white-header']"
+        class="flex-center items-center w-full"
+      >
         <div class="wrapper flex items-center gap-[201px]">
           <router-link to="/">
             <img
@@ -33,17 +39,17 @@
             />
           </router-link>
 
-          <div class="flex items-center ">
+          <div class="flex items-center">
             <router-link to="/message">
               <div class="router-box">
-              <span>메시지</span>
-            </div>
+                <span>메시지</span>
+              </div>
             </router-link>
 
             <router-link to="/credit">
               <div class="router-box">
-              <span>크레딧</span>
-            </div>
+                <span>크레딧</span>
+              </div>
             </router-link>
           </div>
         </div>
