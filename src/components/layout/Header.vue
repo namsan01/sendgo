@@ -1,50 +1,56 @@
 <template>
   <div>
-    <div class="fixed-header black-header flex-center items-center w-full">
-      <div class="wrapper flex gap-[16.6rem]">
-        <router-link to="/">
-          <img
-            class="w-[142px] h-44px"
-            src="../../../public/images/logo/logo_gray.svg"
-            alt="Logo"
-          />
-        </router-link>
-
-        <div class="flex items-center gap-[8.56rem]">
-          <router-link to="/message">
-            <span>메시지</span>
+    <header>
+      <div v-if="isRootPath" class="fixed-header black-header flex-center items-center w-full">
+        <div class="wrapper flex gap-[16.6rem]">
+          <router-link to="/">
+            <img
+              class="w-[142px] h-44px"
+              src="/public/images/logo/logo_gray.svg"
+              alt="Logo"
+            />
           </router-link>
 
-          <router-link to="/credit">
-            <span>크레딧</span>
-          </router-link>
+          <div class="flex items-center gap-[8.56rem]">
+            <router-link to="/message">
+              <span>메시지</span>
+            </router-link>
+
+            <router-link to="/credit">
+              <span>크레딧</span>
+            </router-link>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div
-      class="fixed-header white-header flex-center items-center w-full"
-      :class="{ scrolled: isScrolled }"
-    >
-      <div class="wrapper flex gap-[16.6rem]">
-        <router-link to="/">
-          <img
-            class="w-[142px] h-44px"
-            src="../../../public/images/logo/logo.svg"
-            alt="Logo"
-          />
-        </router-link>
-
-        <div class="flex items-center gap-[8.56rem]">
-          <router-link to="/message">
-            <span>메시지</span>
+      <div :class="['fixed-header', 'white-header']" class="flex-center items-center w-full">
+        <div class="wrapper flex items-center gap-[201px]">
+          <router-link to="/">
+            <img
+              class="w-[142px] h-44px"
+              src="/public/images/logo/logo.svg"
+              alt="Logo"
+            />
           </router-link>
 
-          <router-link to="/credit">
-            <span>크레딧</span>
-          </router-link>
+          <div class="flex items-center ">
+            <router-link to="/message">
+              <div class="router-box">
+              <span>메시지</span>
+            </div>
+            </router-link>
+
+            <router-link to="/credit">
+              <div class="router-box">
+              <span>크레딧</span>
+            </div>
+            </router-link>
+          </div>
         </div>
       </div>
+    </header>
+    <div :class="{ blur: !isRootPath }" class="content">
+      <!-- 페이지 컨텐츠 -->
     </div>
   </div>
 </template>
@@ -56,6 +62,12 @@ export default {
     return {
       isScrolled: false,
     };
+  },
+
+  computed: {
+    isRootPath() {
+      return this.$route.path === "/";
+    },
   },
 
   mounted() {
@@ -86,31 +98,49 @@ export default {
 }
 
 .black-header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
   height: 5rem;
   background-color: black;
   color: white;
   z-index: 2;
   border-bottom: 1px solid #343434;
+  transform: translateY(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+.black-header.scrolled {
+  transform: translateY(-100%);
 }
 
 .white-header {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
   height: 5rem;
   background-color: white;
   color: black;
   z-index: 1;
-  transform: translateY(-100%);
   border-bottom: solid 1px #f6f8fa;
 }
 
-.white-header.scrolled {
-  transform: translateY(0);
-  border-bottom: solid 1px #f6f8fa;
-  z-index: 3;
+.content {
+  margin-top: 5rem;
+}
+
+.content.blur {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.router-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  width: 186px;
 }
 </style>

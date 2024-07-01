@@ -5,8 +5,8 @@
         >인터넷 문자 메시지 전송의 모든 것</span
       >
       <div class="text1">
-        <span>가장 빠르고 안정적인</span>
-        <span>문자 서비스 SENDGO</span>
+        <span class="gradient-text">가장 빠르고 안정적인</span>
+        <span class="gradient-text">문자 서비스 SENDGO</span>
       </div>
       <div class="flex gap-[21px] mr-[3.5rem]">
         <ButtonBox text="회원가입" />
@@ -69,5 +69,11 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #9fbafd 0%, #4e81ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 </style>
