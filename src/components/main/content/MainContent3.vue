@@ -3,12 +3,10 @@
     <div class="wrapper flex-center items-center">
       <div class="text1 flex-col items-center gap-[66px]">
         <div class="flex-col items-center">
-        <h2 class="gradient-text">비즈니스 광고의 시작,</h2>
-        <h2 class="gradient-text  ">이제 샌드고와 함께 하세요</h2>
-      </div>
-        <ButtonBox
-          text="메시지 바로가기"
-        />
+          <h2 class="gradient-text">비즈니스 광고의 시작,</h2>
+          <h2 class="gradient-text">이제 샌드고와 함께 하세요</h2>
+        </div>
+        <ButtonBox text="메시지 바로가기" :style="{ fontSize: '17px' }" />
       </div>
     </div>
   </div>
@@ -34,9 +32,8 @@ export default {
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #B6B7F7 0%, #7FB2FE 100%);
+  background: linear-gradient(90deg, #b6b7f7 0%, #7fb2fe 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 </style>
