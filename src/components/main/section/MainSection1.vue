@@ -86,4 +86,10 @@
 .box1 h3 {
   font-size: 16px;
 }
+
+@media (max-width: 1440px) {
+.box1 {
+  width: 360px;
+}  
+}
 </style>

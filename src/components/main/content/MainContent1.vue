@@ -1,6 +1,6 @@
 <template>
-  <div class="flex h-[996px] bg-black">
-    <div class="flex-center flex-col items-center bg-black flex-1 gap-[32.5px]">
+  <div class="flex h-[996px] bg-black xl:bg-white lg:h-auto col-auto">
+    <div class="flex-center flex-col items-center bg-black flex-1 gap-[32.5px] lg:w-1/3 sm:w-1/3">
       <span class="text-2xl mr-[6.3rem] text-white font-bold"
         >인터넷 문자 메시지 전송의 모든 것</span
       >
@@ -13,21 +13,21 @@
         <ButtonBox text="로그인" :style="{ background: '#242424' }" />
       </div>
     </div>
-    <div class="flex-1 flex gap-8">
-      <div class="col justify-end gap-8">
-        <MainBox1 url="main1x2" />
-        <MainBox1 url="main2x2" />
-      </div>
-      <div class="col justify-center">
-        <MainBox1 url="main4x2" :style="{ background: '#37383e' }" />
-        <MainBox1 url="main3x2" />
-      </div>
-      <div class="col transform translate-y-[-90px]">
-        <MainBox1 url="main5x2" />
-        <MainBox2 url="main6x2" />
-      </div>
+    <div class="flex-1 lg:flex-1 flex gap-8 ">
+    <div class="col justify-end gap-8 ">
+      <MainBox1 url="main1x2" />
+      <MainBox1 url="main2x2" />
+    </div>
+    <div class="col justify-center">
+      <MainBox1 url="main4x2" :style="{ background: '#37383e' }" />
+      <MainBox1 url="main3x2" />
+    </div>
+    <div class="col transform translate-y-[-90px]">
+      <MainBox1 url="main5x2" />
+      <MainBox2 url="main6x2" />
     </div>
   </div>
+</div>
 </template>
 
 <script>

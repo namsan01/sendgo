@@ -23,4 +23,6 @@ export default {
   overflow: hidden;
   border-radius: 2rem;
 }
+
+
 </style>
