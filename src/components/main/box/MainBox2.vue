@@ -15,14 +15,15 @@ export default {
 
 <style scoped>
 .img-wrap {
-  width: 254px;
+  width: 100%;
+  max-width: 254px;
   border-radius: 2rem;
   overflow: visible;
   background-color: #37383e;
 }
 
 .img-wrap img {
-  width: 350px;
+  width: 130%;
   height: auto;
   max-width: none;
 }

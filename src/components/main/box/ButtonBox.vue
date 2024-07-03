@@ -13,7 +13,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .box {
   display: flex;
   align-items: center;
@@ -24,5 +24,13 @@ export default {
   border-radius: 44px;
   color: white;
   font-size: 25px;
+}
+
+@media (max-width: 1440px) {
+.box {
+  width: 162px;
+  height: 50px;
+  font-size: 20px;
+}  
 }
 </style>

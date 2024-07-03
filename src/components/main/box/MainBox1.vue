@@ -17,11 +17,13 @@ export default {
 
 <style scoped>
 .img-wrap {
-  width: 254px;
+  width: 100%;
+  max-width: 254px;
   height: auto;
   background: #6250ff;
   overflow: hidden;
   border-radius: 2rem;
+  background-position: center;
 }
 
 

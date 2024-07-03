@@ -5,7 +5,7 @@
         v-if="isRootPath"
         class="fixed-header black-header flex-center items-center w-full"
       >
-        <div class="wrapper flex gap-[16.6rem]">
+        <div class="wrapper flex gap-[16.6rem] lg:justify-center">
           <router-link to="/">
             <img
               class="w-[142px] h-44px"
@@ -30,7 +30,7 @@
         :class="['fixed-header', 'white-header']"
         class="flex-center items-center w-full"
       >
-        <div class="wrapper flex items-center gap-[201px]">
+        <div class="wrapper flex items-center gap-[16.6rem] lg:justify-center">
           <router-link to="/">
             <img
               class="w-[142px] h-44px"
@@ -39,17 +39,13 @@
             />
           </router-link>
 
-          <div class="flex items-center">
+          <div class="flex items-center gap-[8.56rem]">
             <router-link to="/message">
-              <div class="router-box">
-                <span>메시지</span>
-              </div>
+              <span>메시지</span>
             </router-link>
 
             <router-link to="/credit">
-              <div class="router-box">
-                <span>크레딧</span>
-              </div>
+              <span>크레딧</span>
             </router-link>
           </div>
         </div>
@@ -98,7 +94,7 @@ export default {
 }
 
 .fixed-header {
-  max-width: 100%;
+  width: 100%;
   z-index: 1;
   transition: all 0.5s ease-in-out;
 }
