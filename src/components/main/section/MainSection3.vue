@@ -1,5 +1,3 @@
-gpt야 이거 스타일들 다 테일윈드형식으로 고쳐줘
-
 <template>
   <div class="text1 flex-col items-center w-full mt-[212px] mb-[249px] lg:mt-[142px] mb-[199px]">
     <img

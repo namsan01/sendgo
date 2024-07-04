@@ -11,22 +11,9 @@
       </div>
       <div class="w-full h-full flex-center bg-[#F2F4F8]">
         <div class="content-wrap">
-          <div class="flex-col items-center px-24 pt-[53px] w-full h-[3000px]">
+          <div class="flex-col items-center px-24 pt-[53px] w-full h-auto bg-white rounded-3xl">
             <h2 class="text-3xl font-bold mb-9">메세지 전송</h2>
-            <div class="radioButtonStyle">
-              <label class="radioStyle">
-                <input type="radio" checked name="radio" />
-                <span>문자 메세지</span>
-              </label>
-              <label class="radioStyle">
-                <input type="radio" name="radio" />
-                <span>알림톡 (카카오)</span>
-              </label>
-              <label class="radioStyle">
-                <input type="radio" name="radio" />
-                <span>친구톡 (카카오)</span>
-              </label>
-            </div>
+            <threeRadio />
             <div class="text1">
               <h2>
                 · 간편하게 한 화면에서 단문, 장문 포토메세지를 발송할 수
@@ -197,7 +184,24 @@
             </div>
             <div
               class="w-full h-[172px] mt-[34px] py-8 border-y border-gray-700"
-            ></div>
+            >
+            <h2 class="mb-4 text-[20px] font-semibold">발송 설정</h2>
+            <div class="flex gap-[15px]">
+            <button class="flex-center items-center w-[274px] h-[66px] text-[#4F44F0] bg-white border-2 rounded-lg border-[#4F44F0] p-5">
+              <img src="/public/images/icon2/icon_check_color.svg" alt="check" />
+              <h2 class="text-xl mt-[2px] mr-3">즉시 발송</h2>
+            </button>
+            <button class="flex-center items-center w-[274px] h-[66px] text-[#747B84] bg-[#F2F5F9] rounded-lg  p-5">
+              <img src="/public/images/icon2/icon_check_gray.svg" alt="check" />
+              <h2 class="text-xl mt-[2px] mr-3">예약 발송</h2>
+            </button>
+          </div>
+          </div>
+          <div class="flex-center items-center mt-10 w-full h-[66px] bg-[#4F44F0] rounded-lg text-white text-[20px] mb-[72px]">
+            <button>
+              발송하기
+            </button>
+          </div>
           </div>
         </div>
       </div>
@@ -206,8 +210,16 @@
 </template>
 
 <script>
+
+import threeRadio from '@/components/message/threeRadio.vue';
+import twoRadio from '@/components/message/twoRadio.vue';
+
 export default {
   name: "Message",
+  components: {
+"threeRadio":threeRadio,
+"twoRadio":twoRadio,
+}
 };
 </script>
 

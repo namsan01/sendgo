@@ -8,6 +8,10 @@
   font-family: Pretendard;
 }
 
+html, body {
+  overflow-x: hidden; 
+}
+
 .wrapper {
   width: 1420px;
 }
@@ -33,3 +37,9 @@
       width: 960px;
     }  
     }
+
+    @media (max-width: 768px) {
+      .wrapper {
+        width: 700px;
+      }  
+      }

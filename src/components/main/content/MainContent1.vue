@@ -1,6 +1,6 @@
 <template>
   <div class="flex w-full h-[996px] bg-black xl:h-auto lg:flex-col gap-20">
-    <div class="flex-center flex-col items-center bg-black flex-1 gap-[32.5px] xl:gap-6 lg:mt-20">
+    <div class="flex-center flex-col items-center bg-black flex-1 gap-[32.5px] xl:gap-6 lg:mt-36">
       <span class="text-2xl mr-[6.3rem] text-white font-bold xl:mr-[1rem] text-xl lg:text-2xl"
         >인터넷 문자 메시지 전송의 모든 것</span
       >

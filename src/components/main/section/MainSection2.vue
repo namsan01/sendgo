@@ -186,8 +186,25 @@
 .box3 {
   width: 50%;
 }
+}
 
+@media (max-width: 768px) {
 
+.box2 h2 {
+font-size : 20px;
+}
+
+.box2 {
+  padding-top: 49px;
+  height: 450px;
+}
+.box3 {
+  width: 50%;
+}
+
+.box3 h2 {
+  font-size: 20px;
+}
 }
 
 
