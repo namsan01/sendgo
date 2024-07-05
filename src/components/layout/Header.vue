@@ -1,15 +1,15 @@
-<template>
+<template class="body">
   <div>
     <!-- 모달 -->
     <transition name="modal-slide">
       <div v-if="isOpen && !isWideScreen" :class="['fixed right-0 top-20 duration-300 w-screen h-[10vh] px-[80px] opacity-100 z-30', !isRootPath ? 'bg-white' : (isScrolled ? 'bg-white/95' : 'bg-black border-y')]">
         <div class="w-full h-full flex justify-center items-center">
-          <div :class="['flex text-2xl gap-20 p-8 rounded-lg', !isRootPath ? 'text-black' : (isScrolled ? 'text-black' : 'text-white')]">
-            <router-link to="/message" :class="isScrolled ? 'hover:text-[#d9d9d9]' : 'hover:text-[#4F44F0]'">
-              <span>메시지</span>
+          <div :class="['flex text-2xl gap-20 p-8 rounded-lg md:p-4', !isRootPath ? 'text-black' : (isScrolled ? 'text-black' : 'text-white')]">
+            <router-link to="/message" :class="{'text-[#4E43ED]': isCurrentRoute('/message'), 'hover:text-[#d9d9d9]': isScrolled, 'hover:text-[#4F44F0]': !isScrolled}">
+              <span class="md:text-xl">메시지</span>
             </router-link>
-            <router-link to="/credit" :class="isScrolled ? 'hover:text-[#d9d9d9]' : 'hover:text-[#4F44F0]'">
-              <span>크레딧</span>
+            <router-link to="/credit" :class="{'text-[#4E43ED]': isCurrentRoute('/credit'), 'hover:text-[#d9d9d9]': isScrolled, 'hover:text-[#4F44F0]': !isScrolled}">
+              <span class="md:text-xl">크레딧</span>
             </router-link>
           </div>
         </div>
@@ -24,10 +24,10 @@
             <img class="w-[142px] h-44px" src="/public/images/logo/logo_gray.svg" alt="로고">
           </router-link>
           <div class="flex items-center gap-[8.56rem] lg:hidden">
-            <router-link to="/message">
+            <router-link to="/message" :class="{'text-[#4E43ED]': isCurrentRoute('/message')}">
               <span>메시지</span>
             </router-link>
-            <router-link to="/credit">
+            <router-link to="/credit" :class="{'text-[#4E43ED]': isCurrentRoute('/credit')}">
               <span>크레딧</span>
             </router-link>
           </div>
@@ -47,15 +47,15 @@
         </div>
       </div>
       <div v-if="!isRootPath || isScrolled" :class="['fixed-header', 'white-header', { 'bg-white/95': !isRootPath }] " class="flex-center items-center w-full">
-        <div class="wrapper flex w-full items-center gap-[16.6rem] lg:justify-between ">
+        <div class="wrapper flex w-full items-center gap-[16.6rem] lg:justify-between">
           <router-link to="/">
             <img class="w-[142px] h-44px" src="/public/images/logo/logo.svg" alt="로고" />
           </router-link>
           <div class="flex items-center gap-[8.56rem] lg:hidden">
-            <router-link to="/message">
+            <router-link to="/message" :class="{'text-[#4E43ED]': isCurrentRoute('/message')}">
               <span>메시지</span>
             </router-link>
-            <router-link to="/credit">
+            <router-link to="/credit" :class="{'text-[#4E43ED]': isCurrentRoute('/credit')}">
               <span>크레딧</span>
             </router-link>
           </div>
@@ -100,7 +100,7 @@ export default {
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
     window.addEventListener("resize", this.handleResize);
-    this.handleResize(); // 초기 화면 크기에 따라 설정
+    this.handleResize(); 
   },
   beforeUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
@@ -119,11 +119,18 @@ export default {
         this.isOpen = false;
       }
     },
+    isCurrentRoute(route) {
+      return this.$route.path === route;
+    },
   },
 };
 </script>
 
-<style>
+<style scoped>
+.body {
+  overflow-x: hidden; 
+}
+
 .wrapper span {
   font-size: 20px;
 }
@@ -180,10 +187,6 @@ export default {
   margin-top: 5rem;
 }
 
-.content.blur {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
 
 .router-box {
   display: flex;
@@ -191,5 +194,9 @@ export default {
   align-items: center;
   height: 5rem;
   width: 186px;
+}
+
+.text-blue-500 {
+  color: #3B82F6;
 }
 </style>

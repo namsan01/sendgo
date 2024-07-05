@@ -1,4 +1,4 @@
-<template>
+<template class="body">
   <MainContent1 />
   <MainContent2 />
   <MainContent3 />
@@ -19,4 +19,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.body {
+  
+}
+</style>

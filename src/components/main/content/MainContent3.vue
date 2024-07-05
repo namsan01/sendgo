@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-center h-[67.5rem] bg-black">
+  <div class="flex-center h-[67.5rem] bg-black lg:h-[50rem]">
     <div class="wrapper flex-center items-center">
       <div class="text1 flex-col items-center gap-[66px]">
         <div class="flex-col items-center">
@@ -35,5 +35,11 @@ export default {
   background: linear-gradient(90deg, #b6b7f7 0%, #7fb2fe 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
+.gradient-text {
+  font-size: 30px;
+}
 }
 </style>

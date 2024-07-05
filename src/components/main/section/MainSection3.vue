@@ -44,11 +44,12 @@
       </div>
       <div class="lg:flex justify-center">
       <div class="box2">
-        <div class="flex-col items-center lg:items-start">
+        <div class="flex-col items-center lg:items-start md:items-center">
           <h2 :style="{ color: '#000' }">놀라운 수신율을 경험해 보세요</h2>
           <h2>샌드고의 정확한 수신율은 99.8%에 달합니다.</h2>
         </div>
-        <img src="/public/images/main/main10.png" alt="logo" />
+        <img src="/public/images/main/main10.png" alt="logo" 
+        class="md:h-[138px]"/>
       </div>
     </div>
     </div>
@@ -147,6 +148,7 @@ export default {
 .box1 {
   width: 50%;
   padding-right: 54px;
+  align-items: center;
 }
 .box1 h2 {
   font-size: 25px;
@@ -167,6 +169,43 @@ export default {
 }
 .box2 h2 {
   font-size: 25px
+}
+}
+
+
+@media (max-width: 768px) {
+  .text1 h2 {
+font-size: 30px;
+}
+
+.box1 h2 {
+font-size : 15px;
+}
+
+.box1 {
+  padding-top: 30px;
+  height: 300px;
+  width: 75%;
+  justify-content: space-between;
+}
+.box2 {
+  width: 75%;
+  height: 300px;
+  padding-right: 54px;
+  
+}
+
+.box2 h2 {
+  font-size: 15px;
+}
+
+.img-container {
+  overflow: hidden;
+}
+
+.img-container img {
+  height: 119px;
+  
 }
 }
 </style>

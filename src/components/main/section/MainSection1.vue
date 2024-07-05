@@ -116,4 +116,22 @@
   font-size: 20px;
 }
 }
+
+@media (max-width: 768px) {
+  .text1 h2 {
+    font-size: 30px;
+  }
+.box1 {
+  width: 75%;
+}
+.box1 h2 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.box1 h3 {
+  font-size: 12px;
+}
+}
+
 </style>

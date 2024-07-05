@@ -1,17 +1,19 @@
 <template>
   <div>
-    <div class="h-[4000px]">
+    <div class="h-[2400px] md:h-[3000px]">
       <div class="sub-header w-full bg-white">
-        <div class="flex justify-end w-[1223px] gap-2">
-          <router-link to="">메세지 전송</router-link>
+        <div class="flex justify-end w-[1223px] gap-2 base:w-[960px] lg:w-[760px] md:w-[360px]">
+          <router-link to="" 
+          :style="{background:'#e1e7fd' , color:'#4F44F0'}"
+          >메세지 전송</router-link>
           <router-link to="">발신번호 관리</router-link>
           <router-link to="">주소록 관리</router-link>
           <router-link to="">발송 결과</router-link>
         </div>
       </div>
-      <div class="w-full h-full flex-center bg-[#F2F4F8]">
+      <div class="w-full h-full flex-center bg-[#F2F4F8] ">
         <div class="content-wrap">
-          <div class="flex-col items-center px-24 pt-[53px] w-full h-auto bg-white rounded-3xl">
+          <div class="flex-col items-center px-24 pt-[53px] w-full bg-white rounded-3xl md:px-0 h-auto ">
             <h2 class="text-3xl font-bold mb-9">메세지 전송</h2>
             <threeRadio />
             <div class="text1">
@@ -24,13 +26,13 @@
                 작성이 가능합니다.
               </h2>
             </div>
-            <div class="flex w-full h-auto pt-8 gap-[68px]">
-              <div class="message-left w-[55%]">
+            <div class="flex w-full pt-8 gap-[68px] md:flex-col gap-0">
+              <div class="message-left w-[55%] md:w-[100%] ">
                 <div>
                   <h1 class="mb-4 text-[20px] font-semibold">수신번호</h1>
                   <div class="message-number gap-2">
                     <input
-                      class="w-[80%] outline-none"
+                      class="w-[80%] outline-none base:w-[54%] lg:w-[34%] text-sm md:w-[42%]"
                       type="number"
                       placeholder="휴대번호 (숫자만 입력)"
                     />
@@ -39,12 +41,12 @@
                         src="/public/images/icon2/icon_plus.svg"
                         alt="plus"
                       />
-                      <h3 class="mt-[2px]">추가</h3>
+                      <h3 class="mt-[2px] lg:text-lg mt-[3px]">추가</h3>
                     </button>
                   </div>
                   <div class="message-text">
                     <textarea
-                      class="w-full h-[80%] placeholder-gray-500"
+                      class="w-full h-[80%] placeholder-gray-500 lg:text-sm"
                       placeholder="번호를 입력하거나 후 엔터 혹은 추가하기를 클릭해 주세요.
 최대 1만 건까지 붙여넣기 가능합니다."
                     ></textarea>
@@ -62,22 +64,25 @@
                       <img
                         src="/public/images/icon2/icon_person.svg"
                         alt="icon"
+                        class="lg:hidden"
                       />
-                      <h2 class="mt-[2px]">주소록 불러오기</h2>
+                      <h2 class="mt-[2px] base:mt-[1px] mr-[6px] lg:mt-0 mr-0 text-sm">주소록 불러오기</h2>
                     </div>
                     <div class="message-option">
                       <img
                         src="/public/images/icon2/icon_page.svg"
                         alt="icon"
+                        class="lg:hidden"
                       />
-                      <h2 class="mt-[3px]">파일 불러오기</h2>
+                      <h2 class="mt-[3px] base:mt-[2px] mr-2 lg:mt-0 mr-0 text-sm">파일 불러오기</h2>
                     </div>
                     <div class="message-option">
                       <img
                         src="/public/images/icon2/icon_clock.svg"
                         alt="icon"
+                        class="lg:hidden"
                       />
-                      <h2 class="mt-[5px]">최근 전송 내역</h2>
+                      <h2 class="mt-[5px] base:mt-[1px] mr-2 lg:mt-0 mr-0 text-sm">최근 전송 내역</h2>
                     </div>
                   </div>
                 </div>
@@ -85,7 +90,7 @@
                   <h2 class="mb-4 text-[20px] font-semibold">발신번호</h2>
                   <div>
                     <select
-                      class="select-input w-full h-[61px] p-[20px] bg-[#F4F5F6] appearance-none"
+                      class="select-input w-full h-[61px] p-[20px] bg-[#F4F5F6] appearance-none lg:text-sm"
                     >
                       <option value="" disabled selected hidden>
                         전송할 발신번호 선택
@@ -100,7 +105,7 @@
                   <h2 class="mb-4 text-[20px] font-semibold">메세지 입력</h2>
                   <div class="w-full h-[723px] rounded-lg bg-[#F6F6F6] p-6">
                     <input
-                      class="w-full h-[61px] placeholder-gray-500 rounded-lg p-5"
+                      class="w-full h-[61px] placeholder-gray-500 rounded-lg p-5 lg:text-[12px] p-2"
                       placeholder="제목을 입력해주세요. (단문 SMS는 제외, 최대 30byte)"
                     />
                     <div class="w-full h-[35px] flex justify-between mt-[17px]">
@@ -126,7 +131,7 @@
                     </div>
                     <div class="message-text">
                       <textarea
-                        class="w-full h-[70%] placeholder-gray-500"
+                        class="w-full h-[70%] placeholder-gray-500 lg:text-sm"
                         placeholder="내용을 입력해 주세요. 90byte 초과 시 장문 문자로,
 이미지 추가 시 포토 문자로 자동 전환 됩니다."
                       ></textarea>
@@ -134,17 +139,17 @@
                         class="flex justify-end px-[16.5px] pb-[20px] gap-3 mb-[25px]"
                       >
                         <button
-                          class="w-[107px] h-[43px] bg-[#f5f5f5] rounded-2xl"
+                          class="w-[107px] h-[43px] bg-[#f5f5f5] rounded-2xl lg:w-[92] h-[36px] text-sm"
                         >
                           치환코드
                         </button>
                         <button
-                          class="w-[107px] h-[43px] bg-[#f5f5f5] rounded-2xl"
+                          class="w-[107px] h-[43px] bg-[#f5f5f5] rounded-2xl lg:w-[92] h-[36px] text-sm"
                         >
                           템플릿
                         </button>
                         <button
-                          class="w-[107px] h-[43px] bg-[#f5f5f5] rounded-2xl"
+                          class="w-[107px] h-[43px] bg-[#f5f5f5] rounded-2xl lg:w-[92] h-[36px] text-sm"
                         >
                           문자도구
                         </button>
@@ -152,12 +157,13 @@
                       <div
                         class="flex justify-between items-center w-full h-[75px] border-y border-gray-600"
                       >
-                        <h2 class="text-[15px] font-semibold">
+                        <h2 class="text-[15px] font-semibold lg:text-sm">
                           광고성 문자(080 수신거부번호 포함)
                         </h2>
                         <img
                           src="/public/images/icon2/icon_button.svg"
                           alt="button"
+                          class="lg: w-12"
                         />
                       </div>
                       <div class="w-full flex-col mt-4 gap-4">
@@ -165,6 +171,7 @@
                         <img
                           src="/public/images/icon2/icon_plus_bt.svg"
                           alt="bt"
+                          class="lg:w-[75px] h-[75px] pr-6"
                           :style="{ width: '100px' }"
                         />
                         <div class="text-sm" :style="{ color: '#797979' }">
@@ -187,11 +194,11 @@
             >
             <h2 class="mb-4 text-[20px] font-semibold">발송 설정</h2>
             <div class="flex gap-[15px]">
-            <button class="flex-center items-center w-[274px] h-[66px] text-[#4F44F0] bg-white border-2 rounded-lg border-[#4F44F0] p-5">
+            <button class="flex-center items-center w-[274px] h-[66px] text-[#4F44F0] bg-white border-2 rounded-lg border-[#4F44F0] p-5 lg:w-1/2">
               <img src="/public/images/icon2/icon_check_color.svg" alt="check" />
               <h2 class="text-xl mt-[2px] mr-3">즉시 발송</h2>
             </button>
-            <button class="flex-center items-center w-[274px] h-[66px] text-[#747B84] bg-[#F2F5F9] rounded-lg  p-5">
+            <button class="flex-center items-center w-[274px] h-[66px] text-[#747B84] bg-[#F2F5F9] rounded-lg  p-5 lg:w-1/2">
               <img src="/public/images/icon2/icon_check_gray.svg" alt="check" />
               <h2 class="text-xl mt-[2px] mr-3">예약 발송</h2>
             </button>
@@ -237,7 +244,6 @@ export default {
   align-content: center;
   width: 155px;
   height: 56px;
-  background: #e1e7fd;
   border-radius: 13px;
   color: #555555;
 }
@@ -365,6 +371,7 @@ input::-webkit-inner-spin-button {
 
 .message-right {
   position: sticky;
+  position: -webkit-sticky;
   top: 80px;
   width: 401px;
   height: 775px;
@@ -379,4 +386,67 @@ input::-webkit-inner-spin-button {
   width: 40px;
   transform: rotate(90deg);
 }
+
+@media (max-width: 1280px) {
+.content-wrap {
+  width: 960px;
+}
+.message-option {
+  
+  font-size: 14px;
+}
+
+.message-right {
+  height: 480px;
+}
+}
+
+@media (max-width: 1024px) {
+
+  .sub-header a {
+    width: 116px;
+    
+  }
+
+.content-wrap {
+  width: 760px;
+}
+.message-option {
+  
+  font-size: 10px;
+}
+
+.message-right {
+  height: 360px;
+}
+}
+
+@media (max-width: 768px) {
+
+.sub-header a {
+  width: 116px;
+  font-size: 14px
+}
+
+.content-wrap {
+width: 360px;
+
+}
+.message-option {
+
+font-size: 10px;
+}
+
+.message-right {
+  position: relative;
+width: 100%;
+height: 360px;
+margin-bottom: 7rem;
+}
+
+.message-right img {
+  display: none;
+}
+}
+
 </style>

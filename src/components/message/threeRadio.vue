@@ -55,4 +55,28 @@
   color: #ffffff;
   background: #4f44f0;
 }
+
+@media (max-width: 1280px) {
+  .radioStyle span {
+  width: 245px;
+  height: 52px;
+}
+}
+
+@media (max-width: 1024px) {
+  .radioStyle span {
+  width: 179px;
+  height: 48px;
+}
+}
+
+@media (max-width: 1024px) {
+  .radioStyle span {
+  width: 96px;
+  height: 48px;
+  font-size: 14px;
+}
+}
+
+
 </style>

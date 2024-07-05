@@ -11,7 +11,7 @@
         <div class="w-full mt-24 gap-10">
           <div class="flex w-full gap-[54px] lg:flex-col items-center base:gap-9">
             <div
-              class="box2 w-[45%] flex-col justify-between lg:w-[50%]"
+              class="box2 w-[45%] flex-col justify-between lg:w-[50%] md:w-[75%] pr-[54px] md:items-center"
               :style="{ background: '#F8F9FA' }"
             >
               <div class="lg:flex-col items-center">
@@ -20,10 +20,11 @@
                 <h2>저장하여 간편하게 전송하세요</h2>
               </div>
               <div class="items-end">
-                <img src="/public/images/main/main7x2.png" />
+                <img src="/public/images/main/main7x2.png" 
+                class="md:h-[138px]"/>
               </div>
             </div>
-            <div class="box2 w-[55%] flex-col justify-between pr-[61px] lg:w-[50%] pr-[40px]">
+            <div class="box2 w-[55%] flex-col justify-between pr-[61px] lg:w-[50%] pr-[40px] md:w-[75%] pr-[54px] md:items-center">
               <div>
                 <h2 class="gradient-text">
                   크레딧 구매시, 보너스 크레딧 증정
@@ -36,13 +37,14 @@
                 </h2>
               </div>
               <div class="items-end">
-                <img src="/public/images/main/main8x2.png" />
+                <img src="/public/images/main/main8x2.png" 
+                class="md:h-[138px]"/>
               </div>
             </div>
           </div>
           <div class="flex w-full gap-[54px] mt-10 lg:flex-col items-center base:gap-9 mt-9">
             <div
-              class="box3 w-[65%] flex-col justify-between lg:w-[50%]"
+              class="box3 w-[65%] flex-col justify-between lg:w-[50%] md:w-[75%] pr-[54px] md:md:items-center"
             >
               <div>
                 <h2 :style="{ color: '#375984' }">전송 후 바로 발송확인 기능</h2>
@@ -50,10 +52,11 @@
                 <h2>현재 메시지 전송 현황을 알려드립니다</h2>
               </div>
               <div class="items-end">
-                <img src="/public/images/main/main11x2.png" />
+                <img src="/public/images/main/main11x2.png" 
+                class="md:h-[138px]"/>
               </div>
             </div>
-            <div class="box3 w-[35%] flex-col justify-between pr-[68px] base:pr-[0px] lg:w-[50%] "
+            <div class="box3 w-[35%] flex-col justify-between pr-[68px] base:pr-[0px] lg:w-[50%] pr-[54px] md:items-center  "
             :style="{ background: '#FBFBF0' }">
               <div>
                 <h2
@@ -69,7 +72,7 @@
               </div>
               <div>
                 <img src="/public/images/main/main12.png" 
-                class="h-[432px] base:h-[290px]"
+                class="h-[432px] base:h-[290px] md:h-[160px]"
               </div>
             </div>
           </div>
@@ -189,21 +192,26 @@
 }
 
 @media (max-width: 768px) {
+.text1 h2 {
+font-size: 30px;
+}
 
 .box2 h2 {
-font-size : 20px;
+font-size : 15px;
 }
 
 .box2 {
   padding-top: 49px;
-  height: 450px;
+  height: 300px;
 }
 .box3 {
-  width: 50%;
+  width: 75%;
+  height: 300px;
+  padding-right: 54px;
 }
 
 .box3 h2 {
-  font-size: 20px;
+  font-size: 15px;
 }
 }
 
