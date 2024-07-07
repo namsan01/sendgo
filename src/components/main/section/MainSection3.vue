@@ -1,5 +1,5 @@
 <template>
-  <div class="text1 flex-col items-center w-full mt-[212px] mb-[249px] lg:mt-[142px] mb-[199px]">
+  <div class="text1 flex-col items-center w-full mt-[212px] mb-[249px] lg:mt-[142px] lg:mb-[199px]">
     <img
       src="/public/images/icon/icon_check.svg"
       alt="logo"

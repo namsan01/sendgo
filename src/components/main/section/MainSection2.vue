@@ -24,7 +24,7 @@
                 class="md:h-[138px]"/>
               </div>
             </div>
-            <div class="box2 w-[55%] flex-col justify-between pr-[61px] lg:w-[50%] pr-[40px] md:w-[75%] pr-[54px] md:items-center">
+            <div class="box2 w-[55%] flex-col justify-between pr-[61px] lg:w-[50%] lg:pr-[40px] md:w-[75%] md:pr-[54px] md:items-center">
               <div>
                 <h2 class="gradient-text">
                   크레딧 구매시, 보너스 크레딧 증정
@@ -42,7 +42,7 @@
               </div>
             </div>
           </div>
-          <div class="flex w-full gap-[54px] mt-10 lg:flex-col items-center base:gap-9 mt-9">
+          <div class="flex w-full gap-[54px] mt-10 lg:flex-col items-center base:gap-9 base:mt-9">
             <div
               class="box3 w-[65%] flex-col justify-between lg:w-[50%] md:w-[75%] pr-[54px] md:md:items-center"
             >
@@ -56,7 +56,7 @@
                 class="md:h-[138px]"/>
               </div>
             </div>
-            <div class="box3 w-[35%] flex-col justify-between pr-[68px] base:pr-[0px] lg:w-[50%] pr-[54px] md:items-center  "
+            <div class="box3 w-[35%] flex-col justify-between pr-[68px] base:pr-[0px] lg:w-[50%] lg:pr-[54px] md:items-center  "
             :style="{ background: '#FBFBF0' }">
               <div>
                 <h2
