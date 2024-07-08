@@ -1,8 +1,8 @@
 <template>
-  <div class="h-[950px] bg-[#f2f4f8]">
+  <div class="h-auto bg-[#f2f4f8] md:h-auto pb-24">
     <div class="sub-header w-full bg-white">
       <div
-        class="flex justify-end w-[1223px] gap-2 base:w-[960px] lg:w-[760px] md:w-[360px]"
+        class="flex justify-end w-[1223px] gap-2 base:w-[960px] lg:w-[760px] md:w-[360px] md:justify-center"
       >
         <router-link to="" :style="{ background: '#e1e7fd', color: '#4F44F0' }"
           >크레딧 구매</router-link
@@ -10,12 +10,13 @@
         <router-link to="">크레딧 내역</router-link>
       </div>
     </div>
-    <div class="flex-col h-full items-center">
-      <h2 class="text-3xl font-bold mt-[109px] mb-[18px]">크레딧 구매</h2>
+    <div class="flex-col h-full items-center justify-center">
+      <h2 class="text-3xl font-bold mt-[109px] mb-[18px] base:mt-[50px]">크레딧 구매</h2>
       <h2 class="mb-[53px]">
         메세지 전송을 위해 사용할 크레딧 상품을 선택해 주세요
       </h2>
-      <div class="w-[1460px] flex gap-6 flex-nowrap">
+      <div class="w-full flex-center">
+      <div class="w-[1460px] h-auto flex gap-6 flex-wrap justify-center">
         <div class="box1">
           <h2 class="font-bold text-3xl">30,000원</h2>
           <div class="text-[#7B7B7B]">
@@ -138,6 +139,7 @@
         </div>
       </div>
     </div>
+    </div>
   </div>
 </template>
 
@@ -178,16 +180,29 @@ export default {
   padding: 32px;
 }
 
+@media (max-width: 1280px) {
+  .box1 {
+    width: 100%;
+  }
+  
+}
+
+
 @media (max-width: 1024px) {
   .sub-header a {
     width: 116px;
   }
+  
 }
 
 @media (max-width: 768px) {
   .sub-header a {
     width: 116px;
     font-size: 14px;
+  }
+
+  .box1 {
+    padding: 16px;
   }
 }
 </style>

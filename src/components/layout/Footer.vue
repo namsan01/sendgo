@@ -1,4 +1,5 @@
 <template>
+  <div class="block">
   <div
     class="flex flex-col h-[19.8rem] items-center max-w-full bg-black border-t border-gray-500"
   >
@@ -28,6 +29,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>

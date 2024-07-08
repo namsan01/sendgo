@@ -26,7 +26,7 @@
                 작성이 가능합니다.
               </h2>
             </div>
-            <div class="flex w-full pt-8 gap-[68px] md:flex-col gap-0">
+            <div class="flex w-full pt-8 gap-[68px] md:flex-col md:gap-0">
               <div class="message-left w-[55%] md:w-[100%] ">
                 <div>
                   <h1 class="mb-4 text-[20px] font-semibold">수신번호</h1>
@@ -41,7 +41,7 @@
                         src="/public/images/icon2/icon_plus.svg"
                         alt="plus"
                       />
-                      <h3 class="mt-[2px] lg:text-lg mt-[3px]">추가</h3>
+                      <h3 class="mt-[2px] lg:text-lg lg:mt-[3px]">추가</h3>
                     </button>
                   </div>
                   <div class="message-text">
@@ -66,7 +66,7 @@
                         alt="icon"
                         class="lg:hidden"
                       />
-                      <h2 class="mt-[2px] base:mt-[1px] mr-[6px] lg:mt-0 mr-0 text-sm">주소록 불러오기</h2>
+                      <h2 class="mt-[2px] base:mt-[1px] base:mr-[6px] lg:mt-0 lg:mr-0 text-sm">주소록 불러오기</h2>
                     </div>
                     <div class="message-option">
                       <img
@@ -74,7 +74,7 @@
                         alt="icon"
                         class="lg:hidden"
                       />
-                      <h2 class="mt-[3px] base:mt-[2px] mr-2 lg:mt-0 mr-0 text-sm">파일 불러오기</h2>
+                      <h2 class="mt-[3px] base:mt-[2px] base:mr-2 lg:mt-0 lg:mr-0 text-sm">파일 불러오기</h2>
                     </div>
                     <div class="message-option">
                       <img
@@ -82,7 +82,7 @@
                         alt="icon"
                         class="lg:hidden"
                       />
-                      <h2 class="mt-[5px] base:mt-[1px] mr-2 lg:mt-0 mr-0 text-sm">최근 전송 내역</h2>
+                      <h2 class="mt-[5px] base:mt-[1px] base:mr-2 lg:mt-0 lg:mr-0 text-sm">최근 전송 내역</h2>
                     </div>
                   </div>
                 </div>
@@ -105,7 +105,7 @@
                   <h2 class="mb-4 text-[20px] font-semibold">메세지 입력</h2>
                   <div class="w-full h-[723px] rounded-lg bg-[#F6F6F6] p-6">
                     <input
-                      class="w-full h-[61px] placeholder-gray-500 rounded-lg p-5 lg:text-[12px] p-2"
+                      class="w-full h-[61px] placeholder-gray-500 rounded-lg p-5 lg:text-[12px] lg:p-2"
                       placeholder="제목을 입력해주세요. (단문 SMS는 제외, 최대 30byte)"
                     />
                     <div class="w-full h-[35px] flex justify-between mt-[17px]">
@@ -139,17 +139,17 @@
                         class="flex justify-end px-[16.5px] pb-[20px] gap-3 mb-[25px]"
                       >
                         <button
-                          class="w-[107px] h-[43px] bg-[#f5f5f5] rounded-2xl lg:w-[92] h-[36px] text-sm"
+                          class="w-[107px] h-[43px] bg-[#f5f5f5] rounded-2xl lg:w-[92] lg:h-[36px] text-sm"
                         >
                           치환코드
                         </button>
                         <button
-                          class="w-[107px] h-[43px] bg-[#f5f5f5] rounded-2xl lg:w-[92] h-[36px] text-sm"
+                          class="w-[107px] h-[43px] bg-[#f5f5f5] rounded-2xl lg:w-[92] lg:h-[36px] text-sm"
                         >
                           템플릿
                         </button>
                         <button
-                          class="w-[107px] h-[43px] bg-[#f5f5f5] rounded-2xl lg:w-[92] h-[36px] text-sm"
+                          class="w-[107px] h-[43px] bg-[#f5f5f5] rounded-2xl lg:w-[92] lg:h-[36px] text-sm"
                         >
                           문자도구
                         </button>

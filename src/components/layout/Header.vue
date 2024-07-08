@@ -28,8 +28,6 @@
               to="/message"
               :class="{
                 'text-[#4E43ED]': isCurrentRoute('/message'),
-                'hover:text-[#d9d9d9]': isScrolled,
-                'hover:text-[#4F44F0]': !isScrolled,
               }"
             >
               <span class="md:text-xl">메시지</span>
@@ -38,8 +36,6 @@
               to="/credit"
               :class="{
                 'text-[#4E43ED]': isCurrentRoute('/credit'),
-                'hover:text-[#d9d9d9]': isScrolled,
-                'hover:text-[#4F44F0]': !isScrolled,
               }"
             >
               <span class="md:text-xl">크레딧</span>
@@ -68,7 +64,7 @@
             <router-link
               to="/message"
               :class="{
-                'text-[#4E43ED] border-b border-[#4E43ED]':
+                'text-[#4E43ED] border-b-2 border-[#4E43ED]':
                   isCurrentRoute('/message'),
               }"
             >
@@ -77,7 +73,7 @@
             <router-link
               to="/credit"
               :class="{
-                'text-[#4E43ED] border-b border-[#4E43ED]':
+                'text-[#4E43ED] border-b-2 border-[#4E43ED]':
                   isCurrentRoute('/credit'),
               }"
             >
@@ -136,7 +132,7 @@
             <router-link
               to="/message"
               :class="{
-                'text-[#4E43ED] border-b border-[#4E43ED]':
+                'text-[#4E43ED] border-b-2 border-[#4E43ED]':
                   isCurrentRoute('/message'),
               }"
             >
@@ -145,7 +141,7 @@
             <router-link
               to="/credit"
               :class="{
-                'text-[#4E43ED] border-b border-[#4E43ED]':
+                'text-[#4E43ED] border-b-2 border-[#4E43ED]':
                   isCurrentRoute('/credit'),
               }"
             >
