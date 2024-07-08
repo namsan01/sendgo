@@ -2,12 +2,12 @@
     <div class="radioButtonStyle">
       <label class="radioStyle">
         <input type="radio" checked name="radio" />
-        <img src="/public/images/icon2/icon_check_color.svg" alt="check" />
+        <img src="/images/icon2/icon_check_color.svg" alt="check" />
 <h2 class="text-xl mt-[2px] mr-3">즉시 발송</h2>
       </label>
       <label class="radioStyle">
         <input type="radio" name="radio" />
-        <img src="/public/images/icon2/icon_check_gray.svg" alt="check" />
+        <img src="/images/icon2/icon_check_gray.svg" alt="check" />
 <h2 class="text-xl mt-[2px] mr-3">예약 발송</h2>
       </label>
     </div>

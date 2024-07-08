@@ -1,7 +1,7 @@
 <template>
       <div class="text1 flex-col items-center w-full mt-[212px] mb-[249px] lg:mt-[142px] lg:mb-[199px]">
         <img
-          src="/public/images/icon/icon_chat.png"
+          src="/images/icon/icon_chat.png"
           alt="logo"
           class="mb-[44px]"
         />
@@ -10,7 +10,7 @@
         <h3 class="mt-[24px]">모든 종류의 인터넷 SMS를 편리하게.</h3>
         <div class="flex justify-between w-full mt-24 xl:justify-center gap-4 lg:flex-col items-center lg:gap-6">
           <div class="box1">
-            <img src="/public/images/icon/icon_write.png" />
+            <img src="/images/icon/icon_write.png" />
             <div class="flex-col items-center gap-1">
               <h2>메시지 용량에</h2>
               <h2>제한 받지 않고 전송</h2>
@@ -21,7 +21,7 @@
             </div>
           </div>
           <div class="box1">
-            <img src="/public/images/icon/icon_mail.png" />
+            <img src="/images/icon/icon_mail.png" />
             <div class="flex-col items-center gap-1">
               <h2>모든 종류의</h2>
               <h2>문자 메시지를 한번에</h2>
@@ -32,7 +32,7 @@
             </div>
           </div>
           <div class="box1">
-            <img src="/public/images/icon/logo_speaker.png" />
+            <img src="/images/icon/logo_speaker.png" />
             <div class="flex-col items-center gap-1">
               <h2>간편한 광고</h2>
               <h2>문자 메시지 설정</h2>

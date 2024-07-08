@@ -1,7 +1,7 @@
 <template>
   <div class="img-wrap">
     <div>
-      <img :src="`/public/images/main/${url}.png`" :alt="url" />
+      <img :src="`/images/main/${url}.png`" :alt="url" />
     </div>
   </div>
 </template>
@@ -25,6 +25,5 @@ export default {
   border-radius: 2rem;
   background-position: center;
 }
-
 
 </style>

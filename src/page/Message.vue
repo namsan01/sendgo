@@ -38,7 +38,7 @@
                     />
                     <button class="w-[20%]" type="submit">
                       <img
-                        src="/public/images/icon2/icon_plus.svg"
+                        src="/images/icon2/icon_plus.svg"
                         alt="plus"
                       />
                       <h3 class="mt-[2px] lg:text-lg lg:mt-[3px]">추가</h3>
@@ -62,7 +62,7 @@
                   <div class="mt-[14px] w-full h-[61px] flex gap-2">
                     <div class="message-option">
                       <img
-                        src="/public/images/icon2/icon_person.svg"
+                        src="/images/icon2/icon_person.svg"
                         alt="icon"
                         class="lg:hidden"
                       />
@@ -70,7 +70,7 @@
                     </div>
                     <div class="message-option">
                       <img
-                        src="/public/images/icon2/icon_page.svg"
+                        src="/images/icon2/icon_page.svg"
                         alt="icon"
                         class="lg:hidden"
                       />
@@ -78,7 +78,7 @@
                     </div>
                     <div class="message-option">
                       <img
-                        src="/public/images/icon2/icon_clock.svg"
+                        src="/images/icon2/icon_clock.svg"
                         alt="icon"
                         class="lg:hidden"
                       />
@@ -123,7 +123,7 @@
                         >
                         <button>
                           <img
-                            src="/public/images/icon2/icon_return.svg"
+                            src="/images/icon2/icon_return.svg"
                             alt="arrow"
                           />
                         </button>
@@ -165,7 +165,7 @@
                       <div class="w-full flex-col mt-4 gap-4">
                         <h2 class="text-[15px] font-semibold">이미지 추가</h2>
                         <img
-                          src="/public/images/icon2/icon_plus_bt.svg"
+                          src="/images/icon2/icon_plus_bt.svg"
                           alt="bt"
                           class="lg:w-[75px] h-[75px] pr-6"
                           :style="{ width: '100px' }"
@@ -186,7 +186,7 @@
                 <h2 class="hidden md:block text-center mt-12 text-2xl">미리 보기</h2>
               </div> -->
               <div class="message-right">
-                <img src="/public/images/icon2/icon_arrow.svg" alt="arrow" />
+                <img src="/images/icon2/icon_arrow.svg" alt="arrow" />
               </div>
             </div>
             <div
@@ -195,11 +195,11 @@
             <h2 class="mb-4 text-[20px] font-semibold md:text-center">발송 설정</h2>
             <div class="flex gap-[15px]">
             <button class="flex-center items-center w-[274px] h-[66px] text-[#4F44F0] bg-white border-2 rounded-lg border-[#4F44F0] p-5 lg:w-1/2">
-              <img src="/public/images/icon2/icon_check_color.svg" alt="check" />
+              <img src="/images/icon2/icon_check_color.svg" alt="check" />
               <h2 class="text-xl mt-[2px] mr-3">즉시 발송</h2>
             </button>
             <button class="flex-center items-center w-[274px] h-[66px] text-[#747B84] bg-[#F2F5F9] rounded-lg  p-5 lg:w-1/2">
-              <img src="/public/images/icon2/icon_check_gray.svg" alt="check" />
+              <img src="/images/icon2/icon_check_gray.svg" alt="check" />
               <h2 class="text-xl mt-[2px] mr-3">예약 발송</h2>
             </button>
           </div>
@@ -365,7 +365,7 @@ input::-webkit-inner-spin-button {
 }
 
 .select-input {
-  background-image: url("/public/images/icon2/icon_arrow.svg");
+  background-image: url("/images/icon2/icon_arrow.svg");
   background-repeat: no-repeat;
   background-position: right 0.7rem top 50%;
   background-size: 2rem auto;
@@ -399,6 +399,8 @@ input::-webkit-inner-spin-button {
 }
 
 .message-right {
+  padding-left: 10px;
+  padding-top: 15px;
   height: 480px;
 }
 }
@@ -420,6 +422,10 @@ input::-webkit-inner-spin-button {
 
 .message-right {
   height: 360px;
+}
+
+.message-right img {
+  width: 25px;
 }
 }
 

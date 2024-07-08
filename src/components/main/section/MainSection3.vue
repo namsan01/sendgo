@@ -1,7 +1,7 @@
 <template>
   <div class="text1 flex-col items-center w-full mt-[212px] mb-[249px] lg:mt-[142px] lg:mb-[199px]">
     <img
-      src="/public/images/icon/icon_check.svg"
+      src="/images/icon/icon_check.svg"
       alt="logo"
       class="mb-[44px]"
     />
@@ -18,7 +18,7 @@
             </h2>
           </div>
           <div class="img-container">
-            <img src="/public/images/main/main9x2.png" alt="logo" />
+            <img src="/images/main/main9x2.png" alt="logo" />
           </div>
         </div>
         <div class="box1 w-[50%]" :style="{ background: '#FBFBEF' }">
@@ -38,7 +38,7 @@
               height: '238px',
             }"
           >
-            <img src="/public/images/icon/icon_lockx2.png" alt="logo" />
+            <img src="/images/icon/icon_lockx2.png" alt="logo" />
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@
           <h2 :style="{ color: '#000' }">놀라운 수신율을 경험해 보세요</h2>
           <h2>샌드고의 정확한 수신율은 99.8%에 달합니다.</h2>
         </div>
-        <img src="/public/images/main/main10.png" alt="logo" 
+        <img src="/images/main/main10.png" alt="logo" 
         class="md:h-[138px]"/>
       </div>
     </div>

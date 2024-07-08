@@ -56,7 +56,7 @@
           <router-link to="/">
             <img
               class="w-[142px] h-44px"
-              src="/public/images/logo/logo_gray.svg"
+              src="/images/logo/logo_gray.svg"
               alt="로고"
             />
           </router-link>
@@ -124,7 +124,7 @@
           <router-link to="/">
             <img
               class="w-[142px] h-44px"
-              src="/public/images/logo/logo.svg"
+              src="/images/logo/logo.svg"
               alt="로고"
             />
           </router-link>

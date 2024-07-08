@@ -1,7 +1,7 @@
 <template>
       <div class="text1 flex-col items-center w-full mt-[212px] mb-[249px] lg:mt-[142px]">
         <img
-          src="/public/images/icon/icon_light.png"
+          src="/images/icon/icon_light.png"
           alt="logo"
           class="mb-[50px]"
         />
@@ -20,7 +20,7 @@
                 <h2>저장하여 간편하게 전송하세요</h2>
               </div>
               <div class="items-end">
-                <img src="/public/images/main/main7x2.png" 
+                <img src="/images/main/main7x2.png" 
                 class="md:h-[138px]"/>
               </div>
             </div>
@@ -37,7 +37,7 @@
                 </h2>
               </div>
               <div class="items-end">
-                <img src="/public/images/main/main8x2.png" 
+                <img src="/images/main/main8x2.png" 
                 class="md:h-[138px]"/>
               </div>
             </div>
@@ -52,7 +52,7 @@
                 <h2>현재 메시지 전송 현황을 알려드립니다</h2>
               </div>
               <div class="items-end">
-                <img src="/public/images/main/main11x2.png" 
+                <img src="/images/main/main11x2.png" 
                 class="md:h-[138px]"/>
               </div>
             </div>
@@ -71,7 +71,7 @@
                 </h2>
               </div>
               <div>
-                <img src="/public/images/main/main12.png" 
+                <img src="/images/main/main12.png" 
                 class="h-[432px] base:h-[290px] md:h-[160px]"
               </div>
             </div>
@@ -201,13 +201,14 @@ font-size : 15px;
 }
 
 .box2 {
-  padding-top: 49px;
+  padding-top: 30px;
   height: 300px;
 }
 .box3 {
   width: 75%;
   height: 300px;
   padding-right: 54px;
+  padding-top:30px
 }
 
 .box3 h2 {

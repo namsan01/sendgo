@@ -7,7 +7,7 @@
       <div class="mt-14 flex gap-[30.2rem] xl:gap-0 justify-between"  >
           <img
             class="w-[142px] h-[44px]"
-            src="/public/images/logo/logo_gray.svg"
+            src="/images/logo/logo_gray.svg"
             alt="Logo"
           />
         <div class="flex items-center gap-[5rem] md:gap-[3rem]">
