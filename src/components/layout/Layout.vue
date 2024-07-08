@@ -1,7 +1,9 @@
 <template>
-  <Header />
-  <router-view />
-  <Footer />
+  <div :class="{ 'overflow-x-hidden': isRootPath }">
+    <Header />
+    <router-view />
+    <Footer />
+  </div>
 </template>
 
 <script>
@@ -11,8 +13,19 @@ import Footer from "./Footer.vue";
 export default {
   name: "Layout",
   components: {
-    Header: Header,
-    Footer: Footer,
+    Header,
+    Footer,
+  },
+  computed: {
+    isRootPath() {
+      return this.$route.path === "/";
+    },
   },
 };
 </script>
+
+<style>
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+</style>

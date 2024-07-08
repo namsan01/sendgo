@@ -29,7 +29,7 @@
             <div class="flex w-full pt-8 gap-[68px] md:flex-col md:gap-0">
               <div class="message-left w-[55%] md:w-[100%] ">
                 <div>
-                  <h1 class="mb-4 text-[20px] font-semibold">수신번호</h1>
+                  <h1 class="mb-4 text-[20px] font-semibold md:text-center">수신번호</h1>
                   <div class="message-number gap-2">
                     <input
                       class="w-[80%] outline-none base:w-[54%] lg:w-[34%] text-sm md:w-[42%]"
@@ -87,7 +87,7 @@
                   </div>
                 </div>
                 <div class="mt-8 pt-8 border-t border-gray-600">
-                  <h2 class="mb-4 text-[20px] font-semibold">발신번호</h2>
+                  <h2 class="mb-4 text-[20px] font-semibold md:text-center">발신번호</h2>
                   <div>
                     <select
                       class="select-input w-full h-[61px] p-[20px] bg-[#F4F5F6] appearance-none lg:text-sm"
@@ -102,7 +102,7 @@
                   </div>
                 </div>
                 <div class="mt-8 pt-8 border-t border-gray-600">
-                  <h2 class="mb-4 text-[20px] font-semibold">메세지 입력</h2>
+                  <h2 class="mb-4 text-[20px] font-semibold md:text-center">메세지 입력</h2>
                   <div class="w-full h-[723px] rounded-lg bg-[#F6F6F6] p-6">
                     <input
                       class="w-full h-[61px] placeholder-gray-500 rounded-lg p-5 lg:text-[12px] lg:p-2"
@@ -160,11 +160,7 @@
                         <h2 class="text-[15px] font-semibold lg:text-sm">
                           광고성 문자(080 수신거부번호 포함)
                         </h2>
-                        <img
-                          src="/public/images/icon2/icon_button.svg"
-                          alt="button"
-                          class="lg: w-12"
-                        />
+                        <toggleInput/>
                       </div>
                       <div class="w-full flex-col mt-4 gap-4">
                         <h2 class="text-[15px] font-semibold">이미지 추가</h2>
@@ -185,6 +181,10 @@
                   </div>
                 </div>
               </div>
+              <!--미리보기란 -->
+              <!-- <div>
+                <h2 class="hidden md:block text-center mt-12 text-2xl">미리 보기</h2>
+              </div> -->
               <div class="message-right">
                 <img src="/public/images/icon2/icon_arrow.svg" alt="arrow" />
               </div>
@@ -192,7 +192,7 @@
             <div
               class="w-full h-[172px] mt-[34px] py-8 border-y border-gray-700"
             >
-            <h2 class="mb-4 text-[20px] font-semibold">발송 설정</h2>
+            <h2 class="mb-4 text-[20px] font-semibold md:text-center">발송 설정</h2>
             <div class="flex gap-[15px]">
             <button class="flex-center items-center w-[274px] h-[66px] text-[#4F44F0] bg-white border-2 rounded-lg border-[#4F44F0] p-5 lg:w-1/2">
               <img src="/public/images/icon2/icon_check_color.svg" alt="check" />
@@ -220,12 +220,14 @@
 
 import threeRadio from '@/components/message/threeRadio.vue';
 import twoRadio from '@/components/message/twoRadio.vue';
+import toggleInput from '@/components/message/toggleInput.vue';
 
 export default {
   name: "Message",
   components: {
 "threeRadio":threeRadio,
 "twoRadio":twoRadio,
+"toggleInput" : toggleInput,
 }
 };
 </script>
