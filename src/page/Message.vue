@@ -196,11 +196,11 @@
             <div class="flex gap-[15px]">
             <button class="flex-center items-center w-[274px] h-[66px] text-[#4F44F0] bg-white border-2 rounded-lg border-[#4F44F0] p-5 lg:w-1/2">
               <img src="/images/icon2/icon_check_color.svg" alt="check" />
-              <h2 class="text-xl mt-[2px] mr-3 sm:text-sm">즉시 발송</h2>
+              <h2 class="text-xl mt-[2px] mr-3 md:text-sm sm:text-[12px]">즉시 발송</h2>
             </button>
             <button class="flex-center items-center w-[274px] h-[66px] text-[#747B84] bg-[#F2F5F9] rounded-lg  p-5 lg:w-1/2">
               <img src="/images/icon2/icon_check_gray.svg" alt="check" />
-              <h2 class="text-xl mt-[2px] mr-3 sm:text-sm">예약 발송</h2>
+              <h2 class="text-xl mt-[2px] mr-3 md:text-sm sm:text-[12px]">예약 발송</h2>
             </button>
           </div>
           </div>

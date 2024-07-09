@@ -52,7 +52,7 @@
         :class="['black-header', { 'fixed-header': isScrolled }]"
         class="flex-center items-center w-full"
       >
-        <div class="wrapper flex gap-[201px] items-center lg:justify-between">
+        <div class="wrapper flex gap-[201px] items-center lg:justify-between lg:p-4">
           <router-link to="/">
             <img
               class="w-[142px] h-44px"
@@ -119,7 +119,7 @@
         class="flex-center items-center w-full"
       >
         <div
-          class="wrapper flex w-full items-center gap-[201px] lg:justify-between"
+          class="wrapper flex w-full items-center gap-[201px] lg:justify-between lg:p-4"
         >
           <router-link to="/">
             <img
