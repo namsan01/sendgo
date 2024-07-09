@@ -7,6 +7,7 @@ module.exports = {
       'base': {'max': '1280px'},
       'lg': {'max': '1024px'},
       'md': {'max': '768px'},
+      'sm' : {'max' : '425px' }
     }
   },
   plugins: []

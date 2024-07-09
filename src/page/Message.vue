@@ -2,7 +2,7 @@
   <div>
     <div class="h-[2400px] md:h-[3000px]">
       <div class="sub-header w-full bg-white">
-        <div class="flex justify-end w-[1223px] gap-2 base:w-[960px] lg:w-[760px] md:w-[360px]">
+        <div class="flex justify-end w-[1223px] gap-2 base:w-[960px] lg:w-[760px] md:w-[420px] sm:w-[360px]">
           <router-link to="" 
           :style="{background:'#e1e7fd' , color:'#4F44F0'}"
           >메세지 전송</router-link>
@@ -13,7 +13,7 @@
       </div>
       <div class="w-full h-full flex-center bg-[#F2F4F8] ">
         <div class="content-wrap">
-          <div class="flex-col items-center px-24 pt-[53px] w-full bg-white rounded-3xl md:px-0 h-auto ">
+          <div class="flex-col items-center px-24 pt-[53px] w-full bg-white rounded-3xl md:px-2 h-auto ">
             <h2 class="text-3xl font-bold mb-9">메세지 전송</h2>
             <threeRadio />
             <div class="text1">
@@ -30,9 +30,9 @@
               <div class="message-left w-[55%] md:w-[100%] ">
                 <div>
                   <h1 class="mb-4 text-[20px] font-semibold md:text-center">수신번호</h1>
-                  <div class="message-number gap-2">
+                  <div class="message-number gap-2 md:justify-center">
                     <input
-                      class="w-[80%] outline-none base:w-[54%] lg:w-[34%] text-sm md:w-[42%]"
+                      class="w-[80%] outline-none base:w-[54%] lg:w-[34%] text-sm md:w-[77%]"
                       type="number"
                       placeholder="휴대번호 (숫자만 입력)"
                     />
@@ -41,7 +41,7 @@
                         src="/images/icon2/icon_plus.svg"
                         alt="plus"
                       />
-                      <h3 class="mt-[2px] lg:text-lg lg:mt-[3px]">추가</h3>
+                      <h3 class="mt-[2px] lg:text-lg lg:mt-[3px] md:hidden">추가</h3>
                     </button>
                   </div>
                   <div class="message-text">
@@ -59,14 +59,14 @@
                       </button>
                     </div>
                   </div>
-                  <div class="mt-[14px] w-full h-[61px] flex gap-2">
+                  <div class="mt-[14px] w-full h-[61px] flex gap-2 justify-between">
                     <div class="message-option">
                       <img
                         src="/images/icon2/icon_person.svg"
                         alt="icon"
                         class="lg:hidden"
                       />
-                      <h2 class="mt-[2px] base:mt-[1px] base:mr-[6px] lg:mt-0 lg:mr-0 text-sm">주소록 불러오기</h2>
+                      <h2 class="mt-[2px] base:mt-[1px] base:mr-[6px] lg:mt-0 lg:mr-0 text-sm sm:text-[0.7rem]">주소록 불러오기</h2>
                     </div>
                     <div class="message-option">
                       <img
@@ -74,7 +74,7 @@
                         alt="icon"
                         class="lg:hidden"
                       />
-                      <h2 class="mt-[3px] base:mt-[2px] base:mr-2 lg:mt-0 lg:mr-0 text-sm">파일 불러오기</h2>
+                      <h2 class="mt-[3px] base:mt-[2px] base:mr-2 lg:mt-0 lg:mr-0 text-sm sm:text-[0.7rem]">파일 불러오기</h2>
                     </div>
                     <div class="message-option">
                       <img
@@ -82,7 +82,7 @@
                         alt="icon"
                         class="lg:hidden"
                       />
-                      <h2 class="mt-[5px] base:mt-[1px] base:mr-2 lg:mt-0 lg:mr-0 text-sm">최근 전송 내역</h2>
+                      <h2 class="mt-[5px] base:mt-[1px] base:mr-2 lg:mt-0 lg:mr-0 text-sm sm:text-[0.7rem]">최근 전송 내역</h2>
                     </div>
                   </div>
                 </div>
@@ -155,9 +155,9 @@
                         </button>
                       </div>
                       <div
-                        class="flex justify-between items-center w-full h-[75px] border-y border-gray-600"
+                        class="flex justify-between items-center w-full h-[75px] border-y border-gray-600 sm:gap-2 "
                       >
-                        <h2 class="text-[15px] font-semibold lg:text-sm">
+                        <h2 class="text-[15px] font-semibold lg:text-sm sm:text-[0.75rem]">
                           광고성 문자(080 수신거부번호 포함)
                         </h2>
                         <toggleInput/>
@@ -192,15 +192,15 @@
             <div
               class="w-full h-[172px] mt-[34px] py-8 border-y border-gray-700"
             >
-            <h2 class="mb-4 text-[20px] font-semibold md:text-center">발송 설정</h2>
+            <h2 class="mb-4 text-[20px] font-semibold sm:text-center">발송 설정</h2>
             <div class="flex gap-[15px]">
             <button class="flex-center items-center w-[274px] h-[66px] text-[#4F44F0] bg-white border-2 rounded-lg border-[#4F44F0] p-5 lg:w-1/2">
               <img src="/images/icon2/icon_check_color.svg" alt="check" />
-              <h2 class="text-xl mt-[2px] mr-3">즉시 발송</h2>
+              <h2 class="text-xl mt-[2px] mr-3 sm:text-sm">즉시 발송</h2>
             </button>
             <button class="flex-center items-center w-[274px] h-[66px] text-[#747B84] bg-[#F2F5F9] rounded-lg  p-5 lg:w-1/2">
               <img src="/images/icon2/icon_check_gray.svg" alt="check" />
-              <h2 class="text-xl mt-[2px] mr-3">예약 발송</h2>
+              <h2 class="text-xl mt-[2px] mr-3 sm:text-sm">예약 발송</h2>
             </button>
           </div>
           </div>
@@ -437,7 +437,7 @@ input::-webkit-inner-spin-button {
 }
 
 .content-wrap {
-width: 360px;
+width: 80%
 
 }
 .message-option {
@@ -454,6 +454,13 @@ margin-bottom: 7rem;
 
 .message-right img {
   display: none;
+}
+
+.message-number {
+  width: 100%;
+}
+.message-number button {
+  justify-content: center;
 }
 }
 

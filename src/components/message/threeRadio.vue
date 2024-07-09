@@ -70,7 +70,7 @@
 }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .radioStyle span {
   width: 96px;
   height: 48px;
@@ -78,5 +78,12 @@
 }
 }
 
+@media (max-width: 425px) {
+  .radioStyle span {
+  width: 82px;
+  height: 48px;
+  font-size: 12px;
+}
+}
 
 </style>
