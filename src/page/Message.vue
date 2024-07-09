@@ -66,7 +66,7 @@
                         alt="icon"
                         class="lg:hidden"
                       />
-                      <h2 class="mt-[2px] base:mt-[1px] base:mr-[6px] lg:mt-0 lg:mr-0 text-sm sm:text-[0.7rem]">주소록 불러오기</h2>
+                      <h2 class="mt-[2px] mr-2 base:mt-[1px] lg:mt-0 lg:mr-0 text-sm sm:text-[0.7rem]">주소록 불러오기</h2>
                     </div>
                     <div class="message-option">
                       <img
@@ -74,7 +74,7 @@
                         alt="icon"
                         class="lg:hidden"
                       />
-                      <h2 class="mt-[3px] base:mt-[2px] base:mr-2 lg:mt-0 lg:mr-0 text-sm sm:text-[0.7rem]">파일 불러오기</h2>
+                      <h2 class="mt-[3px] mr-2 base:mt-[2px] lg:mt-0 lg:mr-0 text-sm sm:text-[0.7rem]">파일 불러오기</h2>
                     </div>
                     <div class="message-option">
                       <img
@@ -82,7 +82,7 @@
                         alt="icon"
                         class="lg:hidden"
                       />
-                      <h2 class="mt-[5px] base:mt-[1px] base:mr-2 lg:mt-0 lg:mr-0 text-sm sm:text-[0.7rem]">최근 전송 내역</h2>
+                      <h2 class="mt-[5px] mr-2 base:mt-[1px] lg:mt-0 lg:mr-0 text-sm sm:text-[0.7rem]">최근 전송 내역</h2>
                     </div>
                   </div>
                 </div>

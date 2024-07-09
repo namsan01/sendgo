@@ -30,7 +30,7 @@
                 'text-[#4E43ED]': isCurrentRoute('/message'),
               }"
             >
-              <span class="md:text-xl">메시지</span>
+              <span class="md:text-xl sm:text-[1.24rem]">메시지</span>
             </router-link>
             <router-link
               to="/credit"
@@ -38,7 +38,7 @@
                 'text-[#4E43ED]': isCurrentRoute('/credit'),
               }"
             >
-              <span class="md:text-xl">크레딧</span>
+              <span class="md:text-xl sm:text-[1.24rem]">크레딧</span>
             </router-link>
           </div>
         </div>
