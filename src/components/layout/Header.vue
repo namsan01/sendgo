@@ -7,7 +7,7 @@
         :class="[
           'fixed right-0 top-20 duration-300 w-screen h-[10vh] px-[80px] opacity-100 z-30',
           !isRootPath
-            ? 'bg-white'
+            ? 'bg-white/95'
             : isScrolled
             ? 'bg-white/95'
             : 'bg-black border-y',
