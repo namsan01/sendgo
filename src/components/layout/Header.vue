@@ -49,7 +49,7 @@
     <header>
       <div
         v-if="isRootPath"
-        :class="['black-header', { 'fixed-header': isScrolled }]"
+        :class="['black-header']"
         class="flex-center items-center w-full"
       >
         <div class="wrapper flex gap-[201px] items-center lg:justify-between lg:p-4">
@@ -259,11 +259,7 @@ export default {
   transform: translateY(-100%);
 }
 
-.fixed-header {
-  width: 100%;
-  z-index: 1;
-  transition: all 0.5s ease-in-out;
-}
+
 
 .black-header {
   position: absolute;

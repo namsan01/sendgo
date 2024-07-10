@@ -40,6 +40,7 @@
 }
 
 .radioStyle span {
+  cursor: pointer;
   text-align: center;
   width: 333px;
   height: 63px;

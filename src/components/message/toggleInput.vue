@@ -14,6 +14,7 @@
   
   <style scoped>
   .toggle-input {
+    cursor: pointer;
     appearance: none;
     position: relative;
     border: 2px solid gray;
