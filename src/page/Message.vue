@@ -1,28 +1,35 @@
 <template>
   <div>
     <div class="h-[2400px] md:h-[3000px]">
-      <div class="sub-header w-full bg-white">
+      <div class="flex-center items-center w-full h-[100px] gap-2 bg-white">
         <div
           class="flex justify-end w-[1223px] gap-2 base:w-[960px] lg:w-[760px] md:w-[420px] sm:w-[360px]"
         >
           <router-link
+          class="text-center content-center w-[155px] h-[56px] rounded-[13px] text-[#555555] text-base lg:w-[116px] lg:text-[14px]"
             to=""
             :style="{ background: '#e1e7fd', color: '#4F44F0' }"
             >메세지 전송</router-link
           >
-          <router-link to="">발신번호 관리</router-link>
-          <router-link to="">주소록 관리</router-link>
-          <router-link to="">발송 결과</router-link>
+          <router-link 
+          class="text-center content-center w-[155px] h-[56px] rounded-[13px] text-[#555555] text-base lg:w-[116px] lg:text-[14px]"
+          to="">발신번호 관리</router-link>
+          <router-link 
+          class="text-center content-center w-[155px] h-[56px] rounded-[13px] text-[#555555] text-base lg:w-[116px] lg:text-[14px]"
+          to="">주소록 관리</router-link>
+          <router-link 
+          class="text-center content-center w-[155px] h-[56px] rounded-[13px] text-[#555555] text-base lg:w-[116px] lg:text-[14px]"
+          to="">발송 결과</router-link>
         </div>
       </div>
       <div class="w-full h-full flex-center bg-[#F2F4F8]">
-        <div class="content-wrap">
+        <div class="w-[1223px] h-[1500px] bg-white mt-14 rounded-3xl base:w-[960px] lg:w-[760px] md:w-4/5">
           <div
             class="flex-col items-center px-24 pt-[53px] w-full bg-white rounded-3xl md:px-2 h-auto"
           >
             <h2 class="text-3xl font-bold mb-9">메세지 전송</h2>
             <threeRadio />
-            <div class="text1">
+            <div class="w-full text-left mt-8 text-[14px] text-[#525252] pb-8 border-b border-[#707070]">
               <h2>
                 · 간편하게 한 화면에서 단문, 장문 포토메세지를 발송할 수
                 있습니다.
@@ -33,35 +40,35 @@
               </h2>
             </div>
             <div class="flex w-full pt-8 gap-[68px] md:flex-col md:gap-0">
-              <div class="message-left w-[55%] md:w-[100%]">
+              <div class="message-left flex-col w-[55%] md:w-[100%]">
                 <div>
                   <h1 class="mb-4 text-[20px] font-semibold md:text-center">
                     수신번호
                   </h1>
-                  <div class="message-number gap-2 md:justify-center">
+                  <div class="flex w-[562px] h-[61px] gap-2 md:justify-center md:w-full">
         <input
-          class="w-[80%] outline-none base:w-[54%] lg:w-[34%] text-sm md:w-[77%]"
+          class="w-[80%] h-[61px] rounded-lg bg-[#f4f5f6] p-5 outline-none base:w-[54%] lg:w-[34%] text-sm md:w-[70%]"
           type="tel"
           placeholder="휴대번호 (숫자만 입력)"
           v-model="number"
           maxlength="13"
           @input="formatPhoneNumber"
         />
-        <button class="w-[20%]" @click="addnumber">
+        <button class="h-[61px] flex items-center p-[17px] bg-[#4f44f0] rounded-lg text-xl text-white w-[20%] md:w-[30%] justify-center" @click="addnumber">
           <img src="/images/icon2/icon_plus.svg" alt="plus" />
-          <h3 class="mt-[2px] lg:text-lg lg:mt-[3px] md:hidden">추가</h3>
+          <h3 class="mt-[2px] mr-2 lg:text-lg lg:mt-[3px] md:hidden md:mr-0">추가</h3>
         </button>
       </div>
-<div class="message-text">
+<div class="h-[238px] bg-white rounded-lg border border-[#cecece] mt-[14px]">
   <textarea
-  class="w-full h-[80%] placeholder-gray-500 lg:text-sm"
+  class="w-full h-[80%] placeholder-gray-500 lg:text-sm p-5 resize-none rounded-lg outline-none select-none"
   placeholder="번호를 입력하거나 후 엔터 혹은 추가하기를 클릭해 주세요.
 최대 1만 건까지 붙여넣기 가능합니다."
   readonly
   v-if="formattedNumbers.length === 0"
 >{{ formattedNumbers }}</textarea>
 <textarea
-  class="w-full h-[80%] placeholder-gray-500 lg:text-sm"
+class="w-full h-[80%] placeholder-gray-500 lg:text-sm p-5 resize-none rounded-lg outline-none select-none"
   readonly
   v-else
 >{{ formattedNumbers }}</textarea>
@@ -79,7 +86,7 @@
                   <div
                     class="mt-[14px] w-full h-[61px] flex gap-2 justify-between"
                   >
-                    <div class="message-option">
+                    <div class="cursor-pointer flex-center items-center w-[182px] h-[61px] bg-white border border-[#cecece] rounded-lg base:text-[14px] lg:text-[10px]">
                       <img
                         src="/images/icon2/icon_person.svg"
                         alt="icon"
@@ -91,7 +98,7 @@
                         주소록 불러오기
                       </h2>
                     </div>
-                    <div class="message-option">
+                    <div class="cursor-pointer flex-center items-center w-[182px] h-[61px] bg-white border border-[#cecece] rounded-lg base:text-[14px] lg:text-[10px]">
                       <img
                         src="/images/icon2/icon_page.svg"
                         alt="icon"
@@ -103,7 +110,7 @@
                         파일 불러오기
                       </h2>
                     </div>
-                    <div class="message-option">
+                    <div class="cursor-pointer flex-center items-center w-[182px] h-[61px] bg-white border border-[#cecece] rounded-lg base:text-[14px] lg:text-[10px]">
                       <img
                         src="/images/icon2/icon_clock.svg"
                         alt="icon"
@@ -140,7 +147,7 @@
                   </h2>
                   <div class="w-full h-[723px] rounded-lg bg-[#F6F6F6] p-6">
                     <input
-                      class="w-full h-[61px] placeholder-gray-500 rounded-lg p-5 lg:text-[12px] lg:p-2"
+                      class="w-full h-[61px] placeholder-gray-500 rounded-lg p-5 lg:text-[12px] "
                       :placeholder="messageType === '단문 SMS' ? '제목을 입력해주세요. (최대 30byte)' : '제목을 입력해주세요.'"
                       v-model="messageTitle"
                     />
@@ -168,9 +175,10 @@
                         </button>
                       </div>
                     </div>
-                    <div class="message-text">
+                    <div class="h-[238px] bg-white rounded-lg border border-[#cecece] mt-[14px]">
                       <textarea
-                        class="w-full h-[70%] placeholder-gray-500 lg:text-sm"
+                      class="w-full h-[70%] placeholder-gray-500 lg:text-sm p-5 resize-none rounded-lg outline-none select-none"
+                        
                         placeholder="내용을 입력해 주세요. 90byte 초과 시 장문 문자로,
 이미지 추가 시 포토 문자로 자동 전환 됩니다."
                         v-model="messageContent"
@@ -206,56 +214,61 @@
                       </div>
                       <div class="w-full flex-col mt-4 gap-4">
   <h2 class="text-[15px] font-semibold">이미지 추가</h2>
-  <label class="relative cursor-pointer w-auto">
+  <div class="w-full h-[100px] flex items-center gap-2">
+  <label class=" relative cursor-pointer w-auto">
     <input type="file" style="display:none" ref="fileInput" multiple @change="handleFileUpload">
-    <img src="/images/icon2/icon_plus_bt.svg" alt="bt" class="lg:w-[75px] h-[75px] pr-6" :style="{ width: '100px' }"/>
+    <img src="/images/icon2/icon_plus_bt.svg" alt="bt" class="w-[100p] h-[100px] lg:w-[75px] lg:h-[75px] md:w-[50px] md:h-[50px]"/>
   </label>
+  <div v-if="images.length" class="flex flex-wrap gap-[10px]">
+    <div v-for="(image, index) in images" :key="index" class="relative w-[100px] h-[100px] border-2 border-[#CECECE] rounded-lg overflow-hidden lg:w-[75px] lg:h-[75px] md:w-[50px] md:h-[50px]" >
+      <img class="w-full h-full object-cover" :src="image.url" :alt="'Image ' + (index + 1)" />
+      <button class="absolute top-[5px] right-[5px] text-black border-1 border-[#d9d9d9] rounded-[3px] cursor-pointer md:top-0 md:right-[8px] " @click="removeImage(index)">X</button>
+    </div>
+  </div>
+</div>
   <div class="text-sm" :style="{ color: '#797979' }">
     <h2>· 이미지는 최대 3장까지 첨부 가능합니다.</h2>
     <h2>· 이미지 파일 형식은 JPG, PNG, GIF만 가능합니다.</h2>
-  </div>
-  <div v-if="images.length" class="image-preview-container">
-    <div v-for="(image, index) in images" :key="index" class="image-preview">
-      <img :src="image.url" :alt="'Image ' + (index + 1)" />
-      <button @click="removeImage(index)">삭제</button>
-    </div>
   </div>
 </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <!--미리보기란 -->
-              <!-- <div>
-                <h2 class="hidden md:block text-center mt-12 text-2xl">미리 보기</h2>
-              </div> -->
-              <div class="message-right">
-                <img src="/images/icon2/icon_arrow.svg" alt="arrow" />
+              
+              <div class="hidden md:block text-center py-6  text-2xl">
+                <h2 >미리 보기</h2>
+              </div>
+              <div class="message-right sticky top-[70px] w-[401px] h-[775px] flex-col flex-wrap bg-[#eaf8ff] rounded-[22px] border-[5px] border-[#4d4d4d] pt-5 pr-4 pb-0 pl-4 base:pl-[10px] base:pt-[15px] base:h-[480px] lg:h-[360px] md:w-4/5 md:h-[360px] p-5 md:self-center">
+                <img class="w-10 transform rotate-90 lg:w-[25px] md:hidden" src="/images/icon2/icon_arrow.svg" alt="arrow" />
                 <div class="w-full flex-col flex-wrap p-4 gap-6">
                   <h1 class="text-3xl">{{ messageTitle }}</h1>
                   <span class="text-xl">{{ messageContent }} </span>
                 </div>
-              </div>
+            </div>
             </div>
             <div
-              class="w-full h-[172px] mt-[34px] py-8 border-y border-gray-700"
+              class="w-full h-[172px] mt-[34px] py-8 border-y border-gray-700 md:py-6"
             >
-              <h2 class="mb-4 text-[20px] font-semibold sm:text-center">
+              <h2 class="mb-4 text-[20px] font-semibold md:text-center">
                 발송 설정
               </h2>
               <div class="flex gap-[15px]">
+                <input type="hidden" v-model="buttonValue">
                 <button
-                  class="flex-center items-center w-[274px] h-[66px] text-[#4F44F0] bg-white border-2 rounded-lg border-[#4F44F0] p-5 lg:w-1/2"
+                @click="toggleButton('button1')" :class="{ 'active-button': buttonValue === 'button1' }"
+                class="flex-center items-center w-[274px] h-[66px] text-[#747B84] bg-[#F2F5F9] rounded-lg p-5 lg:w-1/2"
                 >
-                  <img src="/images/icon2/icon_check_color.svg" alt="check" />
+                <img :src="buttonValue === 'button1' ? '/images/icon2/icon_check_color.svg' : '/images/icon2/icon_check_gray.svg'" alt="check" />
                   <h2 class="text-xl mt-[2px] mr-3 md:text-sm sm:text-[12px]">
                     즉시 발송
                   </h2>
                 </button>
                 <button
+                @click="toggleButton('button2')" :class="{ 'active-button': buttonValue === 'button2' }"
                   class="flex-center items-center w-[274px] h-[66px] text-[#747B84] bg-[#F2F5F9] rounded-lg p-5 lg:w-1/2"
                 >
-                  <img src="/images/icon2/icon_check_gray.svg" alt="check" />
+                <img :src="buttonValue === 'button2' ? '/images/icon2/icon_check_color.svg' : '/images/icon2/icon_check_gray.svg'" alt="check" />
                   <h2 class="text-xl mt-[2px] mr-3 md:text-sm sm:text-[12px]">
                     예약 발송
                   </h2>
@@ -291,6 +304,7 @@ export default {
       number : "",
       numbers: [],
       images: [], 
+      buttonValue: 'button1'
     };
   },
   computed: {
@@ -299,7 +313,6 @@ export default {
     return byteLength <= 90 ? "단문 SMS" : "장문 문자";
   },
   formattedNumbers() {
-  
       return this.numbers.join(' , ');
     }
 },
@@ -384,142 +397,25 @@ methods: {
     removeImage(index) {
       this.images.splice(index, 1);
     },
+    
+    toggleButton(value) {
+      this.buttonValue = value;
+    },
+  
   },
+  watch: {
+    images(newValue) {
+      if (newValue.length > 3) {
+        alert('이미지는 최대 3개까지만 추가할 수 있습니다.');
+        this.images.pop(); 
+      }
+    }
+  }
 };
+
 </script>
 
 <style scoped>
-.sub-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-  gap: 8px;
-}
-
-.sub-header a {
-  text-align: center;
-  align-content: center;
-  width: 155px;
-  height: 56px;
-  border-radius: 13px;
-  color: #555555;
-}
-
-.content-wrap {
-  width: 1223px;
-  height: 1500px;
-  background: white;
-  margin-top: 56px;
-  border-radius: 24px;
-}
-
-.radioButtonStyle {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  gap: 16px;
-}
-
-.radioStyle {
-  font-size: 20px;
-  border-radius: 8px;
-}
-
-.radioStyle [type="radio"] {
-  display: none;
-}
-
-.radioStyle span {
-  text-align: center;
-  width: 333px;
-  height: 63px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  border-radius: 8px;
-  background: #f5f6fa;
-}
-
-.radioStyle [type="radio"]:checked + span {
-  color: #ffffff;
-  background: #4f44f0;
-}
-
-.text1 {
-  width: 100%;
-  text-align: left;
-  margin-top: 32px;
-  font-size: 14px;
-  color: #525252;
-  padding-bottom: 32px;
-  border-bottom: 1px solid #707070;
-}
-
-.message-left {
-  display: flex;
-  flex-direction: column;
-}
-
-.message-number {
-  width: 562px;
-  height: 61px;
-  display: flex;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.message-number input {
-  height: 61px;
-  border-radius: 8px;
-  background-color: #f4f5f6;
-  padding: 20px;
-}
-
-.message-number button {
-  display: flex;
-  align-items: center;
-  padding: 17px;
-  height: 61px;
-  background: #4f44f0;
-  border-radius: 8px;
-  font-size: 20px;
-  color: white;
-}
-
-.message-text {
-  height: 238px;
-  background: white;
-  border-radius: 8px;
-  border: 1px solid #cecece;
-  margin-top: 14px;
-}
-
-.message-text textarea {
-  padding: 20px;
-  resize: none;
-  border-radius: 8px;
-  user-select: none;
-  outline: none;
-}
-
-.message-option {
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 182px;
-  height: 61px;
-  background: #fff;
-  border: 1px solid #cecece;
-  border-radius: 8px;
-} 
 
 .select-input {
   background-image: url("/images/icon2/icon_arrow.svg");
@@ -529,125 +425,10 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
 }
 
-.message-right {
-  position: sticky;
-  position: -webkit-sticky;
-  top: 80px;
-  width: 401px;
-  height: 775px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  background: #eaf8ff;
-  border-radius: 22px;
-  border: 5px solid #4d4d4d;
-  padding: 20px 15px 0 15px;
+.active-button {
+  background: white;
+  color: #4F44F0;
+  border: 2px solid #4f44f0;
 }
 
-.message-right img {
-  width: 40px;
-  transform: rotate(90deg);
-}
-
-@media (max-width: 1280px) {
-  .content-wrap {
-    width: 960px;
-  }
-  .message-option {
-    font-size: 14px;
-  }
-
-  .message-right {
-    padding-left: 10px;
-    padding-top: 15px;
-    height: 480px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .sub-header a {
-    width: 116px;
-  }
-
-  .content-wrap {
-    width: 760px;
-  }
-  .message-option {
-    font-size: 10px;
-  }
-
-  .message-right {
-    height: 360px;
-  }
-
-  .message-right img {
-    width: 25px;
-  }
-}
-
-@media (max-width: 768px) {
-  .sub-header a {
-    width: 116px;
-    font-size: 14px;
-  }
-
-  .content-wrap {
-    width: 80%;
-  }
-  .message-option {
-    font-size: 10px;
-  }
-
-  .message-right {
-    position: relative;
-    width: 100%;
-    height: 360px;
-    margin-bottom: 7rem;
-  }
-
-  .message-right img {
-    display: none;
-  }
-
-  .message-number {
-    width: 100%;
-  }
-  .message-number button {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-.image-preview-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.image-preview {
-  position: relative;
-  width: 75px;
-  height: 75px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.image-preview img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.image-preview button {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
 </style>

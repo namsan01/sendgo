@@ -1,8 +1,6 @@
 <template>
   <div class="img-wrap">
-    <div>
       <img :src="`/images/main/${url}.png`" :alt="url" />
-    </div>
   </div>
 </template>
 

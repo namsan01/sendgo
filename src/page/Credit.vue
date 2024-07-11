@@ -1,23 +1,27 @@
 <template>
-  <div class="h-auto bg-[#f2f4f8] md:h-auto pb-24">
-    <div class="sub-header w-full bg-white">
+  <div class="h-auto bg-[#f2f4f8] pb-[200px] md:h-auto">
+    <div class="flex-center items-center w-full h-[100px] gap-2 bg-white">
       <div
         class="flex justify-end w-[1223px] gap-2 base:w-[960px] lg:w-[760px] md:w-[360px] md:justify-center"
       >
-        <router-link to="" :style="{ background: '#e1e7fd', color: '#4F44F0' }"
+        <router-link 
+        class="text-center content-center w-[155px] h-[56px] rounded-[13px] text-[#555555] text-base lg:w-[116px] lg:text-[14px]"
+        to="" :style="{ background: '#e1e7fd', color: '#4F44F0' }"
           >크레딧 구매</router-link
         >
-        <router-link to="">크레딧 내역</router-link>
+        <router-link 
+        class="text-center content-center w-[155px] h-[56px] rounded-[13px] text-[#555555] text-base lg:w-[116px] lg:text-[14px]"
+        to="">크레딧 내역</router-link>
       </div>
     </div>
     <div class="flex-col h-full items-center justify-center">
-      <h2 class="text-3xl font-bold mt-[109px] mb-[18px] base:mt-[50px]">크레딧 구매</h2>
+      <h2 class="text-3xl font-bold pt-[109px] mb-[18px] base:mt-[50px]">크레딧 구매</h2>
       <h2 class="mb-[53px]">
         메세지 전송을 위해 사용할 크레딧 상품을 선택해 주세요
       </h2>
       <div class="w-full flex-center">
       <div class="w-[1460px] h-auto flex gap-6 flex-wrap justify-center">
-        <div class="box1">
+        <div class="flex-col justify-around w-full max-w-[347px] h-[459px] bg-white rounded-lg p-8 shadow-lg md:p-4 ">
           <h2 class="font-bold text-3xl">30,000원</h2>
           <div class="text-[#7B7B7B]">
             <h2>총 66,667건 발송가능합니다</h2>
@@ -47,7 +51,7 @@
             구매하기
           </button>
         </div>
-        <div class="box1">
+        <div class="flex-col justify-around w-full max-w-[347px] h-[459px] bg-white rounded-lg p-8 shadow-lg md:p-4 ">
           <h2 class="font-bold text-3xl">10,000원</h2>
           <div class="text-[#7B7B7B]">
             <h2>총 76,667건 발송가능합니다</h2>
@@ -77,7 +81,7 @@
             구매하기
           </button>
         </div>
-        <div class="box1">
+        <div class="flex-col justify-around w-full max-w-[347px] h-[459px] bg-white rounded-lg p-8 shadow-lg md:p-4 ">
           <h2 class="font-bold text-3xl">30000원</h2>
           <div class="text-[#7B7B7B]">
             <h2>총 66,667건 발송가능합니다</h2>
@@ -107,7 +111,7 @@
             구매하기
           </button>
         </div>
-        <div class="box1">
+        <div class="flex-col justify-around w-full max-w-[347px] h-[459px] bg-white rounded-lg p-8 shadow-lg md:p-4 ">
           <h2 class="font-bold text-3xl">10,000원</h2>
           <div class="text-[#7B7B7B]">
             <h2>총 66,667건 발송가능합니다</h2>
@@ -150,59 +154,4 @@ export default {
 </script>
 
 <style scoped>
-.sub-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-  gap: 8px;
-}
-
-.sub-header a {
-  text-align: center;
-  align-content: center;
-  width: 155px;
-  height: 56px;
-  border-radius: 13px;
-  color: #555555;
-}
-
-.box1 {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 100%;
-  max-width: 347px;
-  height: 459px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 10px 10px #00000008;
-  padding: 32px;
-}
-
-@media (max-width: 1280px) {
-  .box1 {
-    width: 100%;
-  }
-  
-}
-
-
-@media (max-width: 1024px) {
-  .sub-header a {
-    width: 116px;
-  }
-  
-}
-
-@media (max-width: 768px) {
-  .sub-header a {
-    width: 116px;
-    font-size: 14px;
-  }
-
-  .box1 {
-    padding: 16px;
-  }
-}
 </style>

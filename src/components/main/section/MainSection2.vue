@@ -1,23 +1,23 @@
 <template>
-      <div class="text1 flex-col items-center w-full mt-[212px] mb-[249px] lg:mt-[142px]">
+      <div class="flex-col items-center w-full mt-[212px] mb-[249px] lg:mt-[142px]">
         <img
           src="/images/icon/icon_light.png"
           alt="logo"
           class="mb-[50px]"
         />
-        <h2>샌드고의 다양한</h2>
-        <h2>기능들을 살펴보세요</h2>
-        <h3 class="mt-[24px]">고객님들의 입장에서 고민하였습니다</h3>
+        <h2 class="text-[40px] font-bold md:text-[30px]">샌드고의 다양한</h2>
+        <h2 class="text-[40px] font-bold md:text-[30px]">기능들을 살펴보세요</h2>
+        <h3 class="mt-[24px] text-[20px]">고객님들의 입장에서 고민하였습니다</h3>
         <div class="w-full mt-24 gap-10">
           <div class="flex w-full gap-[54px] lg:flex-col items-center base:gap-9">
             <div
-              class="box2 w-[45%] flex-col justify-between lg:w-[50%] md:w-[75%] pr-[54px] md:items-center"
+              class="box2 w-[45%] flex-col justify-between lg:w-[50%] md:w-[75%] md:items-center md:pr-[54px]"
               :style="{ background: '#F8F9FA' }"
             >
               <div class="lg:flex-col items-center">
-                <h2 :style="{ color: '#000' }">자주 전송하는 내용이 있나요?</h2>
-                <h2>템플릿으로 메시지 내용을</h2>
-                <h2>저장하여 간편하게 전송하세요</h2>
+                <h2 class="text-[40px] font-bold" :style="{ color: '#000' }">자주 전송하는 내용이 있나요?</h2>
+                <h2 class="text-[40px] font-bold">템플릿으로 메시지 내용을</h2>
+                <h2 >저장하여 간편하게 전송하세요</h2>
               </div>
               <div class="items-end">
                 <img src="/images/main/main7x2.png" 
@@ -87,16 +87,6 @@
 </script>
 
 <style scoped>
-.text1 h2 {
-  font-size: 40px;
-  font-weight: 700;
-}
-
-.text1 h3 {
-  font-size: 20px;
-  color: #5c5c5c;
-  font-weight: 600;
-}
 
 .box1 {
   width: 444px;
@@ -192,9 +182,6 @@
 }
 
 @media (max-width: 768px) {
-.text1 h2 {
-font-size: 30px;
-}
 
 .box2 h2 {
 font-size : 15px;
