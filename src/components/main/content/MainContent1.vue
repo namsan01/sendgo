@@ -1,35 +1,37 @@
 <template>
-  <div class="flex w-full h-[995px] bg-black duration-1000 lg:h-auto lg:flex-col gap-20 overflow-hidden ">
-    <div class="flex-center flex-col items-center bg-black flex-1 gap-[32.5px] xl:gap-6 lg:mt-36">
-      <span class="text-2xl mr-[6.3rem] text-white font-bold xl:mr-[1rem] xl:text-xl lg:text-2xl "
+  <div class="flex w-full h-[995px] bg-black duration-500 transition-all base:h-[1280px] base:flex-col base:items-center overflow-hidden base:gap-20">
+    <div class="flex-center flex-col items-center bg-black flex-1 gap-[32.5px] base:pt-24 md:items-center md:gap-4">
+      <span class="text-2xl mr-[6.3rem] text-white font-bold md:mr-0 md:text-xl"
         >인터넷 문자 메시지 전송의 모든 것</span
       >
-      <div class="flex-col font-bold text-[50px] xl:text-[40px] lg:text-[50px] md:text-[40px] justify-center">
+      <div class="flex-col font-bold text-[50px]">
         <span class="gradient-text">가장 빠르고 안정적인</span>
         <span class="gradient-text">문자 서비스 SENDGO</span>
       </div>
-      <div class="flex gap-[21px] xl:">
-        <ButtonBox text="회원가입" />
-        <ButtonBox text="로그인" :style="{ background: '#242424' }" />
+      <div class="flex gap-[21px]">
+        <ButtonBox text="회원가입" url="" />
+        <ButtonBox text="로그인" url="" :style="{ background: '#242424' }" />
       </div>
     </div>
-    <div class="flex-1 flex gap-8 items-end lg:items-start lg:justify-center">
-    <div class="flex-col justify-end gap-8 ">
+    <div class="flex-1 flex gap-8 items-end base:items-start base:pt-20 lg:flex-wrap lg:justify-center">
+    <div class="flex-col justify-end gap-8 base:justify-start ">
       <MainBox1 url="main1x2" />
-      <div class="w-full max-w-[254px]">
-      <img class="xl:rounded-[2rem]" :src="`/images/main/main2x2.png`" :alt="url" />
+      <div class="w-[254px]">
+      <img class="xl:rounded-[2rem]" :src="`/images/main/main2x2.png`" alt="main2" />
   </div>
     </div>
-    <div class="flex-col justify-center gap-8 lg: items-center mt-5 " >
-      <div class="w-full max-w-[254px] bg-[#37383e] rounded-b-[2rem] xl:rounded-[2rem]">
-      <img class="xl:rounded-[2rem]" :src="`/images/main/main4x2.png`" :alt="url" />
+    <div class="flex-col justify-center gap-8 base:mt-10" >
+      <div class="w-[254px] bg-[#37383e] rounded-b-[2rem] xl:rounded-[2rem]">
+      <img class="xl:rounded-[2rem]" :src="`/images/main/main4x2.png`" alt="main4" />
   </div>
-  <div class="w-full max-w-[254px] bg-[#6250ff] rounded-t-[2rem] xl:rounded-[2rem]">
-      <img class="xl:rounded-[2rem]" :src="`/images/main/main3x2.png`" :alt="url" />
+  <div class="w-[254px] bg-[#6250ff] rounded-t-[2rem] xl:rounded-[2rem]">
+      <img class="xl:rounded-[2rem]" :src="`/images/main/main3x2.png`" alt="main3" />
   </div>
     </div>
-    <div class="flex-col mb-[139px] gap-8 lg:mb-0">
-      <MainBox1 url="main5x2" />
+    <div class="flex-col mb-[139px] gap-8">
+      <div class="w-[254px] bg-[#6250ff] rounded-b-[2rem] xl:rounded-[2rem]">
+      <img class="xl:rounded-[2rem]" :src="`/images/main/main5x2.png`" alt="main5" />
+      </div>
       <MainBox2 url="main6x2" />
     </div>
   </div>
@@ -60,5 +62,10 @@ export default {
   -webkit-text-fill-color: transparent;
 }
 
+@media (max-width: 768px) {
+.gradient-text {
+  font-size: 40px;
+}
+}
 
 </style>

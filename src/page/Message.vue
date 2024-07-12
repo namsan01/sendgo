@@ -236,10 +236,10 @@ class="w-full h-[80%] placeholder-gray-500 lg:text-sm p-5 resize-none rounded-lg
                 </div>
               </div>
               
-              <div class="hidden md:block text-center py-6  text-2xl">
+              <div class="hidden md:block text-center py-6 text-xl font-semibold">
                 <h2 >미리 보기</h2>
               </div>
-              <div class="message-right sticky top-[70px] w-[401px] h-[775px] flex-col flex-wrap bg-[#eaf8ff] rounded-[22px] border-[5px] border-[#4d4d4d] pt-5 pr-4 pb-0 pl-4 base:pl-[10px] base:pt-[15px] base:h-[480px] lg:h-[360px] md:w-4/5 md:h-[360px] p-5 md:self-center">
+              <div class="message-right sticky top-[70px] w-[401px] h-[775px] flex-col flex-wrap bg-[#eaf8ff] rounded-[22px] border-[5px] border-[#4d4d4d] pt-5 pr-4 pb-0 pl-4 base:pl-[10px] base:pt-[15px] base:h-[480px] lg:h-[360px] md:w-4/5 md:h-auto md:min-h-[360px] p-5 md:self-center">
                 <img class="w-10 transform rotate-90 lg:w-[25px] md:hidden" src="/images/icon2/icon_arrow.svg" alt="arrow" />
                 <div class="w-full flex-col flex-wrap p-4 gap-6">
                   <h1 class="text-3xl">{{ messageTitle }}</h1>
@@ -253,30 +253,30 @@ class="w-full h-[80%] placeholder-gray-500 lg:text-sm p-5 resize-none rounded-lg
               <h2 class="mb-4 text-[20px] font-semibold md:text-center">
                 발송 설정
               </h2>
-              <div class="flex gap-[15px]">
+              <div class="flex gap-[15px] md:justify-center">
                 <input type="hidden" v-model="buttonValue">
                 <button
                 @click="toggleButton('button1')" :class="{ 'active-button': buttonValue === 'button1' }"
-                class="flex-center items-center w-[274px] h-[66px] text-[#747B84] bg-[#F2F5F9] rounded-lg p-5 lg:w-1/2"
+                class="flex-center items-center w-[274px] h-[66px] text-[#747B84] bg-[#F2F5F9] rounded-lg p-5 lg:w-1/2 md:w-1/3 transition-colors duration-300"
                 >
-                <img :src="buttonValue === 'button1' ? '/images/icon2/icon_check_color.svg' : '/images/icon2/icon_check_gray.svg'" alt="check" />
-                  <h2 class="text-xl mt-[2px] mr-3 md:text-sm sm:text-[12px]">
+                <img :src="buttonValue === 'button1' ? '/images/icon2/icon_check_color.svg' : '/images/icon2/icon_check_gray.svg'" alt="check" class="md:hidden"/>
+                  <h2 class="text-xl mt-[2px] mr-3 md:text-sm sm:text-[12px] md:m-0">
                     즉시 발송
                   </h2>
                 </button>
                 <button
                 @click="toggleButton('button2')" :class="{ 'active-button': buttonValue === 'button2' }"
-                  class="flex-center items-center w-[274px] h-[66px] text-[#747B84] bg-[#F2F5F9] rounded-lg p-5 lg:w-1/2"
+                  class="flex-center items-center w-[274px] h-[66px] text-[#747B84] bg-[#F2F5F9] rounded-lg p-5 lg:w-1/2 md:w-1/3 transition-colors duration-300"
                 >
-                <img :src="buttonValue === 'button2' ? '/images/icon2/icon_check_color.svg' : '/images/icon2/icon_check_gray.svg'" alt="check" />
-                  <h2 class="text-xl mt-[2px] mr-3 md:text-sm sm:text-[12px]">
+                <img :src="buttonValue === 'button2' ? '/images/icon2/icon_check_color.svg' : '/images/icon2/icon_check_gray.svg'" alt="check" class="md:hidden" />
+                  <h2 class="text-xl mt-[2px] mr-3 md:text-sm sm:text-[12px] md:m-0">
                     예약 발송
                   </h2>
                 </button>
               </div>
             </div>
               <button 
-              class="flex-center items-center mt-10 w-full h-[66px] bg-[#4F44F0] rounded-lg text-white text-[20px] mb-[72px]"
+              class="flex-center items-center mt-10 w-full h-[66px] bg-[#4F44F0] rounded-lg text-white text-[20px] mb-[72px] md:w-4/5"
               >발송하기</button>
           </div>
         </div>
@@ -287,14 +287,12 @@ class="w-full h-[80%] placeholder-gray-500 lg:text-sm p-5 resize-none rounded-lg
 
 <script>
 import threeRadio from "@/components/message/threeRadio.vue";
-import twoRadio from "@/components/message/twoRadio.vue";
 import toggleInput from "@/components/message/toggleInput.vue";
 
 export default {
   name: "Message",
   components: {
     threeRadio: threeRadio,
-    twoRadio: twoRadio,
     toggleInput: toggleInput,
   },
   data() {

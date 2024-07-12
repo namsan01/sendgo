@@ -11,28 +11,27 @@
         <div class="w-full mt-24 gap-10">
           <div class="flex w-full gap-[54px] lg:flex-col items-center base:gap-9">
             <div
-              class="box2 w-[45%] flex-col justify-between lg:w-[50%] md:w-[75%] md:items-center md:pr-[54px]"
-              :style="{ background: '#F8F9FA' }"
+              class="w-[45%] h-[597px] rounded-[25px] bg-[#F8F9FA] pl-[54px] pt-[72px] overflow-hidden flex-col justify-between base:h-[500px] lg:pt-[49px] lg:w-[50%] md:w-[75%] md:items-center md:pr-[54px] md:h-[300px] md:pt-[30px]"
             >
               <div class="lg:flex-col items-center">
-                <h2 class="text-[40px] font-bold" :style="{ color: '#000' }">자주 전송하는 내용이 있나요?</h2>
-                <h2 class="text-[40px] font-bold">템플릿으로 메시지 내용을</h2>
-                <h2 >저장하여 간편하게 전송하세요</h2>
+                <h2 class="text-[30px] font-bold text-[#000] base:text-[25px] md:text-[15px] ">자주 전송하는 내용이 있나요?</h2>
+                <h2 class="text-[30px] font-bold text-[#727b88] base:text-[25px] md:text-[15px]">템플릿으로 메시지 내용을</h2>
+                <h2 class="text-[30px] font-bold text-[#727b88] base:text-[25px] md:text-[15px]" >저장하여 간편하게 전송하세요</h2>
               </div>
               <div class="items-end">
                 <img src="/images/main/main7x2.png" 
                 class="md:h-[138px]"/>
               </div>
             </div>
-            <div class="box2 w-[55%] flex-col justify-between pr-[61px] lg:w-[50%] lg:pr-[40px] md:w-[75%] md:pr-[54px] md:items-center">
+            <div class="w-[55%] flex-col justify-between h-[597px] rounded-[25px] bg-[#e9ebfd] pl-[54px] pr-[61px] pt-[72px] overflow-hidden  base:h-[500px] lg:pt-[49px] lg:w-[50%] lg:pr-[40px] md:w-[75%] md:pr-[54px] md:items-center md:h-[300px] md:pt-[30px]">
               <div>
                 <h2 class="gradient-text">
                   크레딧 구매시, 보너스 크레딧 증정
                 </h2>
-                <h2 :style="{ color: '#7079CB' }">
+                <h2 class="text-[30px] font-bold text-[#7079CB] base:text-[25px] md:text-[15px]">
                   크레딧 상품을 구매하면 상품 별
                 </h2>
-                <h2 :style="{ color: '#7079CB' }">
+                <h2 class="text-[30px] font-bold text-[#7079CB] base:text-[25px] md:text-[15px]">
                   보너스 크레딧을 증정합니다
                 </h2>
               </div>
@@ -88,42 +87,6 @@
 
 <style scoped>
 
-.box1 {
-  width: 444px;
-  height: 349px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 1rem;
-  background: #f0f0fa;
-  gap: 22px;
-}
-
-.box1 h2 {
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.box1 h3 {
-  font-size: 16px;
-}
-
-.box2 {
-  height: 597px;
-  border-radius: 25px;
-  background: #e9ebfd;
-  padding-left: 54px;
-  padding-top: 72px;
-  overflow: hidden;
-}
-
-.box2 h2 {
-  font-size: 30px;
-  color: #727b88;
-  font-weight: bold;
-}
-
 .box3 {
   height: 720px;
   border-radius: 25px;
@@ -140,6 +103,8 @@
 }
 
 .gradient-text {
+  font-size: 30px;
+  font-weight: 700;
   background: linear-gradient(270deg, #6264f6 0%, #7f3add 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -147,50 +112,17 @@
 
 
 @media (max-width: 1280px) {
-
-.box2 {
-  height: 500px;
-  padding-top: 49px;
-}
-
-.box3 {
-  padding-top: 49px;
-  height: 500px;
-}
-
-.box2 h2{
-  font-size: 25px;
-
-}
-.box3 h2 {
+.gradient-text {
   font-size: 25px;
 }
 }
 
-
-
-
-@media (max-width: 1024px) {
-
-.box2 {
-  padding-top: 49px;
-  height: 500px;
-}
-.box3 {
-  width: 50%;
-}
-}
 
 @media (max-width: 768px) {
-
-.box2 h2 {
+.gradient-text {
 font-size : 15px;
 }
 
-.box2 {
-  padding-top: 30px;
-  height: 300px;
-}
 .box3 {
   width: 75%;
   height: 300px;
