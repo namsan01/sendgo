@@ -1,27 +1,7 @@
 <template>
   <div>
     <div class="h-[2400px] md:h-[3000px]">
-      <div class="flex-center items-center w-full h-[100px] gap-2 bg-white">
-        <div
-          class="flex justify-end w-[1223px] gap-2 base:w-[960px] lg:w-[760px] md:w-[420px] sm:w-[360px]"
-        >
-          <router-link
-          class="text-center content-center w-[155px] h-[56px] rounded-[13px] text-[#555555] text-base lg:w-[116px] lg:text-[14px]"
-            to=""
-            :style="{ background: '#e1e7fd', color: '#4F44F0' }"
-            >메세지 전송</router-link
-          >
-          <router-link 
-          class="text-center content-center w-[155px] h-[56px] rounded-[13px] text-[#555555] text-base lg:w-[116px] lg:text-[14px]"
-          to="">발신번호 관리</router-link>
-          <router-link 
-          class="text-center content-center w-[155px] h-[56px] rounded-[13px] text-[#555555] text-base lg:w-[116px] lg:text-[14px]"
-          to="">주소록 관리</router-link>
-          <router-link 
-          class="text-center content-center w-[155px] h-[56px] rounded-[13px] text-[#555555] text-base lg:w-[116px] lg:text-[14px]"
-          to="">발송 결과</router-link>
-        </div>
-      </div>
+      <messageLink/>
       <div class="w-full h-full flex-center bg-[#F2F4F8]">
         <div class="w-[1223px] h-[1500px] bg-white mt-14 rounded-3xl base:w-[960px] lg:w-[760px] md:w-4/5">
           <div
@@ -53,6 +33,7 @@
           v-model="number"
           maxlength="13"
           @input="formatPhoneNumber"
+          @keydown.enter="addnumber"
         />
         <button class="h-[61px] flex items-center p-[17px] bg-[#4f44f0] rounded-lg text-xl text-white w-[20%] md:w-[30%] justify-center" @click="addnumber">
           <img src="/images/icon2/icon_plus.svg" alt="plus" />
@@ -217,10 +198,10 @@ class="w-full h-[80%] placeholder-gray-500 lg:text-sm p-5 resize-none rounded-lg
   <div class="w-full h-[100px] flex items-center gap-2">
   <label class=" relative cursor-pointer w-auto">
     <input type="file" style="display:none" ref="fileInput" multiple @change="handleFileUpload">
-    <img src="/images/icon2/icon_plus_bt.svg" alt="bt" class="w-[100p] h-[100px] lg:w-[75px] lg:h-[75px] md:w-[50px] md:h-[50px]"/>
+    <img src="/images/icon2/icon_plus_bt.svg" alt="bt" class="w-[100p] h-[100px] lg:w-[55px] lg:h-[55px] md:w-[50px] md:h-[50px]"/>
   </label>
   <div v-if="images.length" class="flex flex-wrap gap-[10px]">
-    <div v-for="(image, index) in images" :key="index" class="relative w-[100px] h-[100px] border-2 border-[#CECECE] rounded-lg overflow-hidden lg:w-[75px] lg:h-[75px] md:w-[50px] md:h-[50px]" >
+    <div v-for="(image, index) in images" :key="index" class="relative w-[100px] h-[100px] border-2 border-[#CECECE] rounded-lg overflow-hidden lg:w-[55px] lg:h-[55px] md:w-[50px] md:h-[50px]" >
       <img class="w-full h-full object-cover" :src="image.url" :alt="'Image ' + (index + 1)" />
       <button class="absolute top-[5px] right-[5px] text-black border-1 border-[#d9d9d9] rounded-[3px] cursor-pointer md:top-0 md:right-[8px] " @click="removeImage(index)">X</button>
     </div>
@@ -257,7 +238,7 @@ class="w-full h-[80%] placeholder-gray-500 lg:text-sm p-5 resize-none rounded-lg
                 <input type="hidden" v-model="buttonValue">
                 <button
                 @click="toggleButton('button1')" :class="{ 'active-button': buttonValue === 'button1' }"
-                class="flex-center items-center w-[274px] h-[66px] text-[#747B84] bg-[#F2F5F9] rounded-lg p-5 lg:w-1/2 md:w-1/3 transition-colors duration-300"
+                class="flex-center items-center w-[274px] h-[66px] text-[#747B84] bg-[#F2F5F9] rounded-lg p-5 lg:w-1/2 md:w-2/5 transition-colors duration-300"
                 >
                 <img :src="buttonValue === 'button1' ? '/images/icon2/icon_check_color.svg' : '/images/icon2/icon_check_gray.svg'" alt="check" class="md:hidden"/>
                   <h2 class="text-xl mt-[2px] mr-3 md:text-sm sm:text-[12px] md:m-0">
@@ -266,7 +247,7 @@ class="w-full h-[80%] placeholder-gray-500 lg:text-sm p-5 resize-none rounded-lg
                 </button>
                 <button
                 @click="toggleButton('button2')" :class="{ 'active-button': buttonValue === 'button2' }"
-                  class="flex-center items-center w-[274px] h-[66px] text-[#747B84] bg-[#F2F5F9] rounded-lg p-5 lg:w-1/2 md:w-1/3 transition-colors duration-300"
+                  class="flex-center items-center w-[274px] h-[66px] text-[#747B84] bg-[#F2F5F9] rounded-lg p-5 lg:w-1/2 md:w-2/5 transition-colors duration-300"
                 >
                 <img :src="buttonValue === 'button2' ? '/images/icon2/icon_check_color.svg' : '/images/icon2/icon_check_gray.svg'" alt="check" class="md:hidden" />
                   <h2 class="text-xl mt-[2px] mr-3 md:text-sm sm:text-[12px] md:m-0">
@@ -277,6 +258,7 @@ class="w-full h-[80%] placeholder-gray-500 lg:text-sm p-5 resize-none rounded-lg
             </div>
               <button 
               class="flex-center items-center mt-10 w-full h-[66px] bg-[#4F44F0] rounded-lg text-white text-[20px] mb-[72px] md:w-4/5"
+              @click="sendMessage"
               >발송하기</button>
           </div>
         </div>
@@ -286,14 +268,17 @@ class="w-full h-[80%] placeholder-gray-500 lg:text-sm p-5 resize-none rounded-lg
 </template>
 
 <script>
-import threeRadio from "@/components/message/threeRadio.vue";
-import toggleInput from "@/components/message/toggleInput.vue";
+import threeRadio from "@/components/message/ThreeRadio.vue";
+import toggleInput from "@/components/message/ToggleInput.vue";
+import messageLink from "@/components/message/MessageLink.vue";
+
 
 export default {
   name: "Message",
   components: {
     threeRadio: threeRadio,
     toggleInput: toggleInput,
+    messageLink: messageLink,
   },
   data() {
     return {
@@ -302,7 +287,7 @@ export default {
       number : "",
       numbers: [],
       images: [], 
-      buttonValue: 'button1'
+      buttonValue: 'button1',
     };
   },
   computed: {
@@ -324,6 +309,7 @@ methods: {
 
       if (this.numbers.includes(phoneNumber)) {
         alert("이미 추가된 번호입니다.");
+        this.number = "";
         return;
       }
 
@@ -399,7 +385,14 @@ methods: {
     toggleButton(value) {
       this.buttonValue = value;
     },
-  
+    sendMessage() {
+      const confirmed = confirm("보내시겠습니까?");
+  if (confirmed) {
+    alert("메시지를 발송했습니다.");
+  } else {
+    alert("발송이 취소되었습니다.");
+  }
+    },
   },
   watch: {
     images(newValue) {
@@ -428,5 +421,6 @@ methods: {
   color: #4F44F0;
   border: 2px solid #4f44f0;
 }
+
 
 </style>

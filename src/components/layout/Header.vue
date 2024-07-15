@@ -223,7 +223,7 @@ export default {
       }
     },
     isCurrentRoute(route) {
-      return this.$route.path === route;
+      return this.$route.path.startsWith(route);
     },
   },
 };

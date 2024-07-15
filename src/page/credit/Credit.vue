@@ -1,23 +1,6 @@
 <template>
   <div class="h-auto bg-[#f2f4f8] pb-[200px] md:h-auto">
-    <div class="flex-center items-center w-full h-[100px] gap-2 bg-white">
-      <div
-        class="flex justify-end w-[1223px] gap-2 base:w-[960px] lg:w-[760px] md:w-[360px] md:justify-center"
-      >
-        <router-link 
-          class="text-center content-center w-[155px] h-[56px] rounded-[13px] text-[#555555] text-base lg:w-[116px] lg:text-[14px]"
-          to="" :style="{ background: '#e1e7fd', color: '#4F44F0' }"
-        >
-          크레딧 구매
-        </router-link>
-        <router-link 
-          class="text-center content-center w-[155px] h-[56px] rounded-[13px] text-[#555555] text-base lg:w-[116px] lg:text-[14px]"
-          to=""
-        >
-          크레딧 내역
-        </router-link>
-      </div>
-    </div>
+    <CreditLink />
     <div class="flex-col h-full items-center justify-center">
       <h2 class="text-3xl font-bold pt-[109px] mb-[18px] md:pt-[50px]">크레딧 구매</h2>
       <h2 class="mb-[53px]">메세지 전송을 위해 사용할 크레딧 상품을 선택해 주세요</h2>
@@ -58,8 +41,14 @@
 </template>
 
 <script>
+
+import CreditLink from "@/components/credit/CreditLink.vue";
+
 export default {
   name: "Credit",
+  components: {
+    CreditLink, 
+  },
   data() {
     return {
       products: [

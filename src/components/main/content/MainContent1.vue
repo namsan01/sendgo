@@ -45,7 +45,6 @@ import ButtonBox from "@/components/main/box/ButtonBox.vue";
 
 export default {
   name: "MainContent1",
-  data() {},
   components: {
     MainBox1: MainBox1,
     MainBox2: MainBox2,

@@ -12,12 +12,32 @@ const router = createRouter({
     {
       path: '/message',
       name: 'message',
-      component: () => import('../page/Message.vue')
+      component: () => import('../page/message/Message.vue')
+    },
+    {
+      path: '/message/address',
+      name: 'messageAddress',
+      component: () => import('../page/message/Address.vue')
+    },
+    {
+      path: '/message/number',
+      name: 'messageNumber',
+      component: () => import('../page/message/Number.vue')
+    },
+    {
+      path: '/message/result',
+      name: 'messageResult',
+      component: () => import('../page/message/Result.vue')
     },
     {
       path: '/credit',
       name: 'credit',
-      component: () => import('../page/Credit.vue')
+      component: () => import('../page/credit/Credit.vue')
+    },
+    {
+      path: '/credit/history',
+      name: 'creditHistory',
+      component: () => import('../page/credit/History.vue')
     }
   ]
 })

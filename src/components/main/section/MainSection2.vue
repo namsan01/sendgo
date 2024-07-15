@@ -42,34 +42,33 @@
             </div>
           </div>
           <div class="flex w-full gap-[54px] mt-10 lg:flex-col items-center base:gap-9 base:mt-9">
-            <div
-              class="box3 w-[65%] flex-col justify-between lg:w-[50%] md:w-[75%] pr-[54px] md:md:items-center"
-            >
+            <div class=" w-[35%] h-[720px] rounded-[25px] bg-[#DBE5FF] pl-[54px] pt-[72px] overflow-hidden flex-col justify-between pr-[68px] base:pr-[0px] base:h-[500px] base:pt-[49px] lg:w-[50%] lg:pr-[54px] md:w-3/4 md:h-[300px] md:pr-[54px] md:pt-[30px] md:items-center">
               <div>
-                <h2 :style="{ color: '#375984' }">전송 후 바로 발송확인 기능</h2>
-                <h2>메세지 전송 후 바로 발송현황 창에서</h2>
-                <h2>현재 메시지 전송 현황을 알려드립니다</h2>
+                <h2 class="text-[30px] text-[#375984] font-bold base:text-[25px] md:text-[15px]">전송 후 바로 발송확인 기능</h2>
+                <h2 class="text-[30px] text-[#698AB1] font-bold base:text-[25px] md:text-[15px]">메세지 전송 후 바로 발송현황 창에서</h2>
+                <h2 class="text-[30px] text-[#698AB1] font-bold base:text-[25px] md:text-[15px]">현재 메시지 전송 현황을 알려드립니다</h2>
               </div>
               <div class="items-end">
                 <img src="/images/main/main11x2.png" 
                 class="md:h-[138px]"/>
               </div>
             </div>
-            <div class="box3 w-[35%] flex-col justify-between pr-[68px] base:pr-[0px] lg:w-[50%] lg:pr-[54px] md:items-center  "
-            :style="{ background: '#FBFBF0' }">
+            <div class="w-[35%] h-[720px] rounded-[25px] bg-[#FBFBF0] pl-[54px] pt-[72px] overflow-hidden flex-col justify-between pr-[68px] base:pr-[0px] base:h-[500px] base:pt-[49px] lg:w-[50%] lg:pr-[54px] md:w-3/4 md:h-[300px] md:pr-[54px] md:pt-[30px] md:items-center">
               <div>
                 <h2
-                :style="{ color: '#6C3111' }">
+                class="text-[30px] text-[#6C3111] font-bold base:text-[25px] md:text-[15px]">
                   누르면 바로 전송완료
                 </h2>
-                <h2 :style="{ color: '#6F6F6F' }">
+                <h2 
+                class="text-[30px] text-[#6F6F6F] font-bold base:text-[25px] md:text-[15px]">
                   누르자마자 수신인에게
                 </h2>
-                <h2 :style="{ color: '#6F6F6F' }">
+                <h2 
+                class="text-[30px] text-[#6F6F6F] font-bold base:text-[25px] md:text-[15px]">
                   바로 전달됩니다
                 </h2>
               </div>
-              <div>
+              <div class="flex-center">
                 <img src="/images/main/main12.png" 
                 class="h-[432px] base:h-[290px] md:h-[160px]"
               </div>
@@ -87,20 +86,6 @@
 
 <style scoped>
 
-.box3 {
-  height: 720px;
-  border-radius: 25px;
-  background: #DBE5FF;
-  padding-left: 54px;
-  padding-top: 72px;
-  overflow: hidden;
-}
-
-.box3 h2 {
-  font-size: 30px;
-  color: #698AB1;
-  font-weight: bold;
-}
 
 .gradient-text {
   font-size: 30px;
@@ -121,17 +106,6 @@
 @media (max-width: 768px) {
 .gradient-text {
 font-size : 15px;
-}
-
-.box3 {
-  width: 75%;
-  height: 300px;
-  padding-right: 54px;
-  padding-top:30px
-}
-
-.box3 h2 {
-  font-size: 15px;
 }
 }
 

@@ -1,52 +1,50 @@
 <template>
-  <div class="text1 flex-col items-center w-full mt-[212px] mb-[249px] lg:mt-[142px] lg:mb-[199px]">
+  <div class="flex-col items-center w-full mt-[212px] mb-[249px] lg:mt-[142px] lg:mb-[199px]">
     <img
       src="/images/icon/icon_check.svg"
       alt="logo"
       class="mb-[44px]"
     />
-    <h2>정확도와 다양함은 물론</h2>
-    <h2>신뢰할 수 있는 보안까지</h2>
-    <h3 class="mt-[24px] mb-16">고객님들의 간편함을 고민하였습니다</h3>
+    <h2 class="text-[40px] font-bold md:text-[30px]">정확도와 다양함은 물론</h2>
+    <h2 class="text-[40px] font-bold md:text-[30px]">신뢰할 수 있는 보안까지</h2>
+    <h3 class="mt-[24px] mb-16 text-xl font-semibold text-[#5c5c5c]">고객님들의 간편함을 고민하였습니다</h3>
     <div class="flex-col w-full gap-11 ">
       <div class="flex gap-11 lg:flex-col items-center">
-        <div class="box1 w-[50%] ]">
+        <div class="flex-col w-[50%] h-[597px] pt-[72px] pr-[54px] rounded-2xl bg-[#dceff4] gap-[60px] base:pr-0 lg:px-[54px] items-center md:pt-[30px] md:h-[300px] md:w-3/4">
           <div>
-            <h2 :style="{ color: '#0F1F4B' }">일반 SMS는 기본, 카카오톡까지</h2>
-            <h2 :style="{ color: '#516B71' }">
+            <h2 class="text-[32px] font-bold base:text-[25px] md:text-[15px] text-[#0F1F4B]">일반 SMS는 기본, 카카오톡까지</h2>
+            <h2 class="text-[32px] font-bold base:text-[25px] md:text-[15px] text-[#516B71]">
               종류와 상관없이 모두 전송해 드립니다
             </h2>
           </div>
-          <div class="img-container">
-            <img src="/images/main/main9x2.png" alt="logo" />
+          <div class="flex-center md:overflow-hidden">
+            <img class="h-[310px] md:h-[119px]"
+            src="/images/main/main9x2.png" alt="logo" />
           </div>
         </div>
-        <div class="box1 w-[50%]" :style="{ background: '#FBFBEF' }">
+        <div class="flex-col w-[50%] h-[597px] bg-[#FBFBEF] pt-[72px] pr-[54px] rounded-2xl gap-[60px] base:pr-0 lg:px-[54px] items-center md:pt-[30px] md:h-[300px] md:w-3/4 md:justify-around">
           <div>
-            <h2 :style="{ color: '#431B06' }">강력한 보안을 제공합니다.</h2>
-            <h2 :style="{ color: '#696156' }">
+            <h2 class="text-[32px] font-bold base:text-[25px] md:text-[15px] text-[#431B06]">강력한 보안을 제공합니다.</h2>
+            <h2 class="text-[32px] font-bold base:text-[25px] md:text-[15px] text-[#696156]">
               신뢰할 수 있는 최신의 보안 시스템을
             </h2>
-            <h2 :style="{ color: '#696156' }">
+            <h2 class="text-[32px] font-bold base:text-[25px] md:text-[15px] text-[#696156]">
               적용하여 개인정보를 보호합니다
             </h2>
           </div>
           <div
-            class="img-container"
-            :style="{
-              justifyContent: 'flex-end',
-              height: '238px',
-            }"
+            class="flex w-full justify-end h-[238px] md:overflow-hidden md:justify-center"
           >
-            <img src="/images/icon/icon_lockx2.png" alt="logo" />
+          <img class="h-[310px] md:h-[119px]"
+             src="/images/icon/icon_lockx2.png" alt="logo" />
           </div>
         </div>
       </div>
       <div class="lg:flex justify-center">
-      <div class="box2">
+      <div class="flex-col items-center justify-end gap-[49px] h-[495px] rounded-[25px] bg-[#f8f9fa] overflow-hidden lg:justify-between lg:w-1/2 lg:text-[25px] lg:pt-[72px] lg:px-[54px] md:w-3/4 md:h-[300px]">
         <div class="flex-col items-center lg:items-start md:items-center">
-          <h2 :style="{ color: '#000' }">놀라운 수신율을 경험해 보세요</h2>
-          <h2>샌드고의 정확한 수신율은 99.8%에 달합니다.</h2>
+          <h2 class="text-[30px] text-black font-bold base:text-[25px] md:text-[15px]">놀라운 수신율을 경험해 보세요</h2>
+          <h2  class="text-[30px] text-[#727b88] font-bold base:text-[25px] md:text-[15px]">샌드고의 정확한 수신율은 99.8%에 달합니다.</h2>
         </div>
         <img src="/images/main/main10.png" alt="logo" 
         class="md:h-[138px]"/>
@@ -63,149 +61,4 @@ export default {
 </script>
 
 <style scoped>
-.text1 h2 {
-  font-size: 40px;
-  font-weight: 700;
-}
-
-.text1 h3 {
-  font-size: 20px;
-  color: #5c5c5c;
-  font-weight: 600;
-}
-
-.box1 {
-  height: 597px;
-  display: flex;
-  flex-direction: column;
-  padding-top: 72px;
-  border-radius: 1rem;
-  padding-left: 54px;
-  padding-right: 54px;
-  background: #dceff4;
-  gap: 60px;
-}
-
-.box1 h2 {
-  font-size: 32px;
-  font-weight: bold;
-}
-
-.box1 img {
-  text-align: center;
-}
-
-.box2 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: end;
-  gap: 49px;
-  height: 495px;
-  border-radius: 25px;
-  background: #f8f9fa;
-  overflow: hidden;
-  margin-bottom: 200 px;
-}
-
-.box2 h2 {
-  font-size: 30px;
-  color: #727b88;
-  font-weight: bold;
-}
-
-.img-container {
-  display: flex;
-  justify-content: center;
-}
-
-.img-container img {
-  height: 310px;
-}
-
-@media (max-width: 1280px) {
-.box1 {
-  padding-right: 0px;
-}
-.box1 h2 {
-  font-size: 25px;
-  font-weight: 700;
-}
-
-.box1 h3 {
-  font-size: 20px;
-}
-
-.box2 h2 {
-  font-size: 25px
-}
-}
-
-
-
-
-@media (max-width: 1024px) {
-.box1 {
-  width: 50%;
-  padding-right: 54px;
-  align-items: center;
-}
-.box1 h2 {
-  font-size: 25px;
-  font-weight: 700;
-}
-
-.box1 h3 {
-  font-size: 20px;
-}
-
-.box2 {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 50%;
-  font-size: 25px;
-  padding: 72px 54px 0 54px
-}
-.box2 h2 {
-  font-size: 25px
-}
-}
-
-
-@media (max-width: 768px) {
-  .text1 h2 {
-font-size: 30px;
-}
-
-.box1 h2 {
-font-size : 15px;
-}
-
-.box1 {
-  padding-top: 30px;
-  height: 300px;
-  width: 75%;
-  justify-content: space-between;
-}
-.box2 {
-  width: 75%;
-  height: 300px;
-  padding-right: 54px;
-  
-}
-
-.box2 h2 {
-  font-size: 15px;
-}
-
-.img-container {
-  overflow: hidden;
-}
-
-.img-container img {
-  height: 119px;
-  
-}
-}
 </style>
