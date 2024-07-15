@@ -42,7 +42,7 @@
             </div>
           </div>
           <div class="flex w-full gap-[54px] mt-10 lg:flex-col items-center base:gap-9 base:mt-9">
-            <div class=" w-[35%] h-[720px] rounded-[25px] bg-[#DBE5FF] pl-[54px] pt-[72px] overflow-hidden flex-col justify-between pr-[68px] base:pr-[0px] base:h-[500px] base:pt-[49px] lg:w-[50%] lg:pr-[54px] md:w-3/4 md:h-[300px] md:pr-[54px] md:pt-[30px] md:items-center">
+            <div class=" w-[65%] h-[720px] rounded-[25px] bg-[#DBE5FF] pl-[54px] pt-[72px] overflow-hidden flex-col justify-between pr-[68px] base:pr-[0px] base:h-[500px] base:pt-[49px] lg:w-[50%] lg:pr-[54px] md:w-3/4 md:h-[300px] md:pr-[54px] md:pt-[30px] md:items-center">
               <div>
                 <h2 class="text-[30px] text-[#375984] font-bold base:text-[25px] md:text-[15px]">전송 후 바로 발송확인 기능</h2>
                 <h2 class="text-[30px] text-[#698AB1] font-bold base:text-[25px] md:text-[15px]">메세지 전송 후 바로 발송현황 창에서</h2>
