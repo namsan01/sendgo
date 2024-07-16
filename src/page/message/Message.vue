@@ -198,10 +198,10 @@ class="w-full h-[80%] placeholder-gray-500 lg:text-sm p-5 resize-none rounded-lg
   <div class="w-full h-[100px] flex items-center gap-2">
   <label class=" relative cursor-pointer w-auto">
     <input type="file" style="display:none" ref="fileInput" multiple @change="handleFileUpload">
-    <img src="/images/icon2/icon_plus_bt.svg" alt="bt" class="w-[100p] h-[100px] lg:w-[55px] lg:h-[55px] md:w-[50px] md:h-[50px]"/>
+    <img src="/images/icon2/icon_plus_bt.svg" alt="bt" class="w-[100p] h-[100px] base:w-[55px] base:h-[55px] md:w-[75px] md:h-[75px] sm:w-[50px] sm:h-[50px]"/>
   </label>
   <div v-if="images.length" class="flex flex-wrap gap-[10px]">
-    <div v-for="(image, index) in images" :key="index" class="relative w-[100px] h-[100px] border-2 border-[#CECECE] rounded-lg overflow-hidden lg:w-[55px] lg:h-[55px] md:w-[50px] md:h-[50px]" >
+    <div v-for="(image, index) in images" :key="index" class="relative w-[100px] h-[100px] border-2 border-[#CECECE] rounded-lg overflow-hidden base:w-[55px] base:h-[55px] md:w-[75px] md:h-[75px] sm:w-[50px] sm:h-[50px]" >
       <img class="w-full h-full object-cover" :src="image.url" :alt="'Image ' + (index + 1)" />
       <button class="absolute top-[5px] right-[5px] text-black border-1 border-[#d9d9d9] rounded-[3px] cursor-pointer md:top-0 md:right-[8px] " @click="removeImage(index)">X</button>
     </div>
@@ -363,7 +363,7 @@ methods: {
       }
 
       Array.from(files).forEach((file) => {
-        if (!file.type.match("image.*")) {
+        if (!file.type.match(/image\/(jpeg|png|gif)/)) {
           alert("이미지 파일 형식은 JPG, PNG, GIF만 가능합니다.");
           return;
         }

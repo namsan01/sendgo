@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="flex-center w-full h-[10.8rem] border-gray-500 border-t ">
-      <div class=" w-[80rem] xl:max-w-[60rem] lg:max-w-[40rem] md:max-w-[30rem] text-sm ">
+      <div class=" w-[80rem] xl:max-w-[60rem] px-4 lg:max-w-[40rem] md:max-w-[30rem] text-sm ">
         <div class=" mt-8 flex flex-col gap-4 ">
           <span class="text-[#d6d6d6] text-base">문의 사항이 있으신가요? 텔레그램을 통해 고객센터로 문의해주세요.</span>
           <span class="text-[#f0f0f0] text-base" >Telegram : @shdevelope</span>
