@@ -1,4 +1,4 @@
-<template class="body">
+<template>
   <MainContent1 />
   <MainContent2 />
   <MainContent3 />

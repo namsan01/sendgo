@@ -112,7 +112,6 @@
       <div
         v-if="!isRootPath || isScrolled"
         :class="[
-          'fixed-header',
           'white-header',
           { 'bg-white/95': !isRootPath },
         ]"
@@ -178,10 +177,7 @@
         </div>
       </div>
     </header>
-
-    <div :class="{ blur: !isRootPath }" class="content">
-      <!-- 메인 컨텐츠 -->
-    </div>
+    <div class="mb-20"></div>
   </div>
 </template>
 

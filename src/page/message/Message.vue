@@ -1,6 +1,29 @@
 <template>
   <div>
-    <div class="h-[2400px] md:h-[3000px]">
+<!-- 모달 -->
+<div class="hidden md:block w-[35px] h-[35px] fixed bottom-10 right-[47vw] bg-white border rounded-full">
+  <div class="w-full h-full flex-center items-center">
+  <button @click="toggleView">
+    <img class=" transform rotate-180" src="/images/icon2/icon_arrow.svg" alt="arrow" />
+  </button>
+</div>
+</div>
+
+<div v-if="isOpen && !isWideScreen" class="fixed w-full h-full bg-black/75 z-50"> 
+<div class="hidden md:block fixed bg-[#EAF8FF] w-[80vw] h-auto top-[15%] right-[10%] rounded-[22px] border-[5px] border-[#4d4d4d] py-5 px-4">
+  <div class="flex-col w-full  min-h-[50vh] h-full items-center justify-between gap-5">
+                <div class="w-full flex-col flex-wrap gap-6">
+                  <h1 class="text-3xl">{{ messageTitle }}</h1>
+                  <pre class="whitespace-pre-wrap text-xl">{{ messageContent }}</pre>
+                  </div>
+                  <button @click="toggleView">
+                  <img class="w-16 transform rotate-270 lg:w-[25px] " src="/images/icon2/icon_arrow.svg" alt="arrow" />
+                </button>
+                </div>
+</div>
+</div>
+<!-- 모달 end -->
+    <div class="h-[2400px] md:h-[2400px]">
       <messageLink/>
       <div class="w-full h-full flex-center bg-[#F2F4F8]">
         <div class="w-[1223px] h-[1500px] bg-white mt-14 rounded-3xl base:w-[960px] lg:w-[760px] md:w-4/5">
@@ -105,7 +128,7 @@ class="w-full h-[80%] placeholder-gray-500 lg:text-sm p-5 resize-none rounded-lg
                     </div>
                   </div>
                 </div>
-                <div class="mt-8 pt-8 border-t border-gray-600">
+                <div class="mt-8 pt-8 border-t border-[#707070]">
                   <h2 class="mb-4 text-[20px] font-semibold md:text-center">
                     발신번호
                   </h2>
@@ -122,7 +145,7 @@ class="w-full h-[80%] placeholder-gray-500 lg:text-sm p-5 resize-none rounded-lg
                     </select>
                   </div>
                 </div>
-                <div class="mt-8 pt-8 border-t border-gray-600">
+                <div class="mt-8 pt-8 border-t border-[#707070]">
                   <h2 class="mb-4 text-[20px] font-semibold md:text-center">
                     메세지 입력
                   </h2>
@@ -184,7 +207,7 @@ class="w-full h-[80%] placeholder-gray-500 lg:text-sm p-5 resize-none rounded-lg
                         </button>
                       </div>
                       <div
-                        class="flex justify-between items-center w-full h-[75px] border-y border-gray-600 sm:gap-2"
+                        class="flex justify-between items-center w-full h-[75px] border-y border-[#707070] sm:gap-2"
                       >
                         <h2
                           class="text-[15px] font-semibold lg:text-sm sm:text-[0.75rem]"
@@ -216,20 +239,16 @@ class="w-full h-[80%] placeholder-gray-500 lg:text-sm p-5 resize-none rounded-lg
                   </div>
                 </div>
               </div>
-              
-              <div class="hidden md:block text-center py-6 text-xl font-semibold">
-                <h2 >미리 보기</h2>
-              </div>
-              <div class="message-right sticky top-[70px] w-[401px] h-[775px] flex-col flex-wrap bg-[#eaf8ff] rounded-[22px] border-[5px] border-[#4d4d4d] pt-5 pr-4 pb-0 pl-4 base:pl-[10px] base:pt-[15px] base:h-[480px] lg:h-[360px] md:w-4/5 md:h-auto md:min-h-[360px] p-5 md:self-center">
+              <div class="message-right sticky top-[70px] w-[401px] max-h-full h-[775px] flex-col  bg-[#eaf8ff] rounded-[22px] border-[5px] border-[#4d4d4d] pt-5 pr-4 pb-0 pl-4 base:pl-[10px] base:pt-[15px] base:h-[480px] lg:h-[360px] md:w-4/5 md:h-auto md:min-h-[360px] p-5 md:self-center md:hidden">
                 <img class="w-10 transform rotate-90 lg:w-[25px] md:hidden" src="/images/icon2/icon_arrow.svg" alt="arrow" />
                 <div class="w-full flex-col flex-wrap p-4 gap-6">
-                  <h1 class="text-3xl">{{ messageTitle }}</h1>
-                  <span class="text-xl">{{ messageContent }} </span>
+                  <h1 class="text-3xl base:text-2xl lg:text-base">{{ messageTitle }}</h1>
+                  <span class="whitespace-pre-wrap text-xl lg:text-sm">{{ messageContent }}</span>
                 </div>
             </div>
             </div>
             <div
-              class="w-full h-[172px] mt-[34px] py-8 border-y border-gray-700 md:py-6"
+              class="w-full h-[172px] mt-[34px] py-8 border-y border-[#707070] md:py-6"
             >
               <h2 class="mb-4 text-[20px] font-semibold md:text-center">
                 발송 설정
@@ -288,6 +307,8 @@ export default {
       numbers: [],
       images: [], 
       buttonValue: 'button1',
+      isOpen: false,
+      isWideScreen: window.innerWidth >= 768,
     };
   },
   computed: {
@@ -299,6 +320,13 @@ export default {
       return this.numbers.join(' , ');
     }
 },
+mounted() {
+    window.addEventListener("resize", this.handleResize);
+    this.handleResize();
+  },
+  beforeUnmount() {
+    window.removeEventListener("resize", this.handleResize);
+  },
 methods: {
     addnumber() {
       let phoneNumber = this.number.replace(/[^0-9]/g, "");
@@ -392,6 +420,15 @@ methods: {
   } else {
     alert("발송이 취소되었습니다.");
   }
+    },
+    toggleView() {
+      this.isOpen = !this.isOpen;
+    },
+    handleResize() {
+      this.isWideScreen = window.innerWidth >= 768;
+      if (this.isWideScreen && this.isOpen) {
+        this.isOpen = false;
+      }
     },
   },
   watch: {
