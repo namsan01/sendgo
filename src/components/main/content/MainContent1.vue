@@ -9,8 +9,8 @@
         <span class="gradient-text">문자 서비스 SENDGO</span>
       </div>
       <div class="flex gap-[21px]">
-        <ButtonBox text="회원가입" url="" />
-        <ButtonBox text="로그인" url="" :style="{ background: '#242424' }" />
+        <ButtonBox text="회원가입" url="/register" />
+        <ButtonBox text="로그인" url="/login" :style="{ background: '#242424' }" />
       </div>
     </div>
     <div class="flex-1 flex gap-8 items-end base:items-start transition-all ease-in-out duration-300 base:pt-20 lg:flex-wrap lg:justify-center">

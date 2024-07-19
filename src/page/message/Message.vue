@@ -31,7 +31,7 @@
             class="flex-col items-center px-24 pt-[53px] w-full bg-white rounded-3xl md:px-2 h-auto"
           >
             <h2 class="text-3xl font-bold mb-9">메세지 전송</h2>
-            <threeRadio />
+            <threeRadio/>
             <div class="w-full text-left mt-8 text-[14px] text-[#525252] pb-8 border-b border-[#707070]">
               <h2>
                 · 간편하게 한 화면에서 단문, 장문 포토메세지를 발송할 수
@@ -239,7 +239,7 @@ class="w-full h-[80%] placeholder-gray-500 lg:text-sm p-5 resize-none rounded-lg
                   </div>
                 </div>
               </div>
-              <div class="message-right sticky top-[70px] w-[401px] max-h-full h-[775px] flex-col  bg-[#eaf8ff] rounded-[22px] border-[5px] border-[#4d4d4d] pt-5 pr-4 pb-0 pl-4 base:pl-[10px] base:pt-[15px] base:h-[480px] lg:h-[360px] md:w-4/5 md:h-auto md:min-h-[360px] p-5 md:self-center md:hidden">
+              <div class="message-right sticky top-[70px] w-[401px] max-h-full h-[775px] flex-col  bg-[#eaf8ff] rounded-[22px] border-[5px] border-[#4d4d4d] pt-5 pr-4 pb-0 pl-4 overflow-y-auto base:pl-[10px] base:pt-[15px] base:h-[480px] lg:h-[360px] md:w-4/5 md:h-auto md:min-h-[360px] p-5 md:self-center md:hidden">
                 <img class="w-10 transform rotate-90 lg:w-[25px] md:hidden" src="/images/icon2/icon_arrow.svg" alt="arrow" />
                 <div class="w-full flex-col flex-wrap p-4 gap-6">
                   <h1 class="text-3xl base:text-2xl lg:text-base">{{ messageTitle }}</h1>

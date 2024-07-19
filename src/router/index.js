@@ -3,6 +3,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  scrollBehavior() {
+    return {top:0}
+  },
   routes: [
     {
       path: '/',
@@ -38,6 +41,16 @@ const router = createRouter({
       path: '/credit/history',
       name: 'creditHistory',
       component: () => import('../page/credit/History.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../page/auth/Login.vue')
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: () => import('../page/auth/Register.vue')
     }
   ]
 })
