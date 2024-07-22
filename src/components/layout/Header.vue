@@ -16,7 +16,7 @@
         <div class="w-full h-full flex justify-center items-center">
           <div
             :class="[
-              'flex text-2xl gap-20 p-8 rounded-lg md:p-4',
+              'flex text-2xl gap-20 p-8 rounded-lg md:p-0 md:gap-7',
               !isRootPath
                 ? 'text-black'
                 : isScrolled
@@ -24,21 +24,39 @@
                 : 'text-white',
             ]"
           >
-            <router-link
-              to="/message"
+            <span
+              @click="handleNavigation('/message')"
               :class="{
                 'text-[#4E43ED]': isCurrentRoute('/message'),
               }"
             >
-              <span class="md:text-xl sm:text-[1.24rem]">메시지</span>
-            </router-link>
-            <router-link
-              to="/credit"
+              <span class="md:text-[1.15rem]">메시지</span>
+            </span>
+            <span
+              @click="handleNavigation('/credit')"
               :class="{
                 'text-[#4E43ED]': isCurrentRoute('/credit'),
               }"
             >
-              <span class="md:text-xl sm:text-[1.24rem]">크레딧</span>
+              <span class="md:text-[1.15rem]">크레딧</span>
+            </span>
+            <span
+              v-if="isLoggedIn"
+              @click="logout"
+              :class="{
+                'text-[#4E43ED]': isCurrentRoute('/login'),
+              }"
+            >
+              <span class="md:text-[1.14rem] cursor-pointer">로그아웃</span>
+            </span>
+            <router-link
+              v-else
+              to="/login"
+              :class="{
+                'text-[#4E43ED]': isCurrentRoute('/login'),
+              }"
+            >
+              <span class="md:text-[1.14rem]">로그인</span>
             </router-link>
           </div>
         </div>
@@ -52,32 +70,44 @@
         :class="['black-header']"
         class="flex-center items-center w-full"
       >
-        <div class="wrapper flex gap-[201px] items-center lg:justify-between lg:p-4">
+        <div class="wrapper flex justify-between items-center lg:justify-between lg:p-4">
           <router-link to="/">
             <img
-              class="w-[142px] h-44px"
+              class="w-[142px] h-[44px]"
               src="/images/logo/logo_gray.svg"
               alt="로고"
             />
           </router-link>
-          <div class="flex items-cente lg:hidden">
-            <router-link
-              to="/message"
+          <div class="flex items-center lg:hidden">
+            <span
+              @click="handleNavigation('/message')"
               :class="{
-                'text-[#4E43ED] border-b-2 border-[#4E43ED]':
-                  isCurrentRoute('/message'),
+                'text-[#4E43ED] border-b-2 border-[#4E43ED]': isCurrentRoute('/message'),
               }"
             >
               <div class="router-box">메시지</div>
-            </router-link>
-            <router-link
-              to="/credit"
+            </span>
+            <span
+              @click="handleNavigation('/credit')"
               :class="{
-                'text-[#4E43ED] border-b-2 border-[#4E43ED]':
-                  isCurrentRoute('/credit'),
+                'text-[#4E43ED] border-b-2 border-[#4E43ED]': isCurrentRoute('/credit'),
               }"
             >
               <div class="router-box">크레딧</div>
+            </span>
+            <span
+              v-if="isLoggedIn"
+              @click="logout"
+              class="flex items-center cursor-pointer"
+            >
+              <div class="w-[120px] h-[4rem] bg-[#4e43ed] flex-center items-center rounded-2xl text-white">로그아웃</div>
+            </span>
+            <router-link
+              v-else
+              class="flex items-center"
+              to="/login"
+            >
+              <div class="w-[120px] h-[4rem] bg-[#4e43ed] flex-center items-center rounded-2xl text-white">로그인</div>
             </router-link>
           </div>
           <nav class="hidden lg:block">
@@ -117,34 +147,44 @@
         ]"
         class="flex-center items-center w-full"
       >
-        <div
-          class="wrapper flex w-full items-center gap-[201px] lg:justify-between lg:p-4"
-        >
+        <div class="wrapper flex justify-between items-center lg:justify-between lg:p-4">
           <router-link to="/">
             <img
-              class="w-[142px] h-44px"
+              class="w-[142px] h-[44px]"
               src="/images/logo/logo.svg"
               alt="로고"
             />
           </router-link>
           <div class="flex items-center lg:hidden">
-            <router-link
-              to="/message"
+            <span
+              @click="handleNavigation('/message')"
               :class="{
-                'text-[#4E43ED] border-b-2 border-[#4E43ED]':
-                  isCurrentRoute('/message'),
+                'text-[#4E43ED] border-b-2 border-[#4E43ED]': isCurrentRoute('/message'),
               }"
             >
               <div class="router-box">메시지</div>
-            </router-link>
-            <router-link
-              to="/credit"
+            </span>
+            <span
+              @click="handleNavigation('/credit')"
               :class="{
-                'text-[#4E43ED] border-b-2 border-[#4E43ED]':
-                  isCurrentRoute('/credit'),
+                'text-[#4E43ED] border-b-2 border-[#4E43ED]': isCurrentRoute('/credit'),
               }"
             >
               <div class="router-box">크레딧</div>
+            </span>
+            <span
+              v-if="isLoggedIn"
+              @click="logout"
+              class="flex items-center cursor-pointer"
+            >
+              <div class="w-[120px] h-[4rem] bg-[#4e43ed] flex-center items-center rounded-2xl text-white">로그아웃</div>
+            </span>
+            <router-link
+              v-else
+              class="flex items-center"
+              to="/login"
+            >
+              <div class="w-[120px] h-[4rem] bg-[#4e43ed] flex-center items-center rounded-2xl text-white">로그인</div>
             </router-link>
           </div>
           <nav class="hidden lg:block">
@@ -181,6 +221,8 @@
   </div>
 </template>
 
+
+
 <script>
 export default {
   name: "Header",
@@ -189,6 +231,7 @@ export default {
       isOpen: false,
       isScrolled: false,
       isWideScreen: window.innerWidth >= 1024,
+      isLoggedIn: !!localStorage.getItem('access_token'), 
     };
   },
   computed: {
@@ -221,9 +264,24 @@ export default {
     isCurrentRoute(route) {
       return this.$route.path.startsWith(route);
     },
+    logout() {
+      localStorage.removeItem('access_token');
+      this.isLoggedIn = false; 
+      this.$router.push('/');
+      alert("로그아웃 되었습니다.")
+    },
+    handleNavigation(path) {
+      if (this.isLoggedIn || path === '/login') {
+        this.$router.push(path);
+      } else {
+        this.$router.push('/login');
+      }
+    }
   },
 };
 </script>
+
+
 
 <style scoped>
 .body {
@@ -254,8 +312,6 @@ export default {
 .modal-slide-leave-to {
   transform: translateY(-100%);
 }
-
-
 
 .black-header {
   position: absolute;

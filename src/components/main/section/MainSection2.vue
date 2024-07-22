@@ -1,5 +1,5 @@
 <template>
-      <div class="flex-col items-center w-full mt-[212px] mb-[249px] lg:mt-[142px]">
+      <div class="flex-col items-center w-full mt-[212px] mb-[249px] lg:mt-[142px] px-4">
         <img
           src="/images/icon/icon_light.png"
           alt="logo"
@@ -11,7 +11,7 @@
         <div class="w-full mt-24 gap-10">
           <div class="flex w-full gap-[54px] lg:flex-col items-center base:gap-9">
             <div
-              class="w-[45%] h-[597px] rounded-[25px] bg-[#F8F9FA] pl-[54px] pt-[72px] overflow-hidden flex-col justify-between base:h-[500px] lg:pt-[49px] lg:w-[50%] md:w-[75%] md:items-center md:pr-[54px] md:h-[300px] md:pt-[30px]"
+              class="w-[45%] h-[597px] rounded-[25px] bg-[#F8F9FA] pl-[54px] pt-[72px] overflow-hidden flex-col justify-between base:h-[500px] lg:pt-[49px] lg:w-[50%] md:w-full md:items-center md:pr-[54px] md:h-[300px] md:pt-[30px]"
             >
               <div class="lg:flex-col items-center">
                 <h2 class="text-[30px] font-bold text-[#000] base:text-[25px] md:text-[15px] ">자주 전송하는 내용이 있나요?</h2>
@@ -23,7 +23,7 @@
                 class="md:h-[138px]"/>
               </div>
             </div>
-            <div class="w-[55%] flex-col justify-between h-[597px] rounded-[25px] bg-[#e9ebfd] pl-[54px] pr-[61px] pt-[72px] overflow-hidden  base:h-[500px] lg:pt-[49px] lg:w-[50%] lg:pr-[40px] md:w-[75%] md:pr-[54px] md:items-center md:h-[300px] md:pt-[30px]">
+            <div class="w-[55%] flex-col justify-between h-[597px] rounded-[25px] bg-[#e9ebfd] pl-[54px] pr-[61px] pt-[72px] overflow-hidden  base:h-[500px] lg:pt-[49px] lg:w-[50%] lg:pr-[40px] md:w-full md:pr-[54px] md:items-center md:h-[300px] md:pt-[30px]">
               <div>
                 <h2 class="gradient-text">
                   크레딧 구매시, 보너스 크레딧 증정
@@ -42,7 +42,7 @@
             </div>
           </div>
           <div class="flex w-full gap-[54px] mt-10 lg:flex-col items-center base:gap-9 base:mt-9">
-            <div class=" w-[65%] h-[720px] rounded-[25px] bg-[#DBE5FF] pl-[54px] pt-[72px] overflow-hidden flex-col justify-between pr-[68px] base:pr-[0px] base:h-[500px] base:pt-[49px] lg:w-[50%] lg:pr-[54px] md:w-3/4 md:h-[300px] md:pr-[54px] md:pt-[30px] md:items-center">
+            <div class=" w-[65%] h-[720px] rounded-[25px] bg-[#DBE5FF] pl-[54px] pt-[72px] overflow-hidden flex-col justify-between pr-[68px] base:pr-[0px] base:h-[500px] base:pt-[49px] lg:w-[50%] lg:pr-[54px] md:w-full md:h-[300px] md:pr-[54px] md:pt-[30px] md:items-center">
               <div>
                 <h2 class="text-[30px] text-[#375984] font-bold base:text-[25px] md:text-[15px]">전송 후 바로 발송확인 기능</h2>
                 <h2 class="text-[30px] text-[#698AB1] font-bold base:text-[25px] md:text-[15px]">메세지 전송 후 바로 발송현황 창에서</h2>
@@ -53,7 +53,7 @@
                 class="md:h-[138px]"/>
               </div>
             </div>
-            <div class="w-[35%] h-[720px] rounded-[25px] bg-[#FBFBF0] pl-[54px] pt-[72px] overflow-hidden flex-col justify-between pr-[68px] base:pr-[0px] base:h-[500px] base:pt-[49px] lg:w-[50%] lg:pr-[54px] md:w-3/4 md:h-[300px] md:pr-[54px] md:pt-[30px] md:items-center">
+            <div class="w-[35%] h-[720px] rounded-[25px] bg-[#FBFBF0] pl-[54px] pt-[72px] overflow-hidden flex-col justify-between pr-[68px] base:pr-[0px] base:h-[500px] base:pt-[49px] lg:w-[50%] lg:pr-[54px] md:w-full md:h-[300px] md:pr-[54px] md:pt-[30px] md:items-center">
               <div>
                 <h2
                 class="text-[30px] text-[#6C3111] font-bold base:text-[25px] md:text-[15px]">

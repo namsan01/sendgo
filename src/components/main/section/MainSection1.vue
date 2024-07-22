@@ -1,5 +1,5 @@
 <template>
-      <div class="flex-col items-center w-full mt-[212px] mb-[249px] lg:mt-[142px] lg:mb-[199px]">
+      <div class="flex-col items-center w-full mt-[212px] mb-[249px] lg:mt-[142px] lg:mb-[199px] px-4">
         <img
           src="/images/icon/icon_chat.png"
           alt="logo"
@@ -9,7 +9,7 @@
         <h2 class="text-[40px] font-bold  md:text-[30px]">간편하게 만나보세요.</h2>
         <h3 class="mt-[24px] text-xl text-[#5c5c5c] font-semibold">모든 종류의 인터넷 SMS를 편리하게.</h3>
         <div class="flex justify-between w-full mt-24 xl:justify-center gap-4 lg:flex-col items-center lg:gap-6">
-          <div class="flex-col items-center justify-center w-[444px] h-[349px] rounded-2xl bg-[#f0f0fa] gap-[22px] xl:w-[335px] lg:w-1/2 md:w-3/4">
+          <div class="flex-col items-center justify-center w-[444px] h-[349px] rounded-2xl bg-[#f0f0fa] gap-[22px] xl:w-[335px] lg:w-1/2 md:w-full">
             <img src="/images/icon/icon_write.png"/>
             <div class="flex-col items-center gap-1">
               <h2 class="text-xl font-bold xl:text-[18px] lg:text-[25px] md:text-lg">메시지 용량에</h2>
@@ -20,7 +20,7 @@
               <h3 class="text-base xl:text-[14px] lg:text-xl md:text-[12px]">물론 장문, 사진까지 전송이 가능합니다</h3>
             </div>
           </div>
-          <div class="flex-col items-center justify-center w-[444px] h-[349px] rounded-2xl bg-[#f0f0fa] gap-[22px] xl:w-[335px] lg:w-1/2 md:w-3/4">
+          <div class="flex-col items-center justify-center w-[444px] h-[349px] rounded-2xl bg-[#f0f0fa] gap-[22px] xl:w-[335px] lg:w-1/2 md:w-full">
             <img src="/images/icon/icon_mail.png" />
             <div class="flex-col items-center gap-1">
               <h2 class="text-xl font-bold xl:text-[18px] lg:text-[25px] md:text-lg">모든 종류의</h2>
@@ -31,7 +31,7 @@
               <h3 class="text-base xl:text-[14px] lg:text-xl md:text-[12px]">물론 장문, 사진까지 전송이 가능합니다</h3>
             </div>
           </div>
-          <div class="flex-col items-center justify-center w-[444px] h-[349px] rounded-2xl bg-[#f0f0fa] gap-[22px] xl:w-[335px] lg:w-1/2 md:w-3/4">
+          <div class="flex-col items-center justify-center w-[444px] h-[349px] rounded-2xl bg-[#f0f0fa] gap-[22px] xl:w-[335px] lg:w-1/2 md:w-full">
             <img src="/images/icon/logo_speaker.png" />
             <div class="flex-col items-center gap-1">
               <h2 class="text-xl font-bold xl:text-[18px] lg:text-[25px] md:text-lg">간편한 광고</h2>

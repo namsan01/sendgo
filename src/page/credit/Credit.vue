@@ -32,10 +32,12 @@
                 <h2>+ {{ formatNumber(product.additionalCredits) }}</h2>
               </div>
             </div>
-            <button class="w-full h-[61px] bg-[#5146F0] rounded-lg text-xl text-white">구매하기</button>
+            <button @click="handlePayment(product)" class="w-full h-[61px] bg-[#5146F0] rounded-lg text-xl text-white">구매하기</button>
           </div>
         </div>
       </div>
+      <div v-if="errorMessage" class="error">{{ errorMessage }}</div>
+      <div v-if="successMessage" class="success">{{ successMessage }}</div>
     </div>
   </div>
 </template>
@@ -58,6 +60,7 @@ export default {
           bonus: 10,
           basicCredits: 300000,
           additionalCredits: 30000,
+          order_id: this.generateOrderId()
         },
         {
           price: 10000,
@@ -66,6 +69,7 @@ export default {
           bonus: 10,
           basicCredits: 100000,
           additionalCredits: 10000,
+          order_id: this.generateOrderId()
         },
         {
           price: 30000,
@@ -74,6 +78,7 @@ export default {
           bonus: 10,
           basicCredits: 300000,
           additionalCredits: 30000,
+          order_id: this.generateOrderId()
         },
         {
           price: 10000,
@@ -82,8 +87,11 @@ export default {
           bonus: 10,
           basicCredits: 100000,
           additionalCredits: 10000,
+          order_id: this.generateOrderId()
         },
       ],
+      errorMessage: '',
+      successMessage: ''
     };
   },
   methods: {
@@ -98,9 +106,48 @@ export default {
       const formatter = new Intl.NumberFormat("ko-KR");
       return formatter.format(value);
     },
+    generateOrderId() {
+      return `order-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+    },
+    async handlePayment(product) {
+      try {
+        const response = await fetch('/api/create-payment', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+          },
+          body: JSON.stringify({
+            amount: product.price,
+            order_id: product.order_id,
+          }),
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          alert('결제가 완료되었습니다.');
+        } else {
+          alert(`결제 실패: ${data.message}`);
+        }
+      } catch (error) {
+        console.error('결제 중 오류 발생:', error);
+        alert('결제 중 오류가 발생했습니다.');
+      }
+    },
+    generateOrderId() {
+      return 'order-' + Math.floor(Math.random() * 1000000);
+    },
   },
 };
 </script>
 
 <style scoped>
+.error {
+  color: red;
+  margin-top: 20px;
+}
+.success {
+  color: green;
+  margin-top: 20px;
+}
 </style>

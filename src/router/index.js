@@ -1,58 +1,81 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
 
+function isLoggedIn() {
+  return !!localStorage.getItem('access_token');
+}
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   scrollBehavior() {
-    return {top:0}
+    return { top: 0 };
   },
   routes: [
     {
       path: '/',
       name: 'main',
-      component: () => import('../page/Main.vue')
+      component: () => import('../page/Main.vue'),
+      meta: { requiresAuth: false }
     },
     {
       path: '/message',
       name: 'message',
-      component: () => import('../page/message/Message.vue')
+      component: () => import('../page/message/Message.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/message/address',
       name: 'messageAddress',
-      component: () => import('../page/message/Address.vue')
+      component: () => import('../page/message/Address.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/message/number',
       name: 'messageNumber',
-      component: () => import('../page/message/Number.vue')
+      component: () => import('../page/message/Number.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/message/result',
       name: 'messageResult',
-      component: () => import('../page/message/Result.vue')
+      component: () => import('../page/message/Result.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/credit',
       name: 'credit',
-      component: () => import('../page/credit/Credit.vue')
+      component: () => import('../page/credit/Credit.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/credit/history',
       name: 'creditHistory',
-      component: () => import('../page/credit/History.vue')
+      component: () => import('../page/credit/History.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/login',
       name: 'login',
-      component: () => import('../page/auth/Login.vue')
+      component: () => import('../page/auth/Login.vue'),
+      meta: { requiresAuth: false }
     },
     {
       path: '/register',
       name: 'register',
-      component: () => import('../page/auth/Register.vue')
+      component: () => import('../page/auth/Register.vue'),
+      meta: { requiresAuth: false }
     }
   ]
-})
+});
 
-export default router
+router.beforeEach((to, from, next) => {
+  const loggedIn = isLoggedIn();
+
+  if (to.meta.requiresAuth && !loggedIn) {
+    alert("로그인 후 사용이 가능합니다.")
+    next('/login');
+  } else {
+    next();
+  }
+});
+
+export default router;
