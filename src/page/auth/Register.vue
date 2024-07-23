@@ -77,7 +77,7 @@
   </template>
   
   <script>
-  import { register } from '@/api/registerApi.js';
+  import { register } from '@/api/auth/registerApi.js';
   
   export default {
     data() {

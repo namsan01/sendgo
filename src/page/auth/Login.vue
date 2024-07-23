@@ -33,7 +33,7 @@
 
 
 <script>
-import { login } from '@/api/loginApi.js';
+import { login } from '@/api/auth/loginApi.js';
 
 export default {
   data() {

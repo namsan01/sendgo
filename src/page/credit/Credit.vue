@@ -111,7 +111,7 @@ export default {
     },
     async handlePayment(product) {
       try {
-        const response = await fetch('/api/create-payment', {
+        const response = await fetch('http://127.0.0.1:8000/api/payments', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -125,17 +125,30 @@ export default {
 
         const data = await response.json();
         if (response.ok) {
-          alert('결제가 완료되었습니다.');
+          const clientKey = import.meta.env.VITE_TOSS_PAYMENTS_CLIENT_KEY;
+          const { TossPayments } = await import('@tosspayments/tosspayments-sdk');
+
+          const tossPaymentsInstance = TossPayments(clientKey);
+
+          tossPaymentsInstance.requestPayment('카드', {
+            amount: product.price,
+            orderId: product.order_id,
+            successUrl: 'http://your-frontend-domain/success',
+            failUrl: 'http://your-frontend-domain/fail',
+          }).then((response) => {
+            this.successMessage = '결제가 성공적으로 진행되었습니다.';
+          }).catch((error) => {
+            console.error('결제 요청 중 오류 발생:', error);
+            this.errorMessage = `결제 오류 발생: ${error.message}`;
+          });
         } else {
-          alert(`결제 실패: ${data.message}`);
+          console.error('서버 응답 오류:', data);
+          this.errorMessage = `서버 응답 오류: ${data.message || 'Unknown error'}`;
         }
       } catch (error) {
         console.error('결제 중 오류 발생:', error);
-        alert('결제 중 오류가 발생했습니다.');
+        this.errorMessage = `결제 중 오류 발생: ${error.message || 'Unknown error'}`;
       }
-    },
-    generateOrderId() {
-      return 'order-' + Math.floor(Math.random() * 1000000);
     },
   },
 };
