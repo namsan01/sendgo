@@ -32,7 +32,7 @@
                 <h2>+ {{ formatNumber(product.additionalCredits) }}</h2>
               </div>
             </div>
-            <button @click="handlePayment(product)" class="w-full h-[61px] bg-[#5146F0] rounded-lg text-xl text-white">구매하기</button>
+            <button @click="pay('카드', product.price, product.order_id)" class="w-full h-[61px] bg-[#5146F0] rounded-lg text-xl text-white">구매하기</button>
           </div>
         </div>
       </div>
@@ -44,6 +44,10 @@
 
 <script>
 import CreditLink from "@/components/credit/CreditLink.vue";
+import { loadTossPayments } from "@tosspayments/payment-sdk";
+
+const clientKey = import.meta.env.VITE_TOSS_PAYMENTS_CLIENT_KEY;
+let func1 = loadTossPayments(clientKey);
 
 export default {
   name: "Credit",
@@ -91,8 +95,12 @@ export default {
         },
       ],
       errorMessage: '',
-      successMessage: ''
+      successMessage: '',
+      customerName: ''
     };
+  },
+  async created() {
+    await this.fetchCustomerName();
   },
   methods: {
     formatCurrency(value) {
@@ -109,46 +117,48 @@ export default {
     generateOrderId() {
       return `order-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
     },
-    async handlePayment(product) {
+    async fetchCustomerName() {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/payments', {
-          method: 'POST',
+        const response = await fetch('http://127.0.0.1:8000/api/user', {
+          method: 'GET',
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
           },
-          body: JSON.stringify({
-            amount: product.price,
-            order_id: product.order_id,
-          }),
         });
 
         const data = await response.json();
         if (response.ok) {
-          const clientKey = import.meta.env.VITE_TOSS_PAYMENTS_CLIENT_KEY;
-          const { TossPayments } = await import('@tosspayments/tosspayments-sdk');
-
-          const tossPaymentsInstance = TossPayments(clientKey);
-
-          tossPaymentsInstance.requestPayment('카드', {
-            amount: product.price,
-            orderId: product.order_id,
-            successUrl: 'http://your-frontend-domain/success',
-            failUrl: 'http://your-frontend-domain/fail',
-          }).then((response) => {
-            this.successMessage = '결제가 성공적으로 진행되었습니다.';
-          }).catch((error) => {
-            console.error('결제 요청 중 오류 발생:', error);
-            this.errorMessage = `결제 오류 발생: ${error.message}`;
-          });
+          this.customerName = data.name; 
         } else {
-          console.error('서버 응답 오류:', data);
-          this.errorMessage = `서버 응답 오류: ${data.message || 'Unknown error'}`;
+          console.error('사용자 정보 가져오기 실패:', data);
+          this.errorMessage = `사용자 정보 가져오기 실패: ${data.message || 'Unknown error'}`;
         }
       } catch (error) {
-        console.error('결제 중 오류 발생:', error);
-        this.errorMessage = `결제 중 오류 발생: ${error.message || 'Unknown error'}`;
+        console.error('사용자 정보 가져오기 중 오류 발생:', error);
+        this.errorMessage = `사용자 정보 가져오기 중 오류 발생: ${error.message || 'Unknown error'}`;
       }
+    },
+    pay(method, amount, orderId) {
+      func1.then((tossPayments) => {
+        tossPayments
+          .requestPayment(method, {
+            amount: amount,
+            orderId: orderId,
+            orderName: "크레딧 구매",
+            customerName: this.customerName, 
+            successUrl: "http://localhost:5173/success",
+            failUrl: "http://localhost:5173/fail",
+          })
+          .catch((error) => {
+            if (error.code === "USER_CANCEL") {
+              alert("유저가 취소했습니다.");
+            } else {
+              alert(error.message);
+            }
+            this.errorMessage = `결제 오류 발생: ${error.message}`;
+          });
+      });
     },
   },
 };

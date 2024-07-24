@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tosspayments/payment-sdk": "^1.8.1",
     "@tosspayments/tosspayments-sdk": "^2.2.3",
     "axios": "^1.7.2",
     "vue": "^3.4.29",
