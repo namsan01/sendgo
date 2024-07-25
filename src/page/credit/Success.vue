@@ -17,7 +17,6 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      currentRoute: window.location.pathname,
       responseData: '',
       countdown: 5, 
       countdownInterval: null 
@@ -28,7 +27,7 @@ export default {
     this.startCountdown();
   },
   methods: {
-    success() {
+    async success() {
       let params = new URLSearchParams(window.location.search);
       const url = 'https://api.tosspayments.com/v1/payments/' + params.get("paymentKey");
       const token = "dGVzdF9za19vRWpiMGdtMjNQT05PbUI2ZE5PbjhwR3dCSm41Og==";
@@ -38,18 +37,35 @@ export default {
         orderId: params.get("orderId")
       };
 
-      axios.post(url, userData, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: 'Basic ' + token
-        }
-      })
-      .then(res => {
+      try {
+        const res = await axios.post(url, userData, {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Basic ' + token
+          }
+        });
         this.responseData = res.data;
-      })
-      .catch(err => {
+      } catch (err) {
         this.responseData = err.response.data;
-      });
+      }
+
+      try {
+        await axios.post('http://127.0.0.1:8000/api/payments', {
+          method: "카드",
+          amount: params.get("amount"),
+          orderId: params.get("orderId"),
+          status: '결제성공',
+          errorMessage: "결제가 정상 작동하였습니다.",
+        }, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        console.log('결제 정보가 서버에 저장되었습니다.');
+      } catch (error) {
+        console.error('서버에 결제 정보를 저장하는 도중 오류 발생:', error.response ? error.response.data : error.message);
+      }
     },
     startCountdown() {
       this.countdownInterval = setInterval(() => {
@@ -69,6 +85,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-</style>

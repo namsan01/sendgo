@@ -45,6 +45,7 @@
 <script>
 import CreditLink from "@/components/credit/CreditLink.vue";
 import { loadTossPayments } from "@tosspayments/payment-sdk";
+import axios from "axios";
 
 const clientKey = import.meta.env.VITE_TOSS_PAYMENTS_CLIENT_KEY;
 let func1 = loadTossPayments(clientKey);
@@ -139,27 +140,51 @@ export default {
         this.errorMessage = `사용자 정보 가져오기 중 오류 발생: ${error.message || 'Unknown error'}`;
       }
     },
-    pay(method, amount, orderId) {
-      func1.then((tossPayments) => {
-        tossPayments
-          .requestPayment(method, {
-            amount: amount,
-            orderId: orderId,
-            orderName: "크레딧 구매",
-            customerName: this.customerName, 
-            successUrl: "http://localhost:5173/success",
-            failUrl: "http://localhost:5173/fail",
-          })
-          .catch((error) => {
-            if (error.code === "USER_CANCEL") {
-              alert("유저가 취소했습니다.");
-            } else {
-              alert(error.message);
-            }
-            this.errorMessage = `결제 오류 발생: ${error.message}`;
-          });
+async pay(method, amount, orderId) {
+  try {
+    // Toss Payments SDK 로드
+    const tossPayments = await func1;
+
+    // 결제 요청
+    const response = await tossPayments.requestPayment(method, {
+      amount: amount,
+      orderId: orderId,
+      orderName: "크레딧 구매",
+      customerName: this.customerName,
+      successUrl: "http://localhost:5173/success",
+      failUrl: "http://localhost:5173/fail",
+    });
+
+  } catch (error) {
+    if (error.code === "USER_CANCEL") {
+      alert("유저가 취소했습니다.");
+    } else {
+      alert(error.message);
+    }
+    this.errorMessage = `결제 오류 발생: ${error.message}`;
+
+    try {
+      await axios.post('http://127.0.0.1:8000/api/payments', {
+        method: method,
+        amount: amount,
+        orderId: orderId,
+        status: '결제실패',
+        errorMessage: error.message, 
+      }, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+          'Content-Type': 'application/json'
+        }
       });
-    },
+      console.log('결제 실패 정보가 서버에 저장되었습니다.');
+    } catch (error) {
+      console.error('서버에 결제 실패 정보를 저장하는 도중 오류 발생:', error.response ? error.response.data : error.message);
+    }
+  }
+}
+
+
+
   },
 };
 </script>
