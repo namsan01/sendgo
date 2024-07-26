@@ -8,34 +8,40 @@
         <span class="gradient-text">가장 빠르고 안정적인</span>
         <span class="gradient-text">문자 서비스 SENDGO</span>
       </div>
-      <div class="flex gap-[21px]">
-        <ButtonBox text="회원가입" url="/register" />
-        <ButtonBox text="로그인" url="/login" :style="{ background: '#242424' }" />
+      <div>
+        <div v-if="isLoggedIn" class="flex gap-[21px]">
+          <ButtonBox text="메세지" url="/message" />
+          <ButtonBox text="크레딧" url="/credit" :style="{ background: '#242424' }"/>      
+        </div>
+        <div v-else class="flex gap-[21px]">
+          <ButtonBox text="회원가입" url="/register" />
+          <ButtonBox text="로그인" url="/login" :style="{ background: '#242424' }"/>
+        </div>
       </div>
     </div>
     <div class="flex-1 flex gap-8 items-end base:items-start transition-all ease-in-out duration-300 base:pt-20 lg:flex-wrap lg:justify-center">
-    <div class="flex-col justify-end gap-8 base:justify-start ">
-      <MainBox1 url="main1x2" />
-      <div class="w-[254px]">
-      <img class="xl:rounded-[2rem]" :src="`/images/main/main2x2.png`" alt="main2" />
-  </div>
-    </div>
-    <div class="flex-col justify-center gap-8 transition-all ease-in-out duration-300 base:mt-10" >
-      <div class="w-[254px] bg-[#37383e] rounded-b-[2rem] xl:rounded-[2rem]">
-      <img class="xl:rounded-[2rem]" :src="`/images/main/main4x2.png`" alt="main4" />
-  </div>
-  <div class="w-[254px] bg-[#6250ff] rounded-t-[2rem] xl:rounded-[2rem]">
-      <img class="xl:rounded-[2rem]" :src="`/images/main/main3x2.png`" alt="main3" />
-  </div>
-    </div>
-    <div class="flex-col mb-[139px] gap-8 transition-all ease-in-out duration-300">
-      <div class="w-[254px] bg-[#6250ff] rounded-b-[2rem] xl:rounded-[2rem]">
-      <img class="xl:rounded-[2rem]" :src="`/images/main/main5x2.png`" alt="main5" />
+      <div class="flex-col justify-end gap-8 base:justify-start ">
+        <MainBox1 url="main1x2" />
+        <div class="w-[254px]">
+          <img class="xl:rounded-[2rem]" :src="`/images/main/main2x2.png`" alt="main2" />
+        </div>
       </div>
-      <MainBox2 url="main6x2" />
+      <div class="flex-col justify-center gap-8 transition-all ease-in-out duration-300 base:mt-10">
+        <div class="w-[254px] bg-[#37383e] rounded-b-[2rem] xl:rounded-[2rem]">
+          <img class="xl:rounded-[2rem]" :src="`/images/main/main4x2.png`" alt="main4" />
+        </div>
+        <div class="w-[254px] bg-[#6250ff] rounded-t-[2rem] xl:rounded-[2rem]">
+          <img class="xl:rounded-[2rem]" :src="`/images/main/main3x2.png`" alt="main3" />
+        </div>
+      </div>
+      <div class="flex-col mb-[139px] gap-8 transition-all ease-in-out duration-300">
+        <div class="w-[254px] bg-[#6250ff] rounded-b-[2rem] xl:rounded-[2rem]">
+          <img class="xl:rounded-[2rem]" :src="`/images/main/main5x2.png`" alt="main5" />
+        </div>
+        <MainBox2 url="main6x2" />
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -46,15 +52,19 @@ import ButtonBox from "@/components/main/box/ButtonBox.vue";
 export default {
   name: "MainContent1",
   components: {
-    MainBox1: MainBox1,
-    MainBox2: MainBox2,
-    ButtonBox: ButtonBox,
+    MainBox1,
+    MainBox2,
+    ButtonBox
   },
+  data() {
+    return {
+      isLoggedIn: !!localStorage.getItem('access_token') 
+    };
+  }
 };
 </script>
 
 <style scoped>
-
 .gradient-text {
   background: linear-gradient(90deg, #9fbafd 0%, #4e81ff 100%);
   -webkit-background-clip: text;
@@ -62,9 +72,8 @@ export default {
 }
 
 @media (max-width: 768px) {
-.gradient-text {
-  font-size: 40px;
+  .gradient-text {
+    font-size: 40px;
+  }
 }
-}
-
 </style>

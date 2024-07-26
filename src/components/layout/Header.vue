@@ -16,7 +16,7 @@
         <div class="w-full h-full flex justify-center items-center">
           <div
             :class="[
-              'flex text-2xl gap-20 p-8 rounded-lg md:p-0 md:gap-7',
+              'flex text-2xl gap-20 p-8 rounded-lg md:p-4',
               !isRootPath
                 ? 'text-black'
                 : isScrolled
@@ -24,39 +24,21 @@
                 : 'text-white',
             ]"
           >
-            <span
-              @click="handleNavigation('/message')"
+            <router-link
+              to="/message"
               :class="{
                 'text-[#4E43ED]': isCurrentRoute('/message'),
               }"
             >
-              <span class="md:text-[1.15rem]">메시지</span>
-            </span>
-            <span
-              @click="handleNavigation('/credit')"
+              <span class="md:text-xl sm:text-[1.24rem]">메시지</span>
+            </router-link>
+            <router-link
+              to="/credit"
               :class="{
                 'text-[#4E43ED]': isCurrentRoute('/credit'),
               }"
             >
-              <span class="md:text-[1.15rem]">크레딧</span>
-            </span>
-            <span
-              v-if="isLoggedIn"
-              @click="logout"
-              :class="{
-                'text-[#4E43ED]': isCurrentRoute('/login'),
-              }"
-            >
-              <span class="md:text-[1.14rem] cursor-pointer">로그아웃</span>
-            </span>
-            <router-link
-              v-else
-              to="/login"
-              :class="{
-                'text-[#4E43ED]': isCurrentRoute('/login'),
-              }"
-            >
-              <span class="md:text-[1.14rem]">로그인</span>
+              <span class="md:text-xl sm:text-[1.24rem]">크레딧</span>
             </router-link>
           </div>
         </div>
@@ -70,149 +52,338 @@
         :class="['black-header']"
         class="flex-center items-center w-full"
       >
-        <div class="wrapper flex justify-between items-center lg:justify-between lg:p-4">
+        <div class="wrapper flex justify-between items-center lg:p-4">
           <router-link to="/">
             <img
-              class="w-[142px] h-[44px]"
+              class="w-[142px] h-44px"
               src="/images/logo/logo_gray.svg"
               alt="로고"
             />
           </router-link>
           <div class="flex items-center lg:hidden">
-            <span
-              @click="handleNavigation('/message')"
+            <router-link
+              to="/message"
               :class="{
-                'text-[#4E43ED] border-b-2 border-[#4E43ED]': isCurrentRoute('/message'),
+                'text-[#4E43ED] border-b-2 border-[#4E43ED]':
+                  isCurrentRoute('/message'),
               }"
             >
               <div class="router-box">메시지</div>
-            </span>
-            <span
-              @click="handleNavigation('/credit')"
+            </router-link>
+            <router-link
+              to="/credit"
               :class="{
-                'text-[#4E43ED] border-b-2 border-[#4E43ED]': isCurrentRoute('/credit'),
+                'text-[#4E43ED] border-b-2 border-[#4E43ED]':
+                  isCurrentRoute('/credit'),
               }"
             >
               <div class="router-box">크레딧</div>
-            </span>
-            <span
-              v-if="isLoggedIn"
-              @click="logout"
-              class="flex items-center cursor-pointer"
-            >
-              <div class="w-[120px] h-[4rem] bg-[#4e43ed] flex-center items-center rounded-2xl text-white">로그아웃</div>
-            </span>
-            <router-link
-              v-else
-              class="flex items-center"
-              to="/login"
-            >
-              <div class="w-[120px] h-[4rem] bg-[#4e43ed] flex-center items-center rounded-2xl text-white">로그인</div>
             </router-link>
+            <div class="relative">
+              <button
+                id="avatar-button"
+                aria-expanded="isDropdownOpen1 ? 'true' : 'false'"
+                aria-controls="dropdown-menu"
+                @click="toggleDropdown1"
+                class="flex items-center text-white p-2 rounded-full hover:bg-gray-700 focus:outline-none"
+              >
+                <img
+                  src="https://static.toss.im/illusts/img-profile-default-alt.png"
+                  width="28"
+                  height="28"
+                  class="rounded-full"
+                  alt="Profile Avatar"
+                />
+              </button>
+
+              <ul
+                id="dropdown-menu"
+                :class="{
+                  'absolute w-40 right-[-55px] mt-2 bg-white border border-gray-300 shadow-lg rounded-lg overflow-hidden': true,
+                  hidden: !isDropdownOpen1,
+                }"
+              >
+                <li v-if="isLoggedIn">
+                  <h2 class="p-2 text-gray-700 text-center">
+                    {{ customerName }}
+                  </h2>
+                </li>
+                <li>
+                  <router-link
+                    v-if="isLoggedIn"
+                    to="/login"
+                    class="block p-2 text-red-600 hover:bg-gray-100 text-center"
+                    @click.native="logout"
+                    @click="toggleDropdown1"
+                  >
+                    로그아웃
+                  </router-link>
+                  <router-link
+                    v-else
+                    to="/login"
+                    class="block p-2 text-blue-600 hover:bg-gray-100 text-center"
+                    @click="toggleDropdown1"
+                  >
+                    로그인
+                  </router-link>
+                </li>
+              </ul>
+            </div>
           </div>
           <nav class="hidden lg:block">
-            <button
-              class="w-10 h-10 relative focus:outline-none"
-              @click="toggleMenu"
-            >
-              <span class="sr-only">메인 메뉴 열기</span>
-              <div
-                class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
-              >
-                <span
-                  aria-hidden="true"
-                  class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
-                  :class="{ 'rotate-45': isOpen, ' -translate-y-1.5': !isOpen }"
-                ></span>
-                <span
-                  aria-hidden="true"
-                  class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
-                  :class="{ 'opacity-0': isOpen }"
-                ></span>
-                <span
-                  aria-hidden="true"
-                  class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
-                  :class="{ '-rotate-45': isOpen, ' translate-y-1.5': !isOpen }"
-                ></span>
+            <div class="flex items-center gap-3">
+              <div class="relative">
+                <button
+                  id="avatar-button"
+                  aria-expanded="isDropdownOpen1 ? 'true' : 'false'"
+                  aria-controls="dropdown-menu"
+                  @click="toggleDropdown1"
+                  class="flex items-center text-white p-2 rounded-full hover:bg-gray-700 focus:outline-none"
+                >
+                  <img
+                    src="https://static.toss.im/illusts/img-profile-default-alt.png"
+                    width="28"
+                    height="28"
+                    class="rounded-full"
+                    alt="Profile Avatar"
+                  />
+                </button>
+
+                <ul
+                  id="dropdown-menu"
+                  :class="{
+                    'absolute w-40 right-[-55px] mt-2 bg-white border border-gray-300 shadow-lg rounded-lg overflow-hidden': true,
+                    hidden: !isDropdownOpen1,
+                  }"
+                >
+                  <li v-if="isLoggedIn">
+                    <h2 class="p-2 text-gray-700 text-center">
+                      {{ customerName }}
+                    </h2>
+                  </li>
+                  <li>
+                    <router-link
+                      v-if="isLoggedIn"
+                      to="/login"
+                      class="block p-2 text-red-600 hover:bg-gray-100 text-center"
+                      @click.native="logout"
+                      @click="toggleDropdown1"
+                    >
+                      로그아웃
+                    </router-link>
+                    <router-link
+                      v-else
+                      to="/login"
+                      class="block p-2 text-blue-600 hover:bg-gray-100 text-center"
+                      @click="toggleDropdown1"
+                    >
+                      로그인
+                    </router-link>
+                  </li>
+                </ul>
               </div>
-            </button>
+              <button
+                class="w-10 h-10 relative focus:outline-none"
+                @click="toggleMenu"
+              >
+                <span class="sr-only">메인 메뉴 열기</span>
+                <div
+                  class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
+                    :class="{
+                      'rotate-45': isOpen,
+                      ' -translate-y-1.5': !isOpen,
+                    }"
+                  ></span>
+                  <span
+                    aria-hidden="true"
+                    class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
+                    :class="{ 'opacity-0': isOpen }"
+                  ></span>
+                  <span
+                    aria-hidden="true"
+                    class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
+                    :class="{
+                      '-rotate-45': isOpen,
+                      ' translate-y-1.5': !isOpen,
+                    }"
+                  ></span>
+                </div>
+              </button>
+            </div>
           </nav>
         </div>
       </div>
       <div
         v-if="!isRootPath || isScrolled"
-        :class="[
-          'white-header',
-          { 'bg-white/95': !isRootPath },
-        ]"
+        :class="['white-header', { 'bg-white/95': !isRootPath }]"
         class="flex-center items-center w-full"
       >
-        <div class="wrapper flex justify-between items-center lg:justify-between lg:p-4">
+        <div class="wrapper flex w-full items-center justify-between lg:p-4">
           <router-link to="/">
             <img
-              class="w-[142px] h-[44px]"
+              class="w-[142px] h-44px"
               src="/images/logo/logo.svg"
               alt="로고"
             />
           </router-link>
           <div class="flex items-center lg:hidden">
-            <span
-              @click="handleNavigation('/message')"
+            <router-link
+              to="/message"
               :class="{
-                'text-[#4E43ED] border-b-2 border-[#4E43ED]': isCurrentRoute('/message'),
+                'text-[#4E43ED] border-b-2 border-[#4E43ED]':
+                  isCurrentRoute('/message'),
               }"
             >
               <div class="router-box">메시지</div>
-            </span>
-            <span
-              @click="handleNavigation('/credit')"
+            </router-link>
+            <router-link
+              to="/credit"
               :class="{
-                'text-[#4E43ED] border-b-2 border-[#4E43ED]': isCurrentRoute('/credit'),
+                'text-[#4E43ED] border-b-2 border-[#4E43ED]':
+                  isCurrentRoute('/credit'),
               }"
             >
               <div class="router-box">크레딧</div>
-            </span>
-            <span
-              v-if="isLoggedIn"
-              @click="logout"
-              class="flex items-center cursor-pointer"
-            >
-              <div class="w-[120px] h-[4rem] bg-[#4e43ed] flex-center items-center rounded-2xl text-white">로그아웃</div>
-            </span>
-            <router-link
-              v-else
-              class="flex items-center"
-              to="/login"
-            >
-              <div class="w-[120px] h-[4rem] bg-[#4e43ed] flex-center items-center rounded-2xl text-white">로그인</div>
             </router-link>
+            <div class="relative">
+              <button
+                id="avatar-button"
+                aria-expanded="isDropdownOpen2 ? 'true' : 'false'"
+                aria-controls="dropdown-menu"
+                @click="toggleDropdown2"
+                class="flex items-center text-white p-2 rounded-full hover:bg-gray-100 focus:outline-none"
+              >
+                <img
+                  src="https://static.toss.im/illusts/img-profile-default-alt.png"
+                  width="28"
+                  height="28"
+                  class="rounded-full"
+                  alt="Profile Avatar"
+                />
+              </button>
+
+              <ul
+                id="dropdown-menu"
+                :class="{
+                  'absolute w-40 right-[-55px] mt-2 bg-white border border-gray-300 shadow-lg rounded-lg overflow-hidden': true,
+                  hidden: !isDropdownOpen2,
+                }"
+              >
+                <li v-if="isLoggedIn">
+                  <h2 class="p-2 text-gray-700 text-center">
+                    {{ customerName }}
+                  </h2>
+                </li>
+                <li>
+                  <router-link
+                    v-if="isLoggedIn"
+                    to="/login"
+                    class="block p-2 text-red-600 hover:bg-gray-100 text-center"
+                    @click.native="logout"
+                    @click="toggleDropdown2"
+                  >
+                    로그아웃
+                  </router-link>
+                  <router-link
+                    v-else
+                    to="/login"
+                    class="block p-2 text-blue-600 hover:bg-gray-100 text-center"
+                    @click="toggleDropdown2"
+                  >
+                    로그인
+                  </router-link>
+                </li>
+              </ul>
+            </div>
           </div>
           <nav class="hidden lg:block">
-            <button
-              class="w-10 h-10 relative focus:outline-none"
-              @click="toggleMenu"
-            >
-              <span class="sr-only">메인 메뉴 열기</span>
-              <div
-                class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
-              >
-                <span
-                  aria-hidden="true"
-                  class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
-                  :class="{ 'rotate-45': isOpen, ' -translate-y-1.5': !isOpen }"
-                ></span>
-                <span
-                  aria-hidden="true"
-                  class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
-                  :class="{ 'opacity-0': isOpen }"
-                ></span>
-                <span
-                  aria-hidden="true"
-                  class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
-                  :class="{ '-rotate-45': isOpen, ' translate-y-1.5': !isOpen }"
-                ></span>
+            <div class="flex items-center gap-3">
+              <div class="relative">
+                <button
+                  id="avatar-button"
+                  aria-expanded="isDropdownOpen2 ? 'true' : 'false'"
+                  aria-controls="dropdown-menu"
+                  @click="toggleDropdown2"
+                  class="flex items-center text-white p-2 rounded-full hover:bg-gray-100 focus:outline-none"
+                >
+                  <img
+                    src="https://static.toss.im/illusts/img-profile-default-alt.png"
+                    width="28"
+                    height="28"
+                    class="rounded-full"
+                    alt="Profile Avatar"
+                  />
+                </button>
+
+                <ul
+                  id="dropdown-menu"
+                  :class="{
+                    'absolute w-40 right-[-55px] mt-2 bg-white border border-gray-300 shadow-lg rounded-lg overflow-hidden': true,
+                    hidden: !isDropdownOpen2,
+                  }"
+                >
+                  <li v-if="isLoggedIn">
+                    <h2 class="p-2 text-gray-700 text-center">
+                      {{ customerName }}
+                    </h2>
+                  </li>
+                  <li>
+                    <router-link
+                      v-if="isLoggedIn"
+                      to="/login"
+                      class="block p-2 text-red-600 hover:bg-gray-100 text-center"
+                      @click.native="logout"
+                      @click="toggleDropdown2"
+                    >
+                      로그아웃
+                    </router-link>
+                    <router-link
+                      v-else
+                      to="/login"
+                      class="block p-2 text-blue-600 hover:bg-gray-100 text-center"
+                      @click="toggleDropdown2"
+                    >
+                      로그인
+                    </router-link>
+                  </li>
+                </ul>
               </div>
-            </button>
+              <button
+                class="w-10 h-10 relative focus:outline-none"
+                @click="toggleMenu"
+              >
+                <span class="sr-only">메인 메뉴 열기</span>
+                <div
+                  class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
+                    :class="{
+                      'rotate-45': isOpen,
+                      ' -translate-y-1.5': !isOpen,
+                    }"
+                  ></span>
+                  <span
+                    aria-hidden="true"
+                    class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
+                    :class="{ 'opacity-0': isOpen }"
+                  ></span>
+                  <span
+                    aria-hidden="true"
+                    class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
+                    :class="{
+                      '-rotate-45': isOpen,
+                      ' translate-y-1.5': !isOpen,
+                    }"
+                  ></span>
+                </div>
+              </button>
+            </div>
           </nav>
         </div>
       </div>
@@ -221,17 +392,18 @@
   </div>
 </template>
 
-
-
 <script>
 export default {
   name: "Header",
   data() {
     return {
       isOpen: false,
+      isDropdownOpen1: false,
+      isDropdownOpen2: false,
       isScrolled: false,
       isWideScreen: window.innerWidth >= 1024,
-      isLoggedIn: !!localStorage.getItem('access_token'), 
+      isLoggedIn: !!localStorage.getItem("access_token"),
+      customerName: "",
     };
   },
   computed: {
@@ -248,9 +420,33 @@ export default {
     window.removeEventListener("scroll", this.handleScroll);
     window.removeEventListener("resize", this.handleResize);
   },
+  async created() {
+    await this.fetchCustomerName();
+  },
   methods: {
     toggleMenu() {
+      if (this.isDropdownOpen2 === true) {
+        this.isDropdownOpen2 = !this.isDropdownOpen2;
+      } else if  (this.isDropdownOpen1 === true) {
+        this.isDropdownOpen1 = !this.isDropdownOpen1;
+      }
       this.isOpen = !this.isOpen;
+    },
+    toggleDropdown1() {
+      if (this.isDropdownOpen2 === true) {
+        this.isDropdownOpen2 = !this.isDropdownOpen2;
+      } else if (this.isOpen === true) {
+        this.isOpen = !this.isOpen;
+      }
+      this.isDropdownOpen1 = !this.isDropdownOpen1;
+    },
+    toggleDropdown2() {
+      if (this.isDropdownOpen1 === true) {
+        this.isDropdownOpen1 = !this.isDropdownOpen1;
+      } else if (this.isOpen === true) {
+        this.isOpen = !this.isOpen;
+      }
+      this.isDropdownOpen2 = !this.isDropdownOpen2;
     },
     handleScroll() {
       this.isScrolled = window.scrollY > 0;
@@ -265,23 +461,48 @@ export default {
       return this.$route.path.startsWith(route);
     },
     logout() {
-      localStorage.removeItem('access_token');
-      this.isLoggedIn = false; 
-      this.$router.push('/');
-      alert("로그아웃 되었습니다.")
+      localStorage.removeItem("access_token");
+      this.isLoggedIn = false;
+      window.location.href = "/";
+      alert("로그아웃 되었습니다.");
     },
     handleNavigation(path) {
-      if (this.isLoggedIn || path === '/login') {
-        this.$router.push(path);
+      if (path === "/login") {
+        this.logout();
       } else {
-        this.$router.push('/login');
+        this.$router.push(path);
       }
-    }
+      this.isDropdownOpen = false;
+    },
+    async fetchCustomerName() {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/api/user", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+          },
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          this.customerName = data.name;
+        } else {
+          console.error("사용자 정보 가져오기 실패:", data);
+          this.errorMessage = `사용자 정보 가져오기 실패: ${
+            data.message || "Unknown error"
+          }`;
+        }
+      } catch (error) {
+        console.error("사용자 정보 가져오기 중 오류 발생:", error);
+        this.errorMessage = `사용자 정보 가져오기 중 오류 발생: ${
+          error.message || "Unknown error"
+        }`;
+      }
+    },
   },
 };
 </script>
-
-
 
 <style scoped>
 .body {

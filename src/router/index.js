@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import NotFound from '../page/NotFound.vue';
 
 function isLoggedIn() {
   return !!localStorage.getItem('access_token');
@@ -69,6 +70,11 @@ const router = createRouter({
       name: 'register',
       component: () => import('../page/auth/Register.vue'),
       meta: { requiresAuth: false }
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: NotFound
     }
   ]
 });
@@ -77,8 +83,10 @@ router.beforeEach((to, from, next) => {
   const loggedIn = isLoggedIn();
 
   if (to.meta.requiresAuth && !loggedIn) {
-    alert("로그인 후 사용이 가능합니다.")
+    alert("로그인 후 사용이 가능합니다.");
     next('/login');
+  } else if ((to.name === 'login' || to.name === 'register') && loggedIn) {
+    next({ name: 'NotFound' });
   } else {
     next();
   }
