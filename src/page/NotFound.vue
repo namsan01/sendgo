@@ -4,7 +4,7 @@
       <h1 class="text-4xl mb-10 base:text-2xl base:mb-5 md:text-base ">404 - 페이지를 찾을 수 없습니다.</h1>
       <router-link
       to="/"
-      class="w-1/2 h-[100px] bg-gray-200 flex-center items-center text-3xl border border-black md:text-xl md:h-[75px]"
+      class="w-1/2 h-[100px] bg-gray-200 flex-center items-center text-3xl border  md:text-xl md:h-[75px]"
       >
       홈으로 돌아가기
     </router-link>

@@ -72,6 +72,18 @@ const router = createRouter({
       meta: { requiresAuth: false }
     },
     {
+      path: '/reset',
+      name: 'resetPage',
+      component: () => import('../page/auth/ResetPage.vue'),
+      meta: { requiresAuth: false }
+    },
+    {
+      path: '/reset/mail',
+      name: 'resetMail',
+      component: () => import('../page/auth/ResetMail.vue'),
+      meta: { requiresAuth: false }
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
       component: NotFound
@@ -83,7 +95,6 @@ router.beforeEach((to, from, next) => {
   const loggedIn = isLoggedIn();
 
   if (to.meta.requiresAuth && !loggedIn) {
-    alert("로그인 후 사용이 가능합니다.");
     next('/login');
   } else if ((to.name === 'login' || to.name === 'register') && loggedIn) {
     next({ name: 'NotFound' });

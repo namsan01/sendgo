@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'overflow-x-hidden': isRootPath }">
+  <div :class="{ 'overflow-x-hidden': isRootPath }" :style="{ minWidth: '375px' }">
     <Header />
     <router-view />
     <Footer />

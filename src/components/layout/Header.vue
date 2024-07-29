@@ -475,6 +475,16 @@ export default {
       this.isDropdownOpen = false;
     },
     async fetchCustomerName() {
+
+const accessToken = localStorage.getItem("access_token");
+
+if (!accessToken) {
+ 
+  console.error("로그인 정보가 없습니다.");
+  this.errorMessage = "로그인 후 다시 시도해 주세요.";
+  return;
+}
+
       try {
         const response = await fetch("http://127.0.0.1:8000/api/user", {
           method: "GET",
@@ -507,6 +517,7 @@ export default {
 <style scoped>
 .body {
   overflow-x: hidden;
+  min-width: 375px;
 }
 
 .wrapper div {

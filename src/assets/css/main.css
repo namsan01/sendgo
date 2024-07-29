@@ -6,7 +6,8 @@
   height: auto;
   font-weight: normal;
   font-family: Pretendard;
-  line-height: 1.5; 
+  line-height: 1.5;
+  min-width: 375px;
 }
 
 .wrapper {

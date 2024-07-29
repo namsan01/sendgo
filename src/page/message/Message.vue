@@ -1,10 +1,10 @@
 <template>
   <div>
 <!-- 모달 -->
-<div class="hidden md:block w-[35px] h-[35px] fixed bottom-10 right-[47vw] bg-white border rounded-full">
+<div class="hidden md:block w-[35px] h-[35px] fixed top-[500px] right-0 bg-white border rounded-full">
   <div class="w-full h-full flex-center items-center">
   <button @click="toggleView">
-    <img class=" transform rotate-180" src="/images/icon2/icon_arrow.svg" alt="arrow" />
+    <img class=" transform rotate-90" src="/images/icon2/icon_arrow.svg" alt="arrow" />
   </button>
 </div>
 </div>

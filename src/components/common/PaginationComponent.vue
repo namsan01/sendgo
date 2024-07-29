@@ -1,14 +1,14 @@
 <template>
   <div class="pagination">
     <button @click="changePage(currentPage - 1)" :disabled="currentPage === 1">
-      이전
+      <
     </button>
     <span>페이지 {{ currentPage }} / {{ totalPages }}</span>
     <button
       @click="changePage(currentPage + 1)"
       :disabled="currentPage === totalPages"
     >
-      다음
+      >
     </button>
   </div>
 </template>
