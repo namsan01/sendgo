@@ -103,10 +103,15 @@
                   hidden: !isDropdownOpen1,
                 }"
               >
-                <li v-if="isLoggedIn">
-                  <h2 class="p-2 text-gray-700 text-center">
+                <li v-if="isLoggedIn"
+                class="p-2 text-gray-700 text-center hover:bg-gray-100"
+                >
+                  <router-link 
+                  to="/mypage"
+                  class="block w-full"
+                  >
                     {{ customerName }}
-                  </h2>
+                  </router-link>
                 </li>
                 <li>
                   <router-link
@@ -156,11 +161,16 @@
                     hidden: !isDropdownOpen1,
                   }"
                 >
-                  <li v-if="isLoggedIn">
-                    <h2 class="p-2 text-gray-700 text-center">
-                      {{ customerName }}
-                    </h2>
-                  </li>
+                <li v-if="isLoggedIn"
+                class="p-2 text-gray-700 text-center hover:bg-gray-100"
+                >
+                  <router-link 
+                  to="/mypage"
+                  class="block w-full"
+                  >
+                    {{ customerName }}
+                  </router-link>
+                </li>
                   <li>
                     <router-link
                       v-if="isLoggedIn"
@@ -273,10 +283,15 @@
                   hidden: !isDropdownOpen2,
                 }"
               >
-                <li v-if="isLoggedIn">
-                  <h2 class="p-2 text-gray-700 text-center">
+              <li v-if="isLoggedIn"
+                class="p-2 text-gray-700 text-center hover:bg-gray-100"
+                >
+                  <router-link 
+                  to="/mypage"
+                  class="block w-full"
+                  >
                     {{ customerName }}
-                  </h2>
+                  </router-link>
                 </li>
                 <li>
                   <router-link
@@ -326,11 +341,16 @@
                     hidden: !isDropdownOpen2,
                   }"
                 >
-                  <li v-if="isLoggedIn">
-                    <h2 class="p-2 text-gray-700 text-center">
-                      {{ customerName }}
-                    </h2>
-                  </li>
+                <li v-if="isLoggedIn"
+                class="p-2 text-gray-700 text-center hover:bg-gray-100"
+                >
+                  <router-link 
+                  to="/mypage"
+                  class="block w-full"
+                  >
+                    {{ customerName }}
+                  </router-link>
+                </li>
                   <li>
                     <router-link
                       v-if="isLoggedIn"

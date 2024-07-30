@@ -13,24 +13,24 @@
           <input v-model="password" type="password" id="password" class="w-full bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="비밀번호" />
         </div>
         <button type="submit" class="w-full mt-6 bg-indigo-600 rounded-lg px-4 py-3 text-base md:text-lg text-white font-semibold tracking-wide hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">로그인</button>
-        <div class="flex-center items-center">
-        <p v-if="emailError" class="text-red-500 text-md mt-2 text-center">{{ emailError }}</p> 
-        <p v-if="passwordError" class="text-red-500 text-md mt-2 text-center">{{ passwordError }}</p>
-      </div>
+        <div class="flex flex-col items-center">
+          <p v-if="emailError" class="text-red-500 text-md mt-2 text-center">{{ emailError }}</p> 
+          <p v-if="passwordError" class="text-red-500 text-md mt-2 text-center">{{ passwordError }}</p>
+        </div>
         <div class="mt-0">
-          <div class="flex-center">
-            <div class="sm:text-left whitespace-nowrap">
+            <div class="flex justify-around sm:text-left whitespace-nowrap">
               <button @click="goRegister" class="transition duration-200 mx-3 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500">
-                <span class="inline-block ml-1 text-xl md:text-base">계정이 없으신가요? <span class="text-[#5146F0] underline cursor-pointer">회원가입</span></span>
+                <span class="inline-block ml-1 text-xl md:text-lg"><span class="text-blue-600 cursor-pointer decoration-2 hover:underline font-medium">회원가입</span></span>
+              </button>
+              <button @click="goResetPassword" class="transition duration-200 mx-3 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500">
+                <span class="inline-block ml-1 text-xl md:text-lg"><span class="text-blue-600  cursor-pointer decoration-2 hover:underline font-medium">비밀번호 찾기</span></span>
               </button>
             </div>
-          </div>
         </div>
       </form>
     </div>
   </div>
 </template>
-
 
 <script>
 import { login } from '@/api/auth/loginApi.js';
@@ -47,6 +47,9 @@ export default {
   methods: {
     goRegister() {
       this.$router.push('/register');
+    },
+    goResetPassword() {
+      this.$router.push('/reset/mail'); // 비밀번호 재설정 페이지로 이동
     },
     async handleSubmit() {
       this.emailError = '';
@@ -84,6 +87,6 @@ export default {
 }
 </script>
 
-
 <style scoped>
+/* 추가적인 스타일이 필요하다면 여기에 작성하세요 */
 </style>

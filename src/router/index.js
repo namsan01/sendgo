@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import NotFound from '../page/NotFound.vue';
+import NotFound from '../page/etc/NotFound.vue';
 
 function isLoggedIn() {
   return !!localStorage.getItem('access_token');
@@ -14,7 +14,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'main',
-      component: () => import('../page/Main.vue'),
+      component: () => import('../page/main/Main.vue'),
       meta: { requiresAuth: false }
     },
     {
@@ -72,7 +72,7 @@ const router = createRouter({
       meta: { requiresAuth: false }
     },
     {
-      path: '/reset',
+      path: '/reset-password',
       name: 'resetPage',
       component: () => import('../page/auth/ResetPage.vue'),
       meta: { requiresAuth: false }
@@ -81,6 +81,12 @@ const router = createRouter({
       path: '/reset/mail',
       name: 'resetMail',
       component: () => import('../page/auth/ResetMail.vue'),
+      meta: { requiresAuth: false }
+    },
+    {
+      path: '/mypage',
+      name: 'MyPage',
+      component: () => import('../page/mypage/MyPage.vue'),
       meta: { requiresAuth: false }
     },
     {
