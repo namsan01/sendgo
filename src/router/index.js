@@ -90,6 +90,12 @@ const router = createRouter({
       meta: { requiresAuth: false }
     },
     {
+      path: '/mypage/edit',
+      name: 'MyPageEdit',
+      component: () => import('../page/mypage/MyPageEdit.vue'),
+      meta: { requiresAuth: false }
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
       component: NotFound
