@@ -108,7 +108,7 @@ router.beforeEach((to, from, next) => {
 
   if (to.meta.requiresAuth && !loggedIn) {
     next('/login');
-  } else if ((to.name === 'login' || to.name === 'register') && loggedIn) {
+  } else if ((to.name === 'login' || to.name === 'register' ||  to.name === 'resetMail' || to.name === 'resetPage') && loggedIn) {
     next({ name: 'NotFound' });
   } else {
     next();

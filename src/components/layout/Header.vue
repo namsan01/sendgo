@@ -500,7 +500,6 @@ const accessToken = localStorage.getItem("access_token");
 
 if (!accessToken) {
  
-  console.error("로그인 정보가 없습니다.");
   this.errorMessage = "로그인 후 다시 시도해 주세요.";
   return;
 }

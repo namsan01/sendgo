@@ -5,7 +5,6 @@
         <div class="flex h-[700px] rounded-2xl justify-between gap-10 md:gap-10 md:justify-center md:items-center md:flex-col md:h-auto">
           <div class="w-1/3 bg-gray-200 h-full rounded-2xl p-6 flex flex-col items-center justify-between md:justify-center">
             <h3 class="text-xl font-semibold mb-4 md:hidden">프로필 사진</h3>
-            <!-- 이미지 URL을 photoUrl이 있으면 사용하고, 없으면 기본 이미지 URL을 사용 -->
             <img class="w-full" :src="photoUrl || 'https://static.toss.im/illusts/img-profile-default-alt.png'" alt="프로필 사진" />
             <div class="w-full flex flex-col items-center">
             </div>
@@ -17,6 +16,7 @@
                 <div>
                   <label for="name" class="block text-sm font-medium text-gray-700">이름</label>
                   <input
+                  readonly
                     type="text"
                     id="name"
                     v-model="name"

@@ -34,7 +34,7 @@
               </div>
               <button
                 type="submit"
-                class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-indigo-600 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
+                class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-indigo-600 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 transition-all text-lg dark:focus:ring-offset-gray-800 lg:text-base"
               >
                 비밀번호 재설정
               </button>
@@ -43,6 +43,7 @@
         </div>
       </div>
     </div>
+    <h2 class="pt-5 text-2xl lg:text-xl">· 이메일발송까지 <span class="text-blue-700">일정시간</span>이 소요됩니다.</h2>
   </main>
 </template>
 
