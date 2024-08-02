@@ -72,6 +72,12 @@ const router = createRouter({
       meta: { requiresAuth: false }
     },
     {
+      path: '/kakaologin',
+      name: 'KakaoLogin',
+      component: () => import('../page/kakao/KakaoLogin.vue'),
+      meta: { requiresAuth: false }
+    },
+    {
       path: '/reset-password',
       name: 'resetPage',
       component: () => import('../page/auth/ResetPage.vue'),

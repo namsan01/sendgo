@@ -23,17 +23,19 @@
                 <span class="inline-block ml-1 text-xl md:text-lg"><span class="text-blue-600 cursor-pointer decoration-2 hover:underline font-medium">회원가입</span></span>
               </button>
               <button @click="goResetPassword" class="transition duration-200 mx-3 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500">
-                <span class="inline-block ml-1 text-xl md:text-lg"><span class="text-blue-600  cursor-pointer decoration-2 hover:underline font-medium">비밀번호 찾기</span></span>
+                <span class="inline-block ml-1 text-xl md:text-lg"><span class="text-blue-600 cursor-pointer decoration-2 hover:underline font-medium">비밀번호 찾기</span></span>
               </button>
             </div>
         </div>
       </form>
     </div>
+    <KakaoLoginButton />
   </div>
 </template>
 
 <script>
 import { login } from '@/api/auth/loginApi.js';
+import KakaoLoginButton from "@/components/kakao/KakaoLoginButton.vue";
 
 export default {
   data() {
@@ -44,12 +46,15 @@ export default {
       passwordError: '',
     };
   },
+  components: {
+    KakaoLoginButton,
+  },
   methods: {
     goRegister() {
       this.$router.push('/register');
     },
     goResetPassword() {
-      this.$router.push('/reset/mail'); // 비밀번호 재설정 페이지로 이동
+      this.$router.push('/reset/mail'); 
     },
     async handleSubmit() {
       this.emailError = '';
@@ -64,7 +69,7 @@ export default {
       try {
         const response = await login(this.email, this.password);
         console.log('로그인 성공:', response);
-
+        localStorage.setItem('access_token', response.data.access_token);
         this.$router.push('/'); 
       } catch (error) {
         console.error('로그인 실패:', error.response ? error.response.data.message : error.message);
