@@ -13,11 +13,11 @@ export default {
     if (code) {
       try {
         const response = await axios.get('http://127.0.0.1:8000/api/auth/kakao/callback', {
-          params: { code }
+          params: { code },
         });
-
-        const { access_token } = response.data;
         
+        const { access_token } = response.data;
+
 
         if (access_token) {
           localStorage.setItem('access_token', access_token);
@@ -28,10 +28,12 @@ export default {
         }
       } catch (error) {
         console.error('로그인 실패', error.response ? error.response.data.message : error.message);
+        console.log(result);
         // this.$router.push('/login');
       }
     } else {
       console.error('Authorization code가 없습니다.');
+      console.log(code);
       // this.$router.push('/login');
     }
   }
