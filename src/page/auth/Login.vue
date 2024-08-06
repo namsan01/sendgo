@@ -12,8 +12,8 @@
           <label class="block text-gray-800 font-semibold text-base md:text-lg mb-2" for="password">비밀번호</label>
           <input v-model="password" type="password" id="password" class="w-full bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="비밀번호" />
         </div>
-        <button type="submit" class="w-full mt-6 bg-indigo-600 rounded-lg px-4 py-3 text-base md:text-lg text-white font-semibold tracking-wide hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">로그인</button>
-        <div class="flex flex-col items-center">
+        <button type="submit" class="w-full mt-8 bg-indigo-600 rounded-lg px-4 py-3 text-base md:text-lg text-white font-semibold tracking-wide hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">로그인</button>
+        <div v-if="emailError || passwordError" class="flex flex-col items-center">
           <p v-if="emailError" class="text-red-500 text-md mt-2 text-center">{{ emailError }}</p> 
           <p v-if="passwordError" class="text-red-500 text-md mt-2 text-center">{{ passwordError }}</p>
         </div>
@@ -29,7 +29,7 @@
         </div>
       </form>
     </div>
-    <KakaoLoginButton />
+    <KakaoLoginButton class="max-w-[576px] mt-4" />
   </div>
 </template>
 

@@ -12,34 +12,29 @@ export default {
     const code = new URLSearchParams(window.location.search).get('code');
     if (code) {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/api/auth/kakao/callback', {
-          params: { code },
+        const response = await axios.post('http://127.0.0.1:8000/api/auth/kakao/callback', {
+          code
         });
-        
-        const { access_token } = response.data;
 
+
+        const { access_token } = response.data;
 
         if (access_token) {
           localStorage.setItem('access_token', access_token);
-          this.$router.push('/');
+          window.location.href = '/';
         } else {
           console.error('Access token이 없습니다.');
-          this.$router.push('/login');
+          window.location.href = '/login';
         }
       } catch (error) {
         console.error('로그인 실패', error.response ? error.response.data.message : error.message);
-        console.log(result);
-        // this.$router.push('/login');
+        window.location.href = '/login';
       }
     } else {
       console.error('Authorization code가 없습니다.');
-      console.log(code);
-      // this.$router.push('/login');
+      window.location.href = '/login';
+
     }
   }
 }
 </script>
-
-<style scoped>
-/* 스타일 추가 가능 */
-</style>
