@@ -1,6 +1,7 @@
 <template>
   <main class="w-full mx-auto p-6 min-h-screen flex flex-col items-center justify-center bg-gray-100">
   <div class="w-full max-w-[544px] mx-auto min-h-screen flex flex-col items-center justify-center bg-gray-100">
+    <img class="w-36 h-10 mb-8 md:mb-10" src="/images/logo/logo.svg" alt="로고" />
     <div class="w-full bg-white p-8 rounded-xl shadow-md">
       <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">비밀번호 재설정</h2>
       <form @submit.prevent="resetPassword" class="space-y-4">
@@ -52,6 +53,20 @@
         {{ message }}
       </p>
     </div>
+
+    <div class="py-5">
+          <div class="flex-center">
+            <div class="sm:text-left whitespace-nowrap">
+              <button
+                type="button"
+                @click="goLogin"
+                class="transition duration-200 mx-3 py-4 cursor-pointer font-normal text-sm rounded-lg text-gray-500"
+              >
+                <span class="inline-block ml-1 text-xl md:text-base">재설정 후 <span class="text-blue-600 cursor-pointer decoration-2 hover:underline font-medium">로그인</span> 하시겠습니까?</span>
+              </button>
+            </div>
+          </div>
+        </div>
   </div>
 </main>
 </template>
@@ -71,6 +86,9 @@ export default {
     };
   },
   methods: {
+    goLogin() {
+      this.$router.push('/login');
+    },
     async resetPassword() {
       if (this.password !== this.password_confirmation) {
         this.message = '비밀번호와 비밀번호 확인이 일치하지 않습니다.';

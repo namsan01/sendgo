@@ -74,7 +74,13 @@ const router = createRouter({
     {
       path: '/kakaologin',
       name: 'KakaoLogin',
-      component: () => import('../page/kakao/KakaoLogin.vue'),
+      component: () => import('../page/auth/KakaoLogin.vue'),
+      meta: { requiresAuth: false }
+    },
+    {
+      path: '/googlelogin',
+      name: 'GoogleLogin',
+      component: () => import('../page/auth/GoogleLogin.vue'),
       meta: { requiresAuth: false }
     },
     {

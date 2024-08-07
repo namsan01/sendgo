@@ -6,13 +6,17 @@
         <h1 class="text-center text-2xl md:text-3xl font-bold text-gray-700">로그인</h1>
         <div>
           <label class="block text-gray-800 font-semibold text-base md:text-lg mb-2" for="email">이메일</label>
-          <input v-model="email" type="email" id="email" class="w-full bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="example@gmail.com" />
+          <input v-model="email" type="email" id="email" class="w-full bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="example@gmail.com" autocomplete="username"/>
         </div>
         <div>
           <label class="block text-gray-800 font-semibold text-base md:text-lg mb-2" for="password">비밀번호</label>
-          <input v-model="password" type="password" id="password" class="w-full bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="비밀번호" />
+          <input v-model="password" type="password" id="password" class="w-full bg-gray-100 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="비밀번호" autocomplete="current-password"/>
         </div>
         <button type="submit" class="w-full mt-8 bg-indigo-600 rounded-lg px-4 py-3 text-base md:text-lg text-white font-semibold tracking-wide hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">로그인</button>
+        <div class="w-full flex justify-center mt-2 p-1 gap-4">
+      <KakaoLoginButton/>
+      <GoogleLoginButton/>
+    </div>
         <div v-if="emailError || passwordError" class="flex flex-col items-center">
           <p v-if="emailError" class="text-red-500 text-md mt-2 text-center">{{ emailError }}</p> 
           <p v-if="passwordError" class="text-red-500 text-md mt-2 text-center">{{ passwordError }}</p>
@@ -29,12 +33,14 @@
         </div>
       </form>
     </div>
-    <KakaoLoginButton class="max-w-[576px] mt-4" />
+    
+    
   </div>
 </template>
 
 <script>
 import { login } from '@/api/auth/loginApi.js';
+import GoogleLoginButton from '@/components/google/GoogleLoginButton.vue';
 import KakaoLoginButton from "@/components/kakao/KakaoLoginButton.vue";
 
 export default {
@@ -48,6 +54,7 @@ export default {
   },
   components: {
     KakaoLoginButton,
+    GoogleLoginButton,
   },
   methods: {
     goRegister() {

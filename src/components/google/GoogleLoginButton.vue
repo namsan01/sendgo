@@ -1,9 +1,9 @@
 <template>
-    <div class="w-full px-4 md:px-6 lg:px-8">
+    
       <button @click="handleLogin">
-        <img class="w-full" src="/assets/images/google_login_button.png" alt="구글 로그인" />
+        <img class="w-full max-h-[40px]" src="/Users/dong-eui/sendgo/sendgoVue/src/assets/images/auth/web_light_sq_ctn.svg" alt="구글 로그인" />
       </button>
-    </div>
+    
   </template>
   
   <script>

@@ -27,7 +27,7 @@
             </label>
           </div>
         </div>
-        <h2 class="text-lg hidden md:block">· 클릭시 <span class="text-blue-500">프로필 변경</span>이 가능합니다</h2>
+        <h2 class="text-lg hidden md:block">클릭시 <span class="text-blue-500">프로필 변경</span>이 가능합니다</h2>
         <!-- 오른쪽: 사용자 정보 수정 폼 섹션 -->
         <div class="w-2/3 bg-slate-100 h-full rounded-2xl p-6 flex-col justify-between md:w-full">
           <form @submit.prevent="handleSubmit">
@@ -46,6 +46,7 @@
               <div>
                 <label for="email" class="block text-sm font-medium text-gray-700">이메일</label>
                 <input
+                  readonly
                   type="email"
                   id="email"
                   v-model="email"
