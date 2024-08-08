@@ -255,25 +255,23 @@ export default {
       }
     },
     formatPhoneNumber(event) {
-      let value = event.target.value;
+    let phoneNumber = event.target.value.replace(/[^0-9]/g, '');
 
-      // 숫자만 추출
-      const digits = value.replace(/\D/g, '');
-
-      let formattedValue = '';
-
-      // 하이픈을 포함한 포맷 적용
-      if (digits.length <= 3) {
-        formattedValue = digits;
-      } else if (digits.length <= 6) {
-        formattedValue = `${digits.slice(0, 3)}-${digits.slice(3)}`;
-      } else {
-        formattedValue = `${digits.slice(0, 3)}-${digits.slice(3, 7)}-${digits.slice(7, 11)}`;
-      }
-
-      // 포맷팅된 값으로 업데이트
-      this.phone = formattedValue;
+    
+    const maxLength = 11; 
+    if (phoneNumber.length > maxLength) {
+      phoneNumber = phoneNumber.slice(0, maxLength);
     }
+    if (phoneNumber.length <= 3) {
+      phoneNumber = phoneNumber;
+    } else if (phoneNumber.length <= 7) {
+      phoneNumber = phoneNumber.replace(/([0-9]{3})([0-9]{1,4})/, '$1-$2');
+    } else {
+      phoneNumber = phoneNumber.replace(/([0-9]{3})([0-9]{4})([0-9]{1,4})/, '$1-$2-$3');
+    }
+
+    this.phone = phoneNumber;
+  },
   },
 };
 </script>
