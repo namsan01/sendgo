@@ -1,6 +1,11 @@
 <template>
     <div class="w-full min-h-screen bg-gray-100 flex-col items-center px-4 py-10">
       <div class="w-full max-w-[1280px] bg-white p-8 rounded-2xl">
+        <div class="flex justify-end">
+          <button 
+          @click="goAsk"
+          class="w-auto bg-blue-500 text-white p-3 rounded-lg font-semibold hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">문의하기</button>
+        </div>
         <h2 class="text-3xl font-bold mb-10 text-center">마이 페이지</h2>
         <div class="flex h-[700px] rounded-2xl justify-between gap-10 md:gap-10 md:justify-center md:items-center md:flex-col md:h-auto">
           <div class="w-1/3 bg-gray-200 h-full rounded-2xl p-6 flex flex-col items-center justify-between md:justify-center">
@@ -9,7 +14,6 @@
             <div class="w-full flex flex-col items-center">
             </div>
           </div>
-          <!-- 오른쪽: 사용자 정보 수정 폼 섹션 -->
           <div class="w-2/3 bg-slate-100 h-full rounded-2xl p-6 flex-col justify-between md:w-full">
             <form @submit.prevent="handleSubmit">
               <div class="grid grid-cols-1 gap-6">
@@ -132,6 +136,9 @@
       },
       goEdit() {
         this.$router.push('/mypage/edit');
+      },
+      goAsk() {
+        this.$router.push('/ask');
       },
     }
   };

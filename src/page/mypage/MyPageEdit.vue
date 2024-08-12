@@ -161,7 +161,7 @@
           type="button"
           class="w-20 bg-red-500 text-white py-3 rounded-lg font-semibold hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
         >
-          계정 삭제
+          회원 탈퇴
         </button>
       </div>
     </div>
