@@ -1,12 +1,12 @@
 <template>
     <div class="w-full min-h-screen bg-gray-100 flex-col items-center px-4 py-10">
       <div class="w-full max-w-[1280px] bg-white p-8 rounded-2xl">
-        <div class="flex justify-end">
+        <h2 class="text-3xl font-bold text-center">마이 페이지</h2>
+        <div class="flex justify-end mb-5">
           <button 
           @click="goAsk"
           class="w-auto bg-blue-500 text-white p-3 rounded-lg font-semibold hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">문의하기</button>
         </div>
-        <h2 class="text-3xl font-bold mb-10 text-center">마이 페이지</h2>
         <div class="flex h-[700px] rounded-2xl justify-between gap-10 md:gap-10 md:justify-center md:items-center md:flex-col md:h-auto">
           <div class="w-1/3 bg-gray-200 h-full rounded-2xl p-6 flex flex-col items-center justify-between md:justify-center">
             <h3 class="text-xl font-semibold mb-4 md:hidden">프로필 사진</h3>

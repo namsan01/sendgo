@@ -113,6 +113,19 @@ const router = createRouter({
     component: () => import('../page/etc/Ask.vue'),
     meta: { requiresAuth: true }
   },
+  {
+    path: '/ask/answer',
+    name: 'askAnswer',
+    component: () => import('../page/etc/AskAnswer.vue'),
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/ask/answer/:id',
+    name: 'AskDetail',
+    component: () => import('../page/etc/AskDetail.vue'),
+    meta: { requiresAuth: true },
+    props: true
+  },
     {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',

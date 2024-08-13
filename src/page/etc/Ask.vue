@@ -1,60 +1,93 @@
 <template>
-  <div id="app">
-    <div ref="editorContainer" class="editor-container"></div>
-    <button @click="logContent">Log Content</button>
-    <p>Content: {{ editorContent }}</p>
+  <AskLink />
+  <div class="w-full min-h-screen bg-gray-100 flex-col items-center px-4 py-10">
+    <div class="w-full max-w-[1280px] bg-white p-8 rounded-2xl">
+      <h2 class="text-3xl font-bold text-center mb-5">문의하기</h2>
+      <h2 class="text-2xl font-bold text-center mb-10">답변완료까지 <span class="text-blue-500">2~3일</span>이 소요됩니다.</h2>
+      <div id="app">
+        <input
+          v-model="title"
+          type="text"
+          placeholder="제목을 입력하세요"
+          class="w-full p-2 mb-4 border border-gray-300 rounded"
+        />
+        <div ref="editorContainer" class="editor-container"></div>
+        <button class="pt-5" @click="saveContent">문의</button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { onMounted, ref, watch } from 'vue';
-import 'quill/dist/quill.snow.css'; // Quill의 기본 스타일
+import 'quill/dist/quill.snow.css';
 import Quill from 'quill';
+import axios from 'axios';
+import AskLink from "@/components/ask/AskLink.vue";
 
 export default {
-  name: 'App',
-  data() {
-    return {
-      editorContent: '', // 초기 콘텐츠
-      quillInstance: null
-    };
+  name: 'Ask',
+  components: {
+    AskLink,
   },
-  methods: {
-    logContent() {
-      console.log(this.editorContent);
-    }
-  },
-  mounted() {
-    // Quill 에디터 인스턴스를 설정
-    if (this.$refs.editorContainer) {
-      this.quillInstance = new Quill(this.$refs.editorContainer, {
-        theme: 'snow',
-        modules: {
-          toolbar: [
-            [{ 'header': '1' }, { 'header': '2' }],
-            ['bold', 'italic', 'underline'],
-            ['link'],
-            [{ 'list': 'ordered' }, { 'list': 'bullet' }]
-          ]
-        }
-      });
+  setup() {
+    const editorContent = ref('');
+    const editorContainer = ref(null);
+    const title = ref('');
+    const status = ref(1);
+    let quillInstance = null;
 
-      this.quillInstance.root.innerHTML = this.editorContent;
+    const saveContent = async () => {
+  try {
+    const token = localStorage.getItem('access_token');
 
-
-      this.quillInstance.on('text-change', () => {
-        this.editorContent = this.quillInstance.root.innerHTML;
-      });
-    }
-
-    watch(
-      () => this.editorContent,
-      (newContent) => {
-        if (this.quillInstance) {
-          this.quillInstance.root.innerHTML = newContent;
-        }
+    await axios.post('http://127.0.0.1:8000/api/ask', {
+      title: title.value,
+      content: editorContent.value,
+      status: status.value
+    }, {
+      headers: {
+        'Authorization': `Bearer ${token}`
       }
-    );
+    });
+
+    alert('Content saved successfully');
+  } catch (error) {
+    console.error('Error saving content:', error);
+    alert('Failed to save content');
+  }
+};
+
+
+    onMounted(() => {
+      if (editorContainer.value) {
+        quillInstance = new Quill(editorContainer.value, {
+          theme: 'snow',
+          modules: {
+            toolbar: [
+              [{ 'header': '1' }, { 'header': '2' }],
+              ['bold', 'italic', 'underline'],
+              ['link'],
+              [{ 'list': 'ordered' }, { 'list': 'bullet' }]
+            ]
+          }
+        });
+
+        quillInstance.root.innerHTML = editorContent.value;
+
+        quillInstance.on('text-change', () => {
+          editorContent.value = quillInstance.root.innerHTML;
+        });
+      }
+
+      watch(editorContent, (newContent) => {
+        if (quillInstance && quillInstance.root.innerHTML !== newContent) {
+          quillInstance.root.innerHTML = newContent;
+        }
+      });
+    });
+
+    return { title, editorContent, editorContainer, status, saveContent };
   }
 };
 </script>
@@ -62,7 +95,5 @@ export default {
 <style scoped>
 .editor-container {
   height: 400px;
-  direction: ltr;
-  text-align: left;
 }
 </style>
