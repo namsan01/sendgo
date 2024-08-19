@@ -3,8 +3,8 @@
   <div class="w-full min-h-screen bg-gray-100 flex-col items-center px-4 py-10">
     <div class="w-full max-w-[1280px] bg-white p-8 rounded-2xl">
       <h2 class="text-3xl font-bold text-center mb-5">문의하기</h2>
-      <h2 class="text-2xl font-bold text-center mb-10">답변완료까지 <span class="text-blue-500">2~3일</span>이 소요됩니다.</h2>
-      <div id="app" class="w-full">
+      <h2 class="text-2xl font-bold text-center mb-10 sm:text-xl">답변완료까지 <span class="text-blue-500">2~3일</span>이 소요됩니다.</h2>
+      <div>
         <input
           v-model="title"
           type="text"
@@ -96,6 +96,13 @@ export default {
 
 <style scoped>
 .editor-container {
+  width: 100%;
+  max-width: 1280px;
   height: 400px;
+}
+@media screen and (max-width: 425px) {
+  .ql-toolbar.ql-snow .ql-formats {
+    margin-right: 0px;
+}
 }
 </style>

@@ -492,7 +492,8 @@ export default {
       } else {
         this.$router.push(path);
       }
-      this.isDropdownOpen = false;
+      this.isDropdownOpen1 = false;
+      this.isDropdownOpen2 = false;
     },
     async fetchCustomerName() {
 
