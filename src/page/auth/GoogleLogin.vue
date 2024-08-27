@@ -24,15 +24,15 @@
             window.location.href = '/';
           } else {
             console.error('Access token이 없습니다.');
-            // window.location.href = '/login';
+            window.location.href = '/login';
           }
         } catch (error) {
           console.error('로그인 실패', error.response ? error.response.data.message : error.message);
-        //   window.location.href = '/login';
+          window.location.href = '/login';
         }
       } else {
         console.error('Authorization code가 없습니다.');
-        // window.location.href = '/login';
+        window.location.href = '/login';
   
       }
     }

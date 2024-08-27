@@ -38,4 +38,5 @@ coverage/
 *.tar
 *.gzip
 *.rar
- 
+
+*.pem

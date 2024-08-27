@@ -1,6 +1,6 @@
 <template>
     <div class="flex-col items-center justify-center min-h-screen bg-[#f2f4f8]">
-        <img class="w-60 md:w-40 mb-6" src="/images/logo/logo.svg" alt="로고" />
+        <img class="w-60 md:w-40 mb-6" src="public/images/logo/logo.svg" alt="로고" />
       <h1 class="text-4xl mb-10 base:text-2xl base:mb-5 md:text-base ">404 - 페이지를 찾을 수 없습니다.</h1>
       <router-link
       to="/"

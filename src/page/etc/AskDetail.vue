@@ -57,7 +57,7 @@ export default {
     const comments = ref([]);
     const comment = ref('');
     const route = useRoute();
-    const router = useRouter(); // useRouter 훅 사용
+    const router = useRouter();
 
     const fetchContent = async (id) => {
       try {
@@ -119,7 +119,7 @@ export default {
     };
 
     const goBack = () => {
-      router.go(-1); // router 인스턴스를 사용하여 뒤로가기
+      router.go(-1); 
     };
 
     onMounted(() => {

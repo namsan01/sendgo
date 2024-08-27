@@ -14,6 +14,7 @@
             id="username"
             placeholder="이름"
           />
+          <p v-if="nameError" class="text-red-500 text-sm pt-1">{{ nameError }}</p>
         </div>
 
         <div>
@@ -110,7 +111,8 @@ export default {
       password: '',
       confirmPassword: '',
       emailError: '',
-      emailAvailable: ''
+      emailAvailable: '',
+      nameError : '',
     };
   },
   methods: {
@@ -141,7 +143,12 @@ export default {
     },
     async handleRegister() {
       this.emailError = '';
+      this.nameError = '';
 
+      if (this.name === "관리자") {
+        this.nameError = '관리자라는 이름은 사용이 불가능합니다';
+        return;
+      }
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailPattern.test(this.email)) {
         this.emailError = '유효한 이메일 주소를 입력하세요.';
@@ -187,5 +194,4 @@ export default {
 </script>
 
 <style scoped>
-/* 스타일 수정 필요시 여기에 추가 */
 </style>
