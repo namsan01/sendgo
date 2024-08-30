@@ -239,7 +239,7 @@ class="w-full h-[80%] placeholder-gray-500 lg:text-sm p-5 resize-none rounded-lg
                   </div>
                 </div>
               </div>
-              <div class="message-right sticky top-[70px] w-[401px] max-h-full h-[775px] flex-col  bg-[#eaf8ff] rounded-[22px] border-[5px] border-[#4d4d4d] pt-5 pr-4 pb-0 pl-4 overflow-y-auto base:pl-[10px] base:pt-[15px] base:h-[480px] lg:h-[360px] md:w-4/5 md:h-auto md:min-h-[360px] p-5 md:self-center md:hidden">
+              <div class="message-right sticky top-[90px] w-[401px] max-h-full h-[775px] flex-col  bg-[#eaf8ff] rounded-[22px] border-[5px] border-[#4d4d4d] pt-5 pr-4 pb-0 pl-4 overflow-y-auto base:pl-[10px] base:pt-[15px] base:h-[480px] lg:h-[360px] md:w-4/5 md:h-auto md:min-h-[360px] p-5 md:self-center md:hidden">
                 <img class="w-10 transform rotate-90 lg:w-[25px] md:hidden" src="/images/icon2/icon_arrow.svg" alt="arrow" />
                 <div class="w-full flex-col flex-wrap p-4 gap-6">
                   <h1 class="text-3xl base:text-2xl lg:text-base">{{ messageTitle }}</h1>
