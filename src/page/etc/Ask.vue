@@ -43,7 +43,7 @@ export default {
   try {
     const token = localStorage.getItem('access_token');
 
-    await axios.post('http://127.0.0.1:8000/api/ask', {
+    await axios.post('/api/ask', {
       title: title.value,
       content: editorContent.value,
       status: status.value

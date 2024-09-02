@@ -62,7 +62,7 @@ export default {
     const fetchContent = async (id) => {
       try {
         const token = localStorage.getItem('access_token');
-        const response = await axios.get(`http://127.0.0.1:8000/api/ask/${id}`, {
+        const response = await axios.get(`/api/ask/${id}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -77,7 +77,7 @@ export default {
     const fetchComments = async (id) => {
       try {
         const token = localStorage.getItem('access_token');
-        const response = await axios.get(`http://127.0.0.1:8000/api/ask/${id}/comments`, {
+        const response = await axios.get(`/api/ask/${id}/comments`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -97,7 +97,7 @@ export default {
 
       try {
         const token = localStorage.getItem('access_token');
-        await axios.post(`http://127.0.0.1:8000/api/ask/${content.value.id}/comments`, {
+        await axios.post(`/api/ask/${content.value.id}/comments`, {
           content: comment.value
         }, {
           headers: {

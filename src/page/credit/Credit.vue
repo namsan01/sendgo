@@ -139,7 +139,7 @@ export default {
     },
     async fetchCustomerName() {
       try {
-        const response = await fetch("http://127.0.0.1:8000/api/user", {
+        const response = await fetch("/api/user", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -185,7 +185,7 @@ export default {
 
         try {
           await axios.post(
-            "http://127.0.0.1:8000/api/payments",
+            "/api/payments",
             {
               method: method,
               amount: amount,

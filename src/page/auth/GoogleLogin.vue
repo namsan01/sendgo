@@ -12,7 +12,7 @@
       const code = new URLSearchParams(window.location.search).get('code');
       if (code) {
         try {
-          const response = await axios.post('http://127.0.0.1:8000/api/auth/google/callback', {
+          const response = await axios.post('/api/auth/google/callback', {
             code
           });
   

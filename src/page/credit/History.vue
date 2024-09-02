@@ -137,7 +137,7 @@ export default {
     async fetchUserPayments(page = this.currentPage) {
       try {
         const response = await axios.get(
-          "http://127.0.0.1:8000/api/user/payments",
+          "/api/user/payments",
           {
             params: {
               page: page,

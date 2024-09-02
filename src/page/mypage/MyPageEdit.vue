@@ -208,7 +208,7 @@ export default {
 
         try {
           const response = await axios.post(
-            "http://127.0.0.1:8000/api/upload-photo",
+            "/api/upload-photo",
             formData,
             {
               headers: {
@@ -245,7 +245,7 @@ export default {
 
       try {
         const response = await axios.post(
-          "http://127.0.0.1:8000/api/update-profile",
+          "/api/update-profile",
           userData,
           {
             headers: {
@@ -278,7 +278,7 @@ export default {
       const confirmation = confirm("정말로 계정을 삭제하시겠습니까?");
       if (confirmation) {
         try {
-          await axios.delete("http://127.0.0.1:8000/api/user/delete", {
+          await axios.delete("/api/user/delete", {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("access_token")}`,
             },
@@ -307,7 +307,7 @@ export default {
     },
     async getUserData() {
       try {
-        const response = await axios.get("http://127.0.0.1:8000/api/user", {
+        const response = await axios.get("/api/user", {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${localStorage.getItem("access_token")}`,
