@@ -413,6 +413,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: "Header",
   data() {
@@ -496,42 +498,34 @@ export default {
       this.isDropdownOpen2 = false;
     },
     async fetchCustomerName() {
+      const accessToken = localStorage.getItem("access_token");
 
-const accessToken = localStorage.getItem("access_token");
-
-if (!accessToken) {
- 
-  this.errorMessage = "로그인 후 다시 시도해 주세요.";
-  return;
-}
+      if (!accessToken) {
+        this.errorMessage = "로그인 후 다시 시도해 주세요.";
+        return;
+      }
 
       try {
-        const response = await fetch("/api/user", {
-          method: "GET",
+        const response = await axios.get("/api/user", {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         });
 
-        const data = await response.json();
-        if (response.ok) {
-          this.customerName = data.name;
+        if (response.status === 200) {
+          this.customerName = response.data.name || '이름 없음';
         } else {
-          console.error("사용자 정보 가져오기 실패:", data);
-          this.errorMessage = `사용자 정보 가져오기 실패: ${
-            data.message || "Unknown error"
-          }`;
+          console.error("사용자 정보 가져오기 실패:", response.data);
+          this.errorMessage = `사용자 정보 가져오기 실패: ${response.data.message || "Unknown error"}`;
         }
       } catch (error) {
         console.error("사용자 정보 가져오기 중 오류 발생:", error);
-        this.errorMessage = `사용자 정보 가져오기 중 오류 발생: ${
-          error.message || "Unknown error"
-        }`;
+        this.errorMessage = `사용자 정보 가져오기 중 오류 발생: ${error.message || "Unknown error"}`;
       }
     },
   },
-};
+  };
 </script>
 
 <style scoped>

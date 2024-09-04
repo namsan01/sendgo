@@ -78,6 +78,9 @@
   </template>
   
   <script>
+import axios from 'axios';
+
+
   export default {
     data() {
       return {
@@ -101,32 +104,31 @@
         });
       },
       async getUserData() {
-        try {
-          const response = await fetch("/api/user", {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-            },
-          });
-  
-          const data = await response.json();
-          if (response.ok) {
-            this.name = data.name;
-            this.email = data.email;
-            this.phone = data.phone;
-            this.created_date = this.formatDate(data.created_at);
-            // 서버에서 받은 photo_path를 절대 URL로 변환
-            this.photoUrl = data.photo_path ? `http://127.0.0.1:8000/storage/${data.photo_path.replace(/\\/g, '/')}` : '';
-          } else {
-            console.error("사용자 정보 가져오기 실패:", data);
-            this.errorMessage = `사용자 정보 가져오기 실패: ${data.message || "Unknown error"}`;
-          }
-        } catch (error) {
-          console.error("사용자 정보 가져오기 중 오류 발생:", error);
-          this.errorMessage = `사용자 정보 가져오기 중 오류 발생: ${error.message || "Unknown error"}`;
-        }
+  try {
+    const response = await axios.get("/api/user", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("access_token")}`,
       },
+    });
+
+    const data = response.data;
+    if (response.status === 200) {
+      this.name = data.name;
+      this.email = data.email;
+      this.phone = data.phone;
+      this.created_date = this.formatDate(data.created_at);
+      // 서버에서 받은 photo_path를 절대 URL로 변환
+      this.photoUrl = data.photo_path ? `http://127.0.0.1:8000/storage/${data.photo_path.replace(/\\/g, '/')}` : '';
+    } else {
+      console.error("사용자 정보 가져오기 실패:", data);
+      this.errorMessage = `사용자 정보 가져오기 실패: ${data.message || "Unknown error"}`;
+    }
+  } catch (error) {
+    console.error("사용자 정보 가져오기 중 오류 발생:", error);
+    this.errorMessage = `사용자 정보 가져오기 중 오류 발생: ${error.message || "Unknown error"}`;
+  }
+},
       formatDate(dateStr) {
         const date = new Date(dateStr);
         const year = date.getFullYear(); 
